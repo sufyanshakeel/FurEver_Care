@@ -1,0 +1,5507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>About Us | FurEver Care</title>
+
+<!-- =====================================================
+     GOOGLE FONTS
+===================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root{
+
+    --forest:#123F32;
+    --forest-dark:#092A22;
+    --forest-light:#1F5C4B;
+
+    --teal:#4C9C91;
+    --teal-light:#DCEDEA;
+
+    --cream:#F7F1E6;
+    --cream-light:#FFFDF8;
+
+    --beige:#E8DDC9;
+    --beige-light:#F2E9DA;
+
+    --coral:#E97859;
+    --coral-dark:#D45C42;
+
+    --charcoal:#1D2A26;
+    --muted:#68766F;
+
+    --white:#FFFFFF;
+
+    --border:rgba(18,63,50,.12);
+
+    --shadow:
+        0 25px 70px rgba(18,63,50,.11);
+
+    --shadow-soft:
+        0 12px 35px rgba(18,63,50,.08);
+
+    --radius:24px;
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+    scroll-padding-top:120px;
+
+}
+
+body{
+
+    margin:0;
+
+    font-family:"DM Sans",sans-serif;
+
+    background:var(--cream);
+
+    color:var(--charcoal);
+
+    overflow-x:hidden;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+h1,
+h2,
+h3,
+h4{
+
+    font-family:"Playfair Display",serif;
+
+    line-height:1.15;
+
+}
+
+button,
+input{
+
+    font-family:"DM Sans",sans-serif;
+
+}
+
+button{
+
+    cursor:pointer;
+
+}
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+.container{
+
+    width:min(
+        1180px,
+        calc(100% - 40px)
+    );
+
+    margin:auto;
+
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar{
+
+    height:40px;
+
+    background:var(--forest-dark);
+
+    color:#DDE9E4;
+
+    font-size:11px;
+
+}
+
+.topbar-inner{
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.top-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:24px;
+
+}
+
+.live{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+}
+
+.live-dot{
+
+    width:7px;
+
+    height:7px;
+
+    border-radius:50%;
+
+    background:#69D8A2;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    height:80px;
+
+    position:sticky;
+
+    top:40px;
+
+    z-index:1000;
+
+    background:rgba(
+        255,
+        253,
+        248,
+        .96
+    );
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    transition:.3s;
+
+}
+
+.header.scrolled{
+
+    box-shadow:
+        0 10px 35px
+        rgba(18,63,50,.10);
+
+}
+
+.nav{
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.logo-mark{
+
+    width:43px;
+
+    height:43px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:14px;
+
+    background:var(--forest);
+
+    color:#fff;
+
+    font-size:20px;
+
+}
+
+.logo-name{
+
+    color:var(--forest);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    line-height:1;
+
+}
+
+.logo-tagline{
+
+    margin-top:5px;
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    line-height:1;
+
+    letter-spacing:1px;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.nav-link{
+
+    position:relative;
+
+    padding:31px 0;
+
+    color:#46564F;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    line-height:1;
+
+    transition:.25s;
+
+}
+
+.nav-link:hover{
+
+    color:var(--forest);
+
+}
+
+.nav-link.active{
+
+    color:var(--coral);
+
+}
+
+.nav-link.active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:20px;
+
+    height:2px;
+
+    border-radius:10px;
+
+    background:var(--coral);
+
+}
+
+.cart-nav{
+
+    border:0;
+
+    padding:12px 16px;
+
+    border-radius:13px;
+
+    background:var(--forest);
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+.cart-nav:hover{
+
+    background:var(--coral);
+
+    transform:translateY(-2px);
+
+}
+
+.cart-number{
+
+    display:inline-grid;
+
+    place-items:center;
+
+    min-width:19px;
+
+    height:19px;
+
+    margin-left:5px;
+
+    border-radius:50px;
+
+    background:var(--coral);
+
+}
+
+.menu-btn{
+
+    display:none;
+
+    width:43px;
+
+    height:43px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    background:white;
+
+    color:var(--forest);
+
+    font-size:18px;
+
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    border:0;
+
+    padding:15px 21px;
+
+    border-radius:14px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    line-height:1;
+
+    transition:.25s;
+
+}
+
+.btn-primary{
+
+    background:var(--forest);
+
+    color:white;
+
+    box-shadow:
+        0 12px 25px
+        rgba(18,63,50,.18);
+
+}
+
+.btn-primary:hover{
+
+    background:var(--forest-dark);
+
+    transform:translateY(-2px);
+
+}
+
+.btn-light{
+
+    background:white;
+
+    border:
+        1px solid
+        var(--border);
+
+    color:var(--forest);
+
+}
+
+.btn-light:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-soft);
+
+}
+
+.btn-coral{
+
+    background:var(--coral);
+
+    color:white;
+
+}
+
+.btn-coral:hover{
+
+    background:var(--coral-dark);
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =====================================================
+   COMMON
+===================================================== */
+
+.section{
+
+    padding:95px 0;
+
+}
+
+.section-heading{
+
+    max-width:720px;
+
+    margin:
+        0 auto 46px;
+
+    text-align:center;
+
+}
+
+.eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:8px 13px;
+
+    margin-bottom:16px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:100px;
+
+    background:
+        rgba(255,255,255,.75);
+
+    color:var(--forest);
+
+    font-size:10px;
+
+    font-weight:700;
+
+    line-height:1;
+
+}
+
+.section-heading h2{
+
+    color:var(--forest);
+
+    font-size:45px;
+
+    letter-spacing:-.5px;
+
+}
+
+.section-heading p{
+
+    max-width:620px;
+
+    margin:
+        16px auto 0;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.85;
+
+}
+
+
+/* =====================================================
+   01 — HERO
+===================================================== */
+
+.about-hero{
+
+    min-height:590px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 5% 30%,
+            rgba(76,156,145,.15),
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(233,120,89,.12),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            120deg,
+            #F6EFE3,
+            #E2ECE7
+        );
+
+}
+
+.about-hero::before{
+
+    content:"🐾";
+
+    position:absolute;
+
+    left:-35px;
+
+    bottom:-80px;
+
+    font-size:260px;
+
+    opacity:.035;
+
+    transform:rotate(-12deg);
+
+}
+
+.hero-inner{
+
+    min-height:590px;
+
+    display:grid;
+
+    grid-template-columns:
+        .9fr 1.1fr;
+
+    align-items:center;
+
+    gap:55px;
+
+}
+
+.hero-copy{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.hero-eyebrow{
+
+    background:var(--teal-light);
+
+    color:var(--forest);
+
+}
+
+.hero-copy h1{
+
+    color:var(--forest);
+
+    font-size:
+        clamp(
+            50px,
+            5.5vw,
+            74px
+        );
+
+    letter-spacing:-2px;
+
+}
+
+.hero-copy h1 span{
+
+    color:var(--coral);
+
+}
+
+.hero-description{
+
+    max-width:540px;
+
+    margin:
+        22px 0 27px;
+
+    color:#5D6C65;
+
+    font-size:15px;
+
+    line-height:1.85;
+
+}
+
+.hero-actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+}
+
+.hero-visual{
+
+    height:500px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.hero-image{
+
+    width:89%;
+
+    height:455px;
+
+    object-fit:cover;
+
+    border-radius:
+        40px
+        40px
+        24px
+        24px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.hero-card{
+
+    position:absolute;
+
+    padding:17px 19px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.9);
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.94);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(18,63,50,.14);
+
+}
+
+.hero-card.one{
+
+    left:0;
+
+    bottom:45px;
+
+}
+
+.hero-card.two{
+
+    right:0;
+
+    top:35px;
+
+}
+
+.card-small{
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.3;
+
+}
+
+.card-large{
+
+    display:block;
+
+    margin-top:5px;
+
+    color:var(--forest);
+
+    font-size:14px;
+
+    font-weight:700;
+
+    line-height:1.3;
+
+}
+
+
+/* =====================================================
+   02 — OUR STORY
+===================================================== */
+
+.story{
+
+    background:var(--cream-light);
+
+}
+
+.story-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items:center;
+
+    gap:65px;
+
+}
+
+.story-images{
+
+    height:550px;
+
+    position:relative;
+
+}
+
+.story-image-main{
+
+    width:76%;
+
+    height:480px;
+
+    object-fit:cover;
+
+    border-radius:30px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.story-image-small{
+
+    width:48%;
+
+    height:230px;
+
+    position:absolute;
+
+    right:0;
+
+    bottom:0;
+
+    object-fit:cover;
+
+    border:
+        9px solid
+        var(--cream-light);
+
+    border-radius:24px;
+
+    box-shadow:var(--shadow-soft);
+
+}
+
+.story-badge{
+
+    position:absolute;
+
+    left:25px;
+
+    bottom:35px;
+
+    padding:14px 16px;
+
+    border-radius:15px;
+
+    background:var(--forest);
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    box-shadow:var(--shadow-soft);
+
+}
+
+.story-content .eyebrow{
+
+    background:var(--beige-light);
+
+}
+
+.story-content h2{
+
+    color:var(--forest);
+
+    font-size:45px;
+
+}
+
+.story-content p{
+
+    margin-top:17px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.9;
+
+}
+
+.story-content p + p{
+
+    margin-top:12px;
+
+}
+
+.story-signature{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:25px;
+
+}
+
+.signature-line{
+
+    width:38px;
+
+    height:2px;
+
+    background:var(--coral);
+
+}
+
+.signature-text{
+
+    color:var(--forest);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:17px;
+
+}
+
+
+/* =====================================================
+   03 — BELIEFS
+===================================================== */
+
+.beliefs{
+
+    background:#E6EFEA;
+
+}
+
+.belief-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:19px;
+
+}
+
+.belief-card{
+
+    min-height:270px;
+
+    padding:29px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:
+        1px solid
+        rgba(18,63,50,.10);
+
+    border-radius:24px;
+
+    background:white;
+
+    transition:.3s;
+
+}
+
+.belief-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-soft);
+
+}
+
+.belief-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    right:-50px;
+
+    bottom:-55px;
+
+    border-radius:50%;
+
+    background:var(--teal-light);
+
+}
+
+.belief-icon{
+
+    width:54px;
+
+    height:54px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:16px;
+
+    background:var(--teal-light);
+
+    color:var(--forest);
+
+    font-size:22px;
+
+}
+
+.belief-card:nth-child(2)
+.belief-icon{
+
+    background:#F7E3D8;
+
+    color:var(--coral);
+
+}
+
+.belief-card:nth-child(3)
+.belief-icon{
+
+    background:#EDE6D6;
+
+    color:#967044;
+
+}
+
+.belief-card h3{
+
+    margin-top:22px;
+
+    color:var(--forest);
+
+    font-size:23px;
+
+}
+
+.belief-card p{
+
+    margin-top:10px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.8;
+
+}
+
+
+/* =====================================================
+   04 — MISSION & VALUES
+===================================================== */
+
+.mission{
+
+    background:var(--cream);
+
+}
+
+.mission-box{
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr .95fr;
+
+    overflow:hidden;
+
+    border-radius:34px;
+
+    background:var(--forest);
+
+    box-shadow:var(--shadow);
+
+}
+
+.mission-image{
+
+    min-height:500px;
+
+    object-fit:cover;
+
+}
+
+.mission-content{
+
+    padding:55px;
+
+}
+
+.mission-content .eyebrow{
+
+    background:rgba(255,255,255,.08);
+
+    border-color:
+        rgba(255,255,255,.1);
+
+    color:#B5D8CE;
+
+}
+
+.mission-content h2{
+
+    color:white;
+
+    font-size:44px;
+
+}
+
+.mission-content > p{
+
+    margin-top:17px;
+
+    color:#B7C9C1;
+
+    font-size:14px;
+
+    line-height:1.85;
+
+}
+
+.values{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:11px;
+
+    margin-top:27px;
+
+}
+
+.value{
+
+    padding:14px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.055);
+
+}
+
+.value strong{
+
+    display:block;
+
+    color:white;
+
+    font-size:11px;
+
+    line-height:1.4;
+
+}
+
+.value span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#91AAA0;
+
+    font-size:10px;
+
+    line-height:1.5;
+
+}
+
+
+/* =====================================================
+   05 — EXPERIENCE
+===================================================== */
+
+.experience{
+
+    background:var(--cream-light);
+
+}
+
+.experience-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:17px;
+
+}
+
+.experience-card{
+
+    padding:26px 22px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:22px;
+
+    background:white;
+
+    transition:.3s;
+
+}
+
+.experience-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-soft);
+
+}
+
+.experience-number{
+
+    color:var(--coral);
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+.experience-card h3{
+
+    margin-top:17px;
+
+    color:var(--forest);
+
+    font-size:20px;
+
+}
+
+.experience-card p{
+
+    margin-top:9px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.8;
+
+}
+
+
+/* =====================================================
+   06 — CTA + FAQ
+===================================================== */
+
+.final{
+
+    padding:90px 0;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(76,156,145,.12),
+            transparent 28%
+        ),
+
+        var(--cream);
+
+}
+
+.final-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.05fr .95fr;
+
+    gap:28px;
+
+}
+
+.final-cta{
+
+    min-height:390px;
+
+    padding:44px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:32px;
+
+    background:
+
+        linear-gradient(
+            140deg,
+            var(--forest),
+            #1A5143
+        );
+
+    box-shadow:var(--shadow);
+
+}
+
+.final-cta::after{
+
+    content:"🐾";
+
+    position:absolute;
+
+    right:-30px;
+
+    bottom:-65px;
+
+    font-size:220px;
+
+    opacity:.045;
+
+}
+
+.final-cta h2{
+
+    position:relative;
+
+    z-index:2;
+
+    color:white;
+
+    font-size:44px;
+
+}
+
+.final-cta p{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:430px;
+
+    margin-top:15px;
+
+    color:#B7CCC4;
+
+    font-size:14px;
+
+    line-height:1.85;
+
+}
+
+.final-cta .btn{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:24px;
+
+}
+
+.faq-title{
+
+    margin-bottom:20px;
+
+    color:var(--forest);
+
+    font-size:32px;
+
+}
+
+.faq-item{
+
+    overflow:hidden;
+
+    margin-bottom:10px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:16px;
+
+    background:white;
+
+}
+
+.faq-question{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:17px;
+
+    border:0;
+
+    background:white;
+
+    color:var(--forest);
+
+    text-align:left;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.faq-question span{
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.faq-answer{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.faq-answer p{
+
+    padding:
+        0 17px 17px;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:1.8;
+
+}
+
+.faq-item.open
+.faq-answer{
+
+    max-height:180px;
+
+}
+
+.faq-item.open
+.faq-question span{
+
+    transform:rotate(45deg);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+    padding:68px 0 23px;
+
+    background:var(--forest-dark);
+
+    color:white;
+
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap:45px;
+
+}
+
+.footer .logo-name{
+
+    color:white;
+
+}
+
+.footer-description{
+
+    max-width:320px;
+
+    margin-top:17px;
+
+    color:#99B0A7;
+
+    font-size:11px;
+
+    line-height:1.8;
+
+}
+
+.footer-title{
+
+    margin-bottom:17px;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:11px;
+
+}
+
+.footer-links a{
+
+    color:#98AFA6;
+
+    font-size:11px;
+
+    transition:.2s;
+
+}
+
+.footer-links a:hover{
+
+    color:white;
+
+}
+
+.newsletter{
+
+    display:flex;
+
+    gap:6px;
+
+}
+
+.newsletter input{
+
+    flex:1;
+
+    min-width:0;
+
+    height:40px;
+
+    padding:0 11px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:
+        rgba(255,255,255,.05);
+
+    color:white;
+
+    font-size:10px;
+
+}
+
+.newsletter button{
+
+    width:42px;
+
+    height:40px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:var(--coral);
+
+    color:white;
+
+}
+
+.footer-bottom{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-top:47px;
+
+    padding-top:19px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    color:#748C82;
+
+    font-size:9px;
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:25px;
+
+    z-index:5000;
+
+    padding:13px 19px;
+
+    border-radius:13px;
+
+    background:var(--forest-dark);
+
+    color:white;
+
+    font-size:11px;
+
+    box-shadow:var(--shadow);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:
+        translate(-50%,20px);
+
+    transition:.3s;
+
+}
+
+.toast.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:
+        translate(-50%,0);
+
+}
+
+
+/* =====================================================
+   BACK TOP
+===================================================== */
+
+.back-top{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    z-index:900;
+
+    width:42px;
+
+    height:42px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:var(--forest);
+
+    color:white;
+
+    box-shadow:var(--shadow-soft);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+
+}
+
+.back-top.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+/* =====================================================
+   REVEAL ANIMATION
+===================================================== */
+
+.reveal{
+
+    opacity: 1;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+    .nav-links{
+
+        gap:13px;
+
+    }
+
+    .nav-link{
+
+        font-size:9px;
+
+    }
+
+    .experience-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:900px){
+
+    .menu-btn{
+
+        display:grid;
+
+        place-items:center;
+
+    }
+
+    .nav-links{
+
+        position:fixed;
+
+        left:0;
+
+        right:0;
+
+        top:120px;
+
+        padding:18px 20px 25px;
+
+        background:
+            rgba(255,253,248,.98);
+
+        backdrop-filter:blur(20px);
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:0;
+
+        opacity:0;
+
+        visibility:hidden;
+
+        transform:translateY(-15px);
+
+        box-shadow:
+            0 20px 35px
+            rgba(18,63,50,.12);
+
+        transition:.3s;
+
+    }
+
+    .nav-links.open{
+
+        opacity:1;
+
+        visibility:visible;
+
+        transform:translateY(0);
+
+    }
+
+    .nav-link{
+
+        padding:15px 5px;
+
+        border-bottom:
+            1px solid
+            var(--border);
+
+    }
+
+    .nav-link.active::after{
+
+        display:none;
+
+    }
+
+    .cart-nav{
+
+        margin-top:13px;
+
+    }
+
+    .hero-inner{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .hero-copy{
+
+        padding-top:60px;
+
+    }
+
+    .hero-visual{
+
+        height:420px;
+
+    }
+
+    .hero-image{
+
+        height:390px;
+
+    }
+
+    .story-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .story-images{
+
+        height:500px;
+
+    }
+
+    .mission-box{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .mission-image{
+
+        min-height:380px;
+
+    }
+
+    .final-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+@media(max-width:650px){
+
+    .container{
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+    .top-info{
+
+        display:none;
+
+    }
+
+    .topbar-inner{
+
+        justify-content:center;
+
+    }
+
+    .section{
+
+        padding:70px 0;
+
+    }
+
+    .section-heading h2{
+
+        font-size:36px;
+
+    }
+
+    .section-heading p{
+
+        font-size:13px;
+
+    }
+
+    .hero-copy h1{
+
+        font-size:49px;
+
+    }
+
+    .hero-description{
+
+        font-size:14px;
+
+    }
+
+    .hero-visual{
+
+        height:350px;
+
+    }
+
+    .hero-image{
+
+        width:94%;
+
+        height:325px;
+
+    }
+
+    .story-images{
+
+        height:400px;
+
+    }
+
+    .story-image-main{
+
+        height:350px;
+
+    }
+
+    .story-image-small{
+
+        height:175px;
+
+    }
+
+    .story-content h2{
+
+        font-size:36px;
+
+    }
+
+    .story-content p{
+
+        font-size:13px;
+
+    }
+
+    .belief-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .mission-content{
+
+        padding:32px;
+
+    }
+
+    .mission-content h2{
+
+        font-size:36px;
+
+    }
+
+    .mission-content > p{
+
+        font-size:13px;
+
+    }
+
+    .values{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .experience-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .final-cta{
+
+        padding:32px;
+
+    }
+
+    .final-cta h2{
+
+        font-size:38px;
+
+    }
+
+    .final-cta p{
+
+        font-size:13px;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:32px;
+
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   INDEX.HTML SHARED HEADER + FOOTER OVERRIDES
+========================================================= */
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+        .container {
+
+            width: min(1200px,
+                    calc(100% - 48px));
+
+            margin: 0 auto;
+
+        }
+
+
+        
+
+/* =========================================================
+   UTILITY BAR
+========================================================= */
+
+        .utility-bar {
+
+            height: var(--utility-height);
+
+            background: var(--forest-dark);
+
+            color: #e8f2ed;
+
+            position: relative;
+
+            z-index: 1100;
+
+        }
+
+
+        .utility-inner {
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+        }
+
+
+        .utility-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            white-space: nowrap;
+
+            font-size: 11px;
+
+            color: #dcebe4;
+
+        }
+
+
+        .live-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            background: #6ce0ae;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px rgba(108, 224, 174, .8);
+
+            animation: pulse 2s infinite;
+
+        }
+
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .55;
+                transform: scale(.75);
+            }
+
+        }
+
+
+        
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+        .site-header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            height: var(--nav-height);
+
+            background:
+                rgba(255, 250, 242, .96);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(18, 63, 50, .09);
+
+            box-shadow:
+                0 5px 25px rgba(18, 63, 50, .04);
+
+        }
+
+
+        .site-header.scrolled {
+
+            background:
+                rgba(255, 250, 242, .985);
+
+            box-shadow:
+                0 8px 30px rgba(18, 63, 50, .09);
+
+        }
+
+
+        .nav-inner {
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+        }
+
+
+        
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .brand-mark {
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 14px;
+
+            background: var(--forest);
+
+            color: white;
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 21px;
+
+            box-shadow:
+                0 8px 22px rgba(18, 63, 50, .2);
+
+        }
+
+
+        .brand-text {
+            line-height: 1;
+        }
+
+
+        .brand-name {
+
+            font-family: "Playfair Display", serif;
+
+            font-weight: 700;
+
+            font-size: 25px;
+
+            color: var(--forest);
+
+        }
+
+
+        .brand-tagline {
+
+            display: block;
+
+            margin-top: 5px;
+
+            font-size: 10px;
+
+            letter-spacing: .7px;
+
+            color: #718079;
+
+        }
+
+
+        
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+        .site-header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            height: var(--nav-height);
+
+            background:
+                rgba(255, 250, 242, .96);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(18, 63, 50, .09);
+
+            box-shadow:
+                0 5px 25px rgba(18, 63, 50, .04);
+
+        }
+
+
+        .site-header.scrolled {
+
+            background:
+                rgba(255, 250, 242, .985);
+
+            box-shadow:
+                0 8px 30px rgba(18, 63, 50, .09);
+
+        }
+
+
+        .nav-inner {
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+        }
+
+
+        /* =========================================================
+   BRAND
+========================================================= */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .brand-mark {
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 14px;
+
+            background: var(--forest);
+
+            color: white;
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 21px;
+
+            box-shadow:
+                0 8px 22px rgba(18, 63, 50, .2);
+
+        }
+
+
+        .brand-text {
+            line-height: 1;
+        }
+
+
+        .brand-name {
+
+            font-family: "Playfair Display", serif;
+
+            font-weight: 700;
+
+            font-size: 25px;
+
+            color: var(--forest);
+
+        }
+
+
+        .brand-tagline {
+
+            display: block;
+
+            margin-top: 5px;
+
+            font-size: 10px;
+
+            letter-spacing: .7px;
+
+            color: #718079;
+
+        }
+
+
+        /* =========================================================
+   NAV
+========================================================= */
+
+        .nav-menu {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 22px;
+
+            height: 100%;
+
+        }
+
+
+        .nav-link {
+
+            position: relative;
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            color: #34453f;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            transition: .25s;
+
+        }
+
+
+        /*
+   IMPORTANT:
+   No underline for Pet Care or any inner page.
+   Only Home has the static homepage indicator.
+*/
+
+        .nav-link.home-active {
+
+            color: var(--forest);
+
+        }
+
+
+        .nav-link.home-active::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 17px;
+
+            height: 2px;
+
+            background: var(--coral);
+
+            border-radius: 20px;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: var(--forest);
+
+        }
+
+
+        .primary-btn {
+
+            border: 0;
+
+            background: var(--forest);
+
+            color: white;
+
+            padding: 13px 19px;
+
+            border-radius: 14px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 10px 25px rgba(18, 63, 50, .18);
+
+            transition: .25s;
+
+        }
+
+
+        .primary-btn:hover {
+
+            background: var(--forest-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .mobile-toggle {
+
+            width: 43px;
+
+            height: 43px;
+
+            display: none;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 13px;
+
+            background: white;
+
+            color: var(--forest);
+
+            font-size: 21px;
+
+        }
+
+
+        
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+        .footer {
+
+            background: var(--forest-dark);
+
+            color: #dce8e2;
+
+            padding:
+                70px 0 24px;
+
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+        }
+
+
+        .footer-description {
+
+            max-width: 310px;
+
+            color: #9eb4ab;
+
+            font-size: 14px;
+
+            line-height: 1.75;
+
+            margin-top: 17px;
+
+        }
+
+
+        .footer-title {
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 11px;
+
+        }
+
+
+        .footer-links a {
+
+            color: #9eb4ab;
+
+            font-size: 15px;
+
+            transition: .2s;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color: white;
+
+            transform: translateX(2px);
+
+        }
+
+
+        .footer-visitors {
+
+            font-size: 31px;
+
+            font-weight: 700;
+
+            color: white;
+
+        }
+
+
+        .footer-location {
+
+            color: #9eb4ab;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            margin-top: 8px;
+
+        }
+
+
+        .footer-bottom {
+
+            margin-top: 50px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid rgba(255, 255, 255, .09);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: #81978e;
+
+            font-size: 15px;
+
+        }
+
+
+        
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+        @media(max-width:1100px) {
+
+            :root {
+                --nav-height: 80px;
+            }
+
+
+            .container {
+
+                width:
+                    min(940px,
+                        calc(100% - 36px));
+
+            }
+
+
+            .nav-menu {
+
+                gap: 15px;
+
+            }
+
+
+            .nav-link {
+
+                font-size: 12px;
+
+            }
+
+
+            .hero-inner {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 55px;
+
+            }
+
+
+            .hero-visual {
+
+                height: 550px;
+
+            }
+
+
+            .hero-image {
+
+                height: 490px;
+
+            }
+
+
+            .welcome-box {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .welcome-copy p {
+
+                max-width: 600px;
+
+            }
+
+
+            .platform-layout {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 40px;
+
+            }
+
+
+            .platform-content h2 {
+
+                font-size: 42px;
+
+            }
+
+
+            .feature-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        
+
+
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+        @media(max-width:900px) {
+
+            .mobile-toggle {
+
+                display: grid;
+
+                place-items: center;
+
+            }
+
+
+            .nav-menu {
+
+                position: fixed;
+
+                top:
+                    calc(var(--utility-height) + var(--nav-height));
+
+                left: 0;
+
+                right: 0;
+
+                height: auto;
+
+                max-height:
+                    calc(100vh - 115px);
+
+                overflow-y: auto;
+
+                padding: 22px;
+
+                background:
+                    rgba(255, 250, 242, .985);
+
+                backdrop-filter:
+                    blur(20px);
+
+                border-bottom:
+                    1px solid var(--border);
+
+                box-shadow:
+                    0 20px 35px rgba(18, 63, 50, .10);
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                justify-content: flex-start;
+
+                gap: 0;
+
+                transform:
+                    translateY(-20px);
+
+                opacity: 0;
+
+                visibility: hidden;
+
+                pointer-events: none;
+
+                transition:
+                    transform .3s ease,
+                    opacity .3s ease,
+                    visibility .3s ease;
+
+            }
+
+
+            .nav-menu.open {
+
+                transform:
+                    translateY(0);
+
+                opacity: 1;
+
+                visibility: visible;
+
+                pointer-events: auto;
+
+            }
+
+
+            .nav-link {
+
+                width: 100%;
+
+                height: auto;
+
+                min-height: 48px;
+
+                padding: 10px 4px;
+
+                border-bottom:
+                    1px solid rgba(18, 63, 50, .07);
+
+            }
+
+
+            .nav-link.home-active::after {
+
+                display: none;
+
+            }
+
+
+            .nav-link.home-active {
+
+                color: var(--forest);
+
+                background:
+                    rgba(63, 151, 142, .07);
+
+                border-radius: 10px;
+
+                padding-left: 12px;
+
+            }
+
+
+            .nav-menu .primary-btn {
+
+                margin-top: 15px;
+
+                width: 100%;
+
+            }
+
+        }
+
+
+        /* =========================================================
+   MOBILE
+========================================================= */
+
+        @media(max-width:700px) {
+
+            :root {
+
+                --utility-height: 40px;
+
+                --nav-height: 70px;
+
+            }
+
+
+            .container {
+
+                width:
+                    min(calc(100% - 30px),
+                        560px);
+
+            }
+
+
+            .utility-item {
+
+                font-size: 9px;
+
+            }
+
+
+            .utility-item:nth-child(2),
+            .utility-item:nth-child(3) {
+
+                display: none;
+
+            }
+
+
+            .utility-inner {
+
+                justify-content: center;
+
+            }
+
+
+            .brand-name {
+
+                font-size: 18px;
+
+            }
+
+
+            .brand-tagline {
+
+                font-size: 7px;
+
+            }
+
+
+            .brand-mark {
+
+                width: 40px;
+
+                height: 40px;
+
+            }
+
+
+            .hero-inner {
+
+                grid-template-columns: 1fr;
+
+                min-height: auto;
+
+            }
+
+
+            .hero-content {
+
+                padding:
+                    65px 0 25px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    clamp(45px,
+                        13vw,
+                        64px);
+
+                letter-spacing: -1.5px;
+
+            }
+
+
+            .hero-description {
+
+                font-size: 14px;
+
+            }
+
+
+            .hero-visual {
+
+                height: 500px;
+
+                margin-top: 5px;
+
+            }
+
+
+            .hero-image {
+
+                width: 90%;
+
+                height: 430px;
+
+            }
+
+
+            .health-card {
+
+                top: 35px;
+
+                right: 0;
+
+            }
+
+
+            .reminder-card {
+
+                left: 0;
+
+                bottom: 80px;
+
+            }
+
+
+            .visit-card {
+
+                right: 0;
+
+                bottom: 10px;
+
+            }
+
+
+            .welcome-section {
+
+                margin-top: -25px;
+
+            }
+
+
+            .welcome-box {
+
+                border-width: 6px;
+
+                border-radius: 27px;
+
+                padding:
+                    25px 20px;
+
+                gap: 28px;
+
+            }
+
+
+            .welcome-copy h2 {
+
+                font-size: 31px;
+
+            }
+
+
+            .role-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .role-card {
+
+                min-height: auto;
+
+            }
+
+
+            .section {
+
+                padding: 75px 0;
+
+            }
+
+
+            .section-heading {
+
+                margin-bottom: 35px;
+
+            }
+
+
+            .section-heading h2 {
+
+                font-size: 34px;
+
+            }
+
+
+            .platform-content h2 {
+
+                font-size: 35px;
+
+            }
+
+
+            .platform-points {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .platform-visual {
+
+                min-height: 390px;
+
+            }
+
+
+            .platform-main-image {
+
+                height: 370px;
+
+            }
+
+
+            .platform-badge {
+
+                left: -5px;
+
+                bottom: 15px;
+
+            }
+
+
+            .platform-mini-card {
+
+                right: -3px;
+
+                top: 15px;
+
+            }
+
+
+            .feature-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .feature-card {
+
+                min-height: auto;
+
+            }
+
+
+            .step-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+
+            }
+
+
+            .step-line {
+
+                display: none;
+
+            }
+
+
+            .featured-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .featured-card {
+
+                min-height: auto;
+
+            }
+
+
+            .mission-section {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .mission-image {
+
+                min-height: 370px;
+
+            }
+
+
+            .mission-content {
+
+                padding:
+                    55px 25px;
+
+            }
+
+
+            .mission-content h2 {
+
+                font-size: 37px;
+
+            }
+
+
+            .cta-section {
+
+                padding: 45px 0;
+
+            }
+
+
+            .cta-box {
+
+                padding:
+                    38px 25px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+            }
+
+
+            .cta-content h2 {
+
+                font-size: 34px;
+
+            }
+
+
+            .coral-btn {
+
+                width: 100%;
+
+            }
+
+
+            .footer {
+
+                padding-top: 55px;
+
+            }
+
+
+            .footer-grid {
+
+                grid-template-columns: 1fr;
+
+                gap: 35px;
+
+            }
+
+
+            .footer-bottom {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                margin-top: 40px;
+
+            }
+
+        }
+
+
+        
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+        @media(max-width:420px) {
+
+            .container {
+
+                width:
+                    calc(100% - 24px);
+
+            }
+
+
+            .hero-content {
+
+                padding-top: 50px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size: 43px;
+
+            }
+
+
+            .hero-actions {
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+            }
+
+
+            .hero-actions button {
+
+                width: 100%;
+
+            }
+
+
+            .hero-visual {
+
+                height: 440px;
+
+            }
+
+
+            .hero-image {
+
+                height: 375px;
+
+            }
+
+
+            .floating-card {
+
+                padding: 12px;
+
+            }
+
+
+            .health-card {
+
+                top: 20px;
+
+                right: -2px;
+
+            }
+
+
+            .reminder-card {
+
+                left: -2px;
+
+                bottom: 55px;
+
+            }
+
+
+            .visit-card {
+
+                right: -2px;
+
+                bottom: 0;
+
+            }
+
+
+            .welcome-box {
+
+                padding:
+                    22px 16px;
+
+            }
+
+
+            .section-heading h2 {
+
+                font-size: 31px;
+
+            }
+
+
+            .platform-content h2 {
+
+                font-size: 31px;
+
+            }
+
+
+            .mission-content h2 {
+
+                font-size: 33px;
+
+            }
+
+        }
+
+
+        
+/* ===== SHARED INDEX HEADER / TOPPER FIX ===== */
+:root{
+    --utility-height:40px;
+    --nav-height:80px;
+}
+.utility-bar{height:40px;background:var(--forest-dark);color:#e8f2ed;position:relative;z-index:1100;}
+.utility-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.utility-item{display:flex;align-items:center;gap:7px;white-space:nowrap;font-size:11px;color:#dcebe4;}
+.live-dot{width:7px;height:7px;background:#6ce0ae;border-radius:50%;box-shadow:0 0 12px rgba(108,224,174,.8);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.75)}}
+.site-header{position:sticky;top:0;z-index:1000;height:80px;background:rgba(255,250,242,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(18,63,50,.09);box-shadow:0 5px 25px rgba(18,63,50,.04);}
+.site-header.scrolled{background:rgba(255,250,242,.985);box-shadow:0 8px 30px rgba(18,63,50,.09);}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:30px;}
+.brand{display:flex;align-items:center;gap:11px;flex-shrink:0;}
+.brand-mark{width:44px;height:44px;border-radius:14px;background:var(--forest);color:white;display:grid;place-items:center;font-size:21px;box-shadow:0 8px 22px rgba(18,63,50,.2);}
+.brand-text{line-height:1;}
+.brand-name{font-family:"Playfair Display",serif;font-weight:700;font-size:25px;color:var(--forest);}
+.brand-tagline{display:block;margin-top:5px;font-size:10px;letter-spacing:.7px;color:#718079;}
+.nav-menu{display:flex;align-items:center;justify-content:flex-end;gap:22px;height:100%;}
+.nav-link{position:relative;height:100%;display:flex;align-items:center;color:#34453f;font-size:13px;font-weight:600;white-space:nowrap;transition:.25s;}
+.nav-link.home-active{color:var(--forest);}
+.nav-link.home-active::after{content:"";position:absolute;left:0;right:0;bottom:17px;height:2px;background:var(--coral);border-radius:20px;}
+.nav-link:hover{color:var(--forest);}
+.primary-btn{border:0;background:var(--forest);color:white;padding:13px 19px;border-radius:14px;font-size:13px;font-weight:700;box-shadow:0 10px 25px rgba(18,63,50,.18);transition:.25s;}
+.primary-btn:hover{background:var(--forest-dark);transform:translateY(-2px);}
+.mobile-toggle{width:43px;height:43px;display:none;border:1px solid var(--border);border-radius:13px;background:white;color:var(--forest);font-size:21px;}
+@media(max-width:900px){
+ .mobile-toggle{display:grid;place-items:center;}
+ .nav-menu{position:fixed;top:120px;left:0;right:0;height:auto;max-height:calc(100vh - 120px);overflow-y:auto;padding:22px;background:rgba(255,250,242,.985);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 20px 35px rgba(18,63,50,.10);display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;transform:translateY(-20px);opacity:0;visibility:hidden;pointer-events:none;transition:transform .3s ease,opacity .3s ease,visibility .3s ease;}
+ .nav-menu.open{transform:translateY(0);opacity:1;visibility:visible;pointer-events:auto;}
+ .nav-link{width:100%;height:auto;min-height:48px;padding:10px 4px;border-bottom:1px solid rgba(18,63,50,.07);}
+ .nav-link.home-active::after{display:none;}
+ .nav-link.home-active{color:var(--forest);background:rgba(63,151,142,.07);border-radius:10px;padding-left:12px;}
+ .nav-menu .primary-btn{margin-top:15px;width:100%;}
+ .utility-inner{overflow:hidden;}
+ .utility-item{font-size:9px;}
+}
+@media(max-width:600px){
+ .utility-inner{gap:10px;}
+ .utility-item:nth-child(3){display:none;}
+ .utility-item{font-size:8px;}
+ .brand-name{font-size:21px;}
+ .brand-tagline{font-size:8px;}
+}
+
+
+/* =========================================================
+   INDEX MATCH — TICKER + FOOTER CSS
+   Added as final overrides so existing page styles stay intact.
+========================================================= */
+
+.ticker{
+    overflow:hidden;
+    background:#dfe9df;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.ticker-track{
+    display:flex;
+    width:max-content;
+    animation:tickerMove 30s linear infinite;
+}
+
+.ticker-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:13px 32px;
+    color:var(--forest);
+    font-size:11px;
+    font-weight:600;
+    white-space:nowrap;
+}
+
+@keyframes tickerMove{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+}
+
+.footer{
+    background:var(--forest-dark);
+    color:#dce8e2;
+    padding:70px 0 24px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1fr;
+    gap:50px;
+}
+
+.footer-description{
+    max-width:310px;
+    color:#9eb4ab;
+    font-size:14px;
+    line-height:1.75;
+    margin-top:17px;
+}
+
+.footer-title{
+    color:white;
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+}
+
+.footer-links a{
+    color:#9eb4ab;
+    font-size:15px;
+    transition:.2s;
+}
+
+.footer-links a:hover{
+    color:white;
+    transform:translateX(2px);
+}
+
+.footer-visitors{
+    font-size:31px;
+    font-weight:700;
+    color:white;
+}
+
+.footer-location{
+    color:#9eb4ab;
+    font-size:14px;
+    line-height:1.8;
+    margin-top:8px;
+}
+
+.footer-bottom{
+    margin-top:50px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.09);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    color:#81978e;
+    font-size:15px;
+}
+
+.footer-bottom a{
+    color:#81978e;
+    transition:.2s;
+}
+
+.footer-bottom a:hover{
+    color:white;
+}
+
+@media(max-width:900px){
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+        gap:40px;
+    }
+}
+
+@media(max-width:560px){
+    .footer{
+        padding:55px 0 22px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:34px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+        font-size:12px;
+        gap:10px;
+    }
+
+    .ticker-item{
+        padding:12px 22px;
+        font-size:10px;
+    }
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP UTILITY BAR
+===================================================== -->
+
+    <div class="utility-bar">
+
+        <div class="container utility-inner">
+
+            <div class="utility-item">
+                📍 Vancouver, BC, Canada
+            </div>
+
+            <div class="utility-item">
+
+                🕒
+
+                <span id="liveClock">
+                    Loading...
+                </span>
+
+            </div>
+
+            <div class="utility-item">
+
+                🐾
+
+                Pet Care Tip:
+                Fresh water keeps tails wagging!
+
+            </div>
+
+            <div class="utility-item">
+
+                <span class="live-dot"></span>
+
+                <span id="topVisitors">
+                    1,248
+                </span>
+
+                visitors online
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+    <header class="site-header" id="siteHeader">
+
+        <div class="container nav-inner">
+
+
+            <a href="index.html" class="brand">
+
+                <div class="brand-mark">
+                    🐾
+                </div>
+
+                <div class="brand-text">
+
+                    <div class="brand-name">
+                        FurEver Care
+                    </div>
+
+                    <span class="brand-tagline">
+                        THEY DESERVE FOREVER LOVE.
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false">
+                ☰
+            </button>
+
+
+            <nav class="nav-menu" id="navMenu">
+
+                <!-- ONLY HOME HAS THE HOMEPAGE INDICATOR -->
+
+                <a href="index.html" class="nav-link">
+                    Home
+                </a>
+
+
+                <!-- NO ACTIVE CLASS / NO UNDERLINE -->
+
+                <a href="Pet-Care.html" class="nav-link">
+                    Pet Care
+                </a>
+
+
+                <a href="Pet-Products.html" class="nav-link">
+                    Pet Products
+                </a>
+
+
+                <a href="Veterinarian.html" class="nav-link">
+                    Veterinarian
+                </a>
+
+
+                <a href="Adoption.html" class="nav-link">
+                    Adoption
+                </a>
+
+
+                <a href="Emergency.html" class="nav-link">
+                    Emergency
+                </a>
+
+
+                <a href="About.html" class="nav-link  home-active">
+                    About Us
+                </a>
+
+
+                <a href="Contact.html" class="nav-link">
+                    Contact
+                </a>
+
+
+                <button class="primary-btn" onclick="goToWelcome()">
+                    Get Started 🐾
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header></header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     01 — ABOUT HERO
+===================================================== -->
+
+<section
+    class="about-hero"
+    id="about"
+>
+
+    <div class="container hero-inner">
+
+
+        <div class="hero-copy reveal">
+
+
+            <div class="eyebrow hero-eyebrow">
+
+                ✦ About FurEver Care
+
+            </div>
+
+
+            <h1>
+
+                Better Care
+                <br>
+
+                For Every
+                <span>Forever.</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                FurEver Care is built around one simple
+                belief: pets deserve thoughtful,
+                connected and accessible care throughout
+                every stage of their lives.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a
+                    href="#story"
+                    class="btn btn-primary"
+                >
+                    Discover Our Story →
+                </a>
+
+                <a
+                    href="#mission"
+                    class="btn btn-light"
+                >
+                    Our Mission
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual reveal">
+
+
+            <img
+                class="hero-image"
+                src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&w=1200&q=90"
+                alt="Happy pets together"
+            >
+
+
+            <div class="hero-card one">
+
+                <div class="card-small">
+                    Our Purpose
+                </div>
+
+                <span class="card-large">
+                    Care With Heart
+                </span>
+
+            </div>
+
+
+            <div class="hero-card two">
+
+                <div class="card-small">
+                    FurEver Community
+                </div>
+
+                <span class="card-large">
+                    Built Around Pets
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     02 — OUR STORY
+===================================================== -->
+
+<section
+    class="section story"
+    id="story"
+>
+
+    <div class="container story-grid">
+
+
+        <div class="story-images reveal">
+
+
+            <img
+                class="story-image-main"
+                src="https://images.unsplash.com/photo-1601758174114-e711c0cbaa69?auto=format&fit=crop&w=900&q=90"
+                alt="Pet owner spending time with dog"
+            >
+
+
+            <img
+                class="story-image-small"
+                src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=700&q=90"
+                alt="Happy dog"
+            >
+
+
+            <div class="story-badge">
+                🐾 Every Pet Matters
+            </div>
+
+        </div>
+
+
+        <div class="story-content reveal">
+
+
+            <div class="eyebrow">
+                ✦ Our Story
+            </div>
+
+
+            <h2>
+                It Started With
+                A Simple Question.
+            </h2>
+
+
+            <p>
+
+                How can we make caring for a pet feel
+                less complicated and more connected?
+
+            </p>
+
+
+            <p>
+
+                From everyday wellness and helpful
+                resources to professional connections
+                and moments that matter, FurEver Care
+                was created to bring the pieces of pet
+                care together in one thoughtful experience.
+
+            </p>
+
+
+            <p>
+
+                We believe technology should make care
+                feel more human — not more complicated.
+
+            </p>
+
+
+            <div class="story-signature">
+
+                <span class="signature-line"></span>
+
+                <span class="signature-text">
+                    For the love of pets
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     03 — WHAT WE BELIEVE
+===================================================== -->
+
+<section class="section beliefs">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+
+            <div class="eyebrow">
+                ✦ What We Believe
+            </div>
+
+
+            <h2>
+                Care Should Feel
+                Simple & Personal.
+            </h2>
+
+
+            <p>
+
+                Everything we create is guided by the
+                needs of pets, the people who love them,
+                and the communities that care for them.
+
+            </p>
+
+        </div>
+
+
+        <div class="belief-grid">
+
+
+            <article class="belief-card reveal">
+
+
+                <div class="belief-icon">
+                    ♥
+                </div>
+
+
+                <h3>
+                    Pets Come First
+                </h3>
+
+
+                <p>
+
+                    Every experience starts with the
+                    wellbeing, comfort and happiness
+                    of the pet at the center of it.
+
+                </p>
+
+            </article>
+
+
+            <article class="belief-card reveal">
+
+
+                <div class="belief-icon">
+                    ✦
+                </div>
+
+
+                <h3>
+                    Technology With Heart
+                </h3>
+
+
+                <p>
+
+                    Digital tools should simplify
+                    everyday care while keeping
+                    the experience warm and human.
+
+                </p>
+
+            </article>
+
+
+            <article class="belief-card reveal">
+
+
+                <div class="belief-icon">
+                    🌿
+                </div>
+
+
+                <h3>
+                    Better Together
+                </h3>
+
+
+                <p>
+
+                    Pet owners, professionals,
+                    shelters and communities can
+                    create better outcomes together.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     04 — MISSION & VALUES
+===================================================== -->
+
+<section
+    class="section mission"
+    id="mission"
+>
+
+    <div class="container">
+
+
+        <div class="mission-box reveal">
+
+
+            <img
+                class="mission-image"
+                src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1000&q=90"
+                alt="Dog enjoying outdoor life"
+            >
+
+
+            <div class="mission-content">
+
+
+                <div class="eyebrow">
+                    ✦ Our Mission
+                </div>
+
+
+                <h2>
+                    Making Every
+                    Pet's Journey
+                    Better.
+                </h2>
+
+
+                <p>
+
+                    Our mission is to create a trusted
+                    digital home where pet owners can
+                    discover resources, make informed
+                    decisions and feel more confident
+                    about caring for the animals they
+                    love.
+
+                </p>
+
+
+                <div class="values">
+
+
+                    <div class="value">
+
+                        <strong>
+                            Compassion
+                        </strong>
+
+                        <span>
+                            Lead with empathy.
+                        </span>
+
+                    </div>
+
+
+                    <div class="value">
+
+                        <strong>
+                            Trust
+                        </strong>
+
+                        <span>
+                            Build meaningful connections.
+                        </span>
+
+                    </div>
+
+
+                    <div class="value">
+
+                        <strong>
+                            Simplicity
+                        </strong>
+
+                        <span>
+                            Make care easier.
+                        </span>
+
+                    </div>
+
+
+                    <div class="value">
+
+                        <strong>
+                            Community
+                        </strong>
+
+                        <span>
+                            Care together.
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     05 — EXPERIENCE
+===================================================== -->
+
+<section class="section experience">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+
+            <div class="eyebrow">
+                ✦ The FurEver Experience
+            </div>
+
+
+            <h2>
+                Designed Around
+                Real Pet Parents.
+            </h2>
+
+
+            <p>
+
+                From the first visit to everyday
+                routines, we aim to make every
+                interaction feel useful, calm
+                and genuinely caring.
+
+            </p>
+
+        </div>
+
+
+        <div class="experience-grid">
+
+
+            <article class="experience-card reveal">
+
+                <div class="experience-number">
+                    01 — CONNECT
+                </div>
+
+                <h3>
+                    One Connected Place
+                </h3>
+
+                <p>
+
+                    Bring helpful pet-care resources
+                    and experiences together in one
+                    easy-to-navigate environment.
+
+                </p>
+
+            </article>
+
+
+            <article class="experience-card reveal">
+
+                <div class="experience-number">
+                    02 — DISCOVER
+                </div>
+
+                <h3>
+                    Helpful Resources
+                </h3>
+
+                <p>
+
+                    Discover information and tools
+                    designed to support healthier
+                    everyday routines.
+
+                </p>
+
+            </article>
+
+
+            <article class="experience-card reveal">
+
+                <div class="experience-number">
+                    03 — BELONG
+                </div>
+
+                <h3>
+                    A Caring Community
+                </h3>
+
+                <p>
+
+                    Feel connected to people and
+                    organizations that share a
+                    genuine love for animals.
+
+                </p>
+
+            </article>
+
+
+            <article class="experience-card reveal">
+
+                <div class="experience-number">
+                    04 — GROW
+                </div>
+
+                <h3>
+                    Better Together
+                </h3>
+
+                <p>
+
+                    Keep learning, improving and
+                    creating better experiences
+                    for pets over time.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     06 — FINAL CTA + FAQ
+===================================================== -->
+
+<section class="final">
+
+    <div class="container">
+
+
+        <div class="final-grid">
+
+
+            <div class="final-cta reveal">
+
+
+                <h2>
+                    Let's Make
+                    Pet Care
+                    Better Together.
+                </h2>
+
+
+                <p>
+
+                    Whether you're a pet parent,
+                    veterinarian, shelter volunteer
+                    or simply someone who loves
+                    animals, there's a place for you
+                    at FurEver Care.
+
+                </p>
+
+
+                <a
+                    href="#"
+                    class="btn btn-coral"
+                >
+                    Get Started →
+                </a>
+
+            </div>
+
+
+            <div class="reveal">
+
+
+                <h3 class="faq-title">
+                    About FurEver Care
+                </h3>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        What is FurEver Care?
+
+                        <span>+</span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <p>
+
+                            FurEver Care is a modern
+                            pet-care platform designed
+                            to connect pet owners with
+                            useful resources, services
+                            and a caring community.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        Who is FurEver Care for?
+
+                        <span>+</span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <p>
+
+                            The platform is designed
+                            for pet owners, veterinarians,
+                            shelters, rescue volunteers
+                            and people who care deeply
+                            about animals.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        What makes FurEver Care different?
+
+                        <span>+</span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <p>
+
+                            We focus on bringing
+                            helpful pet-care experiences
+                            together while keeping the
+                            technology simple, warm and
+                            easy to use.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        How can I get started?
+
+                        <span>+</span>
+
+                    </button>
+
+
+                    <div class="faq-answer">
+
+                        <p>
+
+                            Start by exploring FurEver
+                            Care and selecting the
+                            experience that best matches
+                            how you want to participate.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+<!-- =====================================================
+     TICKER
+===================================================== -->
+<div class="ticker">
+    <div class="ticker-track">
+
+        <div class="ticker-item">
+            📍 Vancouver, BC, Canada
+        </div>
+
+        <div class="ticker-item">
+            🕒
+            <span class="ticker-clock"></span>
+        </div>
+
+        <div class="ticker-item">
+            🐾
+            Pet Care Update:
+            Fresh water keeps tails wagging!
+        </div>
+
+        <div class="ticker-item">
+            ❤️
+            FurEver Care —
+            They Deserve Forever Love.
+        </div>
+
+        <div class="ticker-item">
+            📍 Vancouver, BC, Canada
+        </div>
+
+        <div class="ticker-item">
+            🕒
+            <span class="ticker-clock"></span>
+        </div>
+
+        <div class="ticker-item">
+            🐾
+            Pet Care Update:
+            Fresh water keeps tails wagging!
+        </div>
+
+        <div class="ticker-item">
+            ❤️
+            FurEver Care —
+            They Deserve Forever Love.
+        </div>
+
+    </div>
+</div>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+<footer class="footer">
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+                <a href="index.html" class="brand">
+                    <div class="brand-mark">
+                        🐾
+                    </div>
+
+                    <div class="brand-text">
+                        <div class="brand-name" style="color:white">
+                            FurEver Care
+                        </div>
+
+                        <span class="brand-tagline" style="color:#9eb4ab">
+                            THEY DESERVE FOREVER LOVE.
+                        </span>
+                    </div>
+                </a>
+
+                <p class="footer-description">
+                    A modern pet-care platform
+                    connecting pet parents,
+                    professionals and communities
+                    to create healthier lives
+                    for every pet.
+                </p>
+            </div>
+
+            <div>
+                <div class="footer-title">
+                    Quick Links
+                </div>
+
+                <div class="footer-links">
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="Pet-Care.html">
+                        Pet Care
+                    </a>
+
+                    <a href="Pet-Products.html">
+                        Pet Products
+                    </a>
+
+                    <a href="Veterinarian.html">
+                        Veterinarian
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <div class="footer-title">
+                    Explore
+                </div>
+
+                <div class="footer-links">
+                    <a href="Adoption.html">
+                        Adoption
+                    </a>
+
+                    <a href="Emergency.html">
+                        Emergency
+                    </a>
+
+                    <a href="About.html">
+                        About Us
+                    </a>
+
+                    <a href="Contact.html">
+                        Contact
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <div class="footer-title">
+                    Live Visitors
+                </div>
+
+                <small style="
+                    color:#9eb4ab;
+                    font-size:15px;
+                ">
+                    people exploring FurEver Care
+                </small>
+
+                <div class="footer-location">
+                    📍 Vancouver, BC, Canada
+                    <br>
+                    ✉ hello@furevercare.com
+                    <br>
+                    ☎ +1 (604) 555-0188
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>
+                © 2026 FurEver Care.
+                All rights reserved.
+            </span>
+
+            <span>
+                <a href="Privacy.html">Privacy Policy</a>
+                &nbsp; | &nbsp;
+                <a href="Terms.html">Terms of Service</a>
+                &nbsp; | &nbsp;
+            </span>
+        </div>
+
+    </div>
+</footer>
+
+
+
+
+
+
+
+<!-- =====================================================
+     TOAST
+===================================================== -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<!-- =====================================================
+     BACK TO TOP
+===================================================== -->
+
+<button
+    class="back-top"
+    id="backTop"
+>
+    ↑
+</button>
+
+
+<script>
+/* =====================================================
+   INDEX.HTML SHARED HEADER / MOBILE MENU
+===================================================== */
+const siteHeader = document.getElementById("siteHeader");
+const mobileToggle = document.getElementById("mobileToggle");
+const navMenu = document.getElementById("navMenu");
+
+if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener("click", () => {
+        const isOpen = navMenu.classList.toggle("open");
+        mobileToggle.textContent = isOpen ? "✕" : "☰";
+        mobileToggle.setAttribute("aria-expanded", String(isOpen));
+        document.body.classList.toggle("menu-open", isOpen);
+    });
+
+    navMenu.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("open");
+            mobileToggle.textContent = "☰";
+            mobileToggle.setAttribute("aria-expanded", "false");
+            document.body.classList.remove("menu-open");
+        });
+    });
+}
+
+window.addEventListener("scroll", () => {
+    if (siteHeader) {
+        siteHeader.classList.toggle("scrolled", window.scrollY > 15);
+    }
+});
+
+function goToWelcome() {
+    window.location.href = "index.html#home";
+}
+
+
+
+
+/* =====================================================
+   HEADER / MOBILE MENU
+===================================================== */
+
+const header =
+    document.getElementById("header");
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuBtn.addEventListener(
+    "click",
+    () => {
+
+        navLinks.classList.toggle(
+            "open"
+        );
+
+        menuBtn.textContent =
+            navLinks.classList.contains("open")
+            ? "✕"
+            : "☰";
+
+    }
+);
+
+
+document
+    .querySelectorAll(".nav-link")
+    .forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    navLinks.classList.remove(
+                        "open"
+                    );
+
+                    menuBtn.textContent =
+                        "☰";
+
+                }
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   HEADER SCROLL
+===================================================== */
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(
+            window.scrollY > 15
+        ){
+
+            header.classList.add(
+                "scrolled"
+            );
+
+        }else{
+
+            header.classList.remove(
+                "scrolled"
+            );
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   FAQ ACCORDION
+===================================================== */
+
+document
+    .querySelectorAll(".faq-question")
+    .forEach(
+        question => {
+
+            question.addEventListener(
+                "click",
+                () => {
+
+                    const item =
+                        question.parentElement;
+
+
+                    document
+                        .querySelectorAll(".faq-item")
+                        .forEach(
+                            other => {
+
+                                if(
+                                    other !== item
+                                ){
+
+                                    other.classList.remove(
+                                        "open"
+                                    );
+
+                                }
+
+                            }
+                        );
+
+
+                    item.classList.toggle(
+                        "open"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+const newsletterEmail =
+    document.getElementById(
+        "newsletterEmail"
+    );
+
+const newsletterBtn =
+    document.getElementById(
+        "newsletterBtn"
+    );
+
+
+newsletterBtn.addEventListener(
+    "click",
+    () => {
+
+        const email =
+            newsletterEmail.value.trim();
+
+
+        if(!email){
+
+            showToast(
+                "Please enter your email address."
+            );
+
+            newsletterEmail.focus();
+
+            return;
+
+        }
+
+
+        const validEmail =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+            .test(email);
+
+
+        if(!validEmail){
+
+            showToast(
+                "Please enter a valid email address."
+            );
+
+            return;
+
+        }
+
+
+        newsletterEmail.value = "";
+
+        showToast(
+            "You're now connected with FurEver Care ✓"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+document
+    .getElementById("cartButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            showToast(
+                "Your cart is available from Pet Products."
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   CLOCK
+===================================================== */
+
+function updateClock(){
+
+    const now =
+        new Date();
+
+
+    const time =
+        now.toLocaleTimeString(
+            "en-US",
+            {
+                hour:"2-digit",
+                minute:"2-digit",
+                second:"2-digit"
+            }
+        );
+
+
+    document.getElementById(
+        "clock"
+    ).textContent =
+        time;
+
+
+    document.getElementById(
+        "footerClock"
+    ).textContent =
+        time;
+
+}
+
+
+updateClock();
+
+
+setInterval(
+    updateClock,
+    1000
+);
+
+
+/* =====================================================
+   VISITOR COUNTER
+===================================================== */
+
+let visitors = 1248;
+
+
+setInterval(
+    () => {
+
+        visitors +=
+            Math.floor(
+                Math.random() * 3
+            );
+
+
+        const value =
+            visitors.toLocaleString();
+
+
+        document.getElementById(
+            "visitorCount"
+        ).textContent =
+            value;
+
+
+        document.getElementById(
+            "footerVisitors"
+        ).textContent =
+            value;
+
+    },
+    6000
+);
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+const toast =
+    document.getElementById(
+        "toast"
+    );
+
+let toastTimer;
+
+
+function showToast(message){
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    toastTimer =
+        setTimeout(
+            () => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            3000
+        );
+
+}
+
+
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
+
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
+
+            entries.forEach(
+                entry => {
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(
+        element => {
+
+            revealObserver.observe(
+                element
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   BACK TO TOP
+===================================================== */
+
+const backTop =
+    document.getElementById(
+        "backTop"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(
+            window.scrollY > 500
+        ){
+
+            backTop.classList.add(
+                "show"
+            );
+
+        }else{
+
+            backTop.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+backTop.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+);
+
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.reveal').forEach(function (el) {
+        el.classList.add('visible');
+    });
+});
+
+
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const faqQuestions = document.querySelectorAll(".faq-question");
+
+    faqQuestions.forEach(function (question) {
+
+        question.addEventListener("click", function () {
+
+            const faqItem = this.closest(".faq-item");
+
+            if (!faqItem) return;
+
+            const isOpen = faqItem.classList.contains("open");
+
+            // Close all other FAQs
+            document.querySelectorAll(".faq-item").forEach(function (item) {
+                item.classList.remove("open");
+
+                const btn = item.querySelector(".faq-question");
+                if (btn) {
+                    btn.setAttribute("aria-expanded", "false");
+                }
+            });
+
+            // Open clicked FAQ
+            if (!isOpen) {
+                faqItem.classList.add("open");
+                this.setAttribute("aria-expanded", "true");
+            }
+
+        });
+
+    });
+
+});
+</script>
+
+<script>
+(function () {
+    const siteHeader = document.getElementById("siteHeader");
+    const mobileToggle = document.getElementById("mobileToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener("click", function () {
+            const open = navMenu.classList.toggle("open");
+            mobileToggle.textContent = open ? "✕" : "☰";
+            mobileToggle.setAttribute("aria-expanded", String(open));
+            document.body.classList.toggle("menu-open", open);
+        });
+
+        navMenu.querySelectorAll(".nav-link").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navMenu.classList.remove("open");
+                mobileToggle.textContent = "☰";
+                mobileToggle.setAttribute("aria-expanded", "false");
+                document.body.classList.remove("menu-open");
+            });
+        });
+    }
+
+    window.addEventListener("scroll", function () {
+        if (siteHeader) siteHeader.classList.toggle("scrolled", window.scrollY > 15);
+        const backTop = document.getElementById("backTop");
+        if (backTop) backTop.classList.toggle("show", window.scrollY > 450);
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && navMenu && mobileToggle) {
+            navMenu.classList.remove("open");
+            mobileToggle.textContent = "☰";
+            mobileToggle.setAttribute("aria-expanded", "false");
+            document.body.classList.remove("menu-open");
+        }
+    });
+
+    window.goToWelcome = function () {
+        window.location.href = "index.html#home";
+    };
+
+    function updateClock() {
+        const el = document.getElementById("liveClock");
+        if (el) {
+            el.textContent = new Date().toLocaleTimeString("en-US", {
+                hour: "2-digit", minute: "2-digit", second: "2-digit"
+            });
+        }
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    const backTop = document.getElementById("backTop");
+    if (backTop) {
+        backTop.addEventListener("click", function () {
+            window.scrollTo({top: 0, behavior: "smooth"});
+        });
+    }
+
+    const reveals = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.12});
+        reveals.forEach(function (el) { observer.observe(el); });
+    } else {
+        reveals.forEach(function (el) { el.classList.add("visible"); });
+    }
+})();
+</script>
+
+
+
+
+<!-- SHARED FOOTER -->
+
+<script id="index-shared-footer-clock">
+(function () {
+    function updateIndexSharedClock() {
+        const now = new Date();
+
+        const formatted = now.toLocaleString("en-US", {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        });
+
+        const top = document.getElementById("liveClock");
+        if (top) top.textContent = formatted;
+
+        document.querySelectorAll(".ticker-clock").forEach(function (element) {
+            element.textContent = now.toLocaleTimeString("en-US");
+        });
+    }
+
+    updateIndexSharedClock();
+    setInterval(updateIndexSharedClock, 1000);
+
+    let visitors = 1248;
+    setInterval(function () {
+        visitors += Math.floor(Math.random() * 3);
+
+        const formatted = visitors.toLocaleString();
+        const top = document.getElementById("topVisitors");
+        const footer = document.getElementById("footerVisitors");
+
+        if (top) top.textContent = formatted;
+        if (footer) footer.textContent = formatted;
+    }, 7000);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,5132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Adoption | FurEver Care</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+    --utility-height:38px;
+    --nav-height:78px;
+    --forest:#123F32;
+    --forest-dark:#092A22;
+    --forest-light:#1F5C4B;
+
+    --teal:#4C9C91;
+    --teal-light:#DCEDEA;
+
+    --cream:#F7F1E6;
+    --cream-light:#FFFDF8;
+    --beige:#E8DDC9;
+
+    --coral:#E97859;
+    --coral-dark:#D55F45;
+
+    --charcoal:#1D2A26;
+    --muted:#718078;
+    --white:#fff;
+
+    --border:rgba(18,63,50,.12);
+
+    --shadow:0 25px 70px rgba(18,63,50,.12);
+    --shadow-soft:0 12px 35px rgba(18,63,50,.09);
+
+    --radius:24px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:120px;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    background:var(--cream);
+    color:var(--charcoal);
+    overflow-x:hidden;
+}
+
+body.modal-open{
+    overflow:hidden;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+h1,h2,h3,h4{
+    font-family:"Playfair Display",serif;
+}
+
+.container{
+    width:min(1180px,calc(100% - 40px));
+    margin:auto;
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.topbar{
+    height:38px;
+    background:var(--forest-dark);
+    color:#DDE9E4;
+    font-size:10px;
+}
+
+.topbar-inner{
+    height:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.top-info{
+    display:flex;
+    gap:24px;
+    align-items:center;
+}
+
+.live{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.live-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#69D8A2;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header{
+    height:78px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(255,253,248,.95);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid var(--border);
+
+    transition:.3s;
+}
+
+.header.scrolled{
+    box-shadow:0 10px 35px rgba(18,63,50,.09);
+}
+
+.nav{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-mark{
+    width:42px;
+    height:42px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:14px;
+
+    background:var(--forest);
+    color:#fff;
+
+    font-size:19px;
+}
+
+.logo-name{
+    color:var(--forest);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:19px;
+    font-weight:700;
+}
+
+.logo-tagline{
+    margin-top:3px;
+
+    color:var(--muted);
+
+    font-size:7px;
+    letter-spacing:1px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:21px;
+}
+
+.nav-link{
+    position:relative;
+
+    padding:30px 0;
+
+    color:#46564F;
+
+    font-size:11px;
+    font-weight:600;
+
+    transition:.2s;
+}
+
+.nav-link:hover{
+    color:var(--forest);
+}
+
+.nav-link.active{
+    color:var(--forest);
+}
+
+/* Adoption active underline */
+.nav-link.active::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:20px;
+
+    height:2px;
+
+    background:var(--coral);
+
+    border-radius:10px;
+}
+
+.cart-nav{
+    border:0;
+
+    padding:12px 16px;
+
+    border-radius:13px;
+
+    background:var(--forest);
+    color:#fff;
+
+    font-size:10px;
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.cart-nav:hover{
+    background:var(--coral);
+    transform:translateY(-2px);
+}
+
+.cart-number{
+    display:inline-grid;
+    place-items:center;
+
+    min-width:18px;
+    height:18px;
+
+    margin-left:4px;
+
+    padding:0 4px;
+
+    border-radius:50px;
+
+    background:var(--coral);
+}
+
+.menu-btn{
+    display:none;
+
+    width:42px;
+    height:42px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    background:#fff;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn{
+    border:0;
+
+    padding:14px 20px;
+
+    border-radius:14px;
+
+    font-size:11px;
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--forest);
+    color:#fff;
+
+    box-shadow:0 12px 25px rgba(18,63,50,.18);
+}
+
+.btn-primary:hover{
+    background:var(--forest-dark);
+    transform:translateY(-2px);
+}
+
+.btn-coral{
+    background:var(--coral);
+    color:#fff;
+}
+
+.btn-coral:hover{
+    background:var(--coral-dark);
+    transform:translateY(-2px);
+}
+
+.btn-light{
+    background:rgba(255,255,255,.8);
+
+    border:1px solid var(--border);
+
+    color:var(--forest);
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.section{
+    padding:88px 0;
+}
+
+.section-heading{
+    max-width:650px;
+    margin:0 auto 42px;
+    text-align:center;
+}
+
+.eyebrow{
+    display:inline-flex;
+
+    align-items:center;
+    gap:6px;
+
+    padding:7px 12px;
+
+    margin-bottom:15px;
+
+    background:rgba(255,255,255,.72);
+
+    border:1px solid var(--border);
+
+    border-radius:100px;
+
+    color:var(--forest);
+
+    font-size:9px;
+    font-weight:700;
+}
+
+.section-heading h2{
+    color:var(--forest);
+
+    font-size:42px;
+
+    line-height:1.08;
+}
+
+.section-heading p{
+    margin-top:12px;
+
+    color:var(--muted);
+
+    font-size:12px;
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   1 — ADOPTION HERO
+========================================================= */
+
+.hero{
+    min-height:570px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(233,120,89,.15),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(76,156,145,.2),
+            transparent 28%
+        ),
+        linear-gradient(
+            120deg,
+            #F0E9DA,
+            #E4EEE8
+        );
+}
+
+.hero::before{
+    content:"🐾";
+
+    position:absolute;
+
+    left:-25px;
+    bottom:-50px;
+
+    font-size:180px;
+
+    color:rgba(18,63,50,.035);
+
+    transform:rotate(-20deg);
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    right:-100px;
+    top:-120px;
+
+    width:330px;
+    height:330px;
+
+    border:1px solid rgba(18,63,50,.08);
+
+    border-radius:50%;
+}
+
+.hero-inner{
+    min-height:570px;
+
+    display:grid;
+
+    grid-template-columns:.9fr 1.1fr;
+
+    align-items:center;
+
+    gap:45px;
+}
+
+.hero-copy{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    color:var(--forest);
+
+    font-size:clamp(48px,5.5vw,70px);
+
+    line-height:1;
+
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:var(--coral);
+}
+
+.hero-text{
+    max-width:520px;
+
+    margin:22px 0 27px;
+
+    color:#5D6B64;
+
+    font-size:13px;
+    line-height:1.8;
+}
+
+.hero-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.hero-visual{
+    height:485px;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-image{
+    width:88%;
+    height:440px;
+
+    object-fit:cover;
+
+    border-radius:42px 42px 25px 25px;
+
+    box-shadow:var(--shadow);
+}
+
+.hero-card{
+    position:absolute;
+
+    padding:15px 18px;
+
+    background:rgba(255,255,255,.94);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.8);
+
+    border-radius:17px;
+
+    box-shadow:0 15px 40px rgba(18,63,50,.14);
+}
+
+.hero-card.one{
+    left:0;
+    bottom:55px;
+}
+
+.hero-card.two{
+    right:0;
+    top:45px;
+}
+
+.hero-card-label{
+    color:var(--muted);
+    font-size:8px;
+}
+
+.hero-card-title{
+    display:block;
+
+    margin-top:4px;
+
+    color:var(--forest);
+
+    font-size:14px;
+    font-weight:700;
+}
+
+
+/* =========================================================
+   2 — FIND YOUR MATCH
+========================================================= */
+
+.matches{
+    background:var(--cream-light);
+}
+
+.filter-bar{
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:25px;
+}
+
+.search-box{
+    flex:1;
+
+    position:relative;
+}
+
+.search-box span{
+    position:absolute;
+
+    left:15px;
+    top:50%;
+
+    transform:translateY(-50%);
+}
+
+.search-box input{
+    width:100%;
+    height:48px;
+
+    padding:0 15px 0 42px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    background:#fff;
+
+    outline:none;
+
+    font-size:10px;
+}
+
+.search-box input:focus{
+    border-color:var(--teal);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(76,156,145,.1);
+}
+
+.filter-select{
+    width:170px;
+
+    height:48px;
+
+    padding:0 13px;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    background:#fff;
+
+    color:var(--forest);
+
+    outline:none;
+
+    font-size:10px;
+}
+
+.pet-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.pet-card{
+    overflow:hidden;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:23px;
+
+    transition:.3s;
+}
+
+.pet-card:hover{
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-soft);
+}
+
+.pet-card.hidden{
+    display:none;
+}
+
+.pet-image-wrap{
+    height:245px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.pet-image{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.pet-card:hover .pet-image{
+    transform:scale(1.05);
+}
+
+.pet-badge{
+    position:absolute;
+
+    top:13px;
+    left:13px;
+
+    padding:6px 10px;
+
+    border-radius:50px;
+
+    background:#D9F0E4;
+
+    color:#28744F;
+
+    font-size:8px;
+
+    font-weight:700;
+}
+
+.pet-favorite{
+    position:absolute;
+
+    right:13px;
+    top:13px;
+
+    width:35px;
+    height:35px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:0 7px 18px rgba(0,0,0,.1);
+
+    transition:.2s;
+}
+
+.pet-favorite.active{
+    color:var(--coral);
+}
+
+.pet-body{
+    padding:18px;
+}
+
+.pet-type{
+    color:var(--coral);
+
+    font-size:8px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+}
+
+.pet-name{
+    margin-top:5px;
+
+    color:var(--forest);
+
+    font-size:22px;
+}
+
+.pet-meta{
+    display:flex;
+
+    gap:12px;
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:9px;
+}
+
+.pet-description{
+    margin-top:10px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.7;
+}
+
+.pet-actions{
+    display:flex;
+
+    gap:8px;
+
+    margin-top:14px;
+}
+
+.pet-actions button{
+    flex:1;
+}
+
+
+/* =========================================================
+   3 — ADOPTION PROCESS
+========================================================= */
+
+.process{
+    background:#E7EFEA;
+}
+
+.process-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.process-card{
+    padding:28px 23px;
+
+    background:rgba(255,255,255,.76);
+
+    border:1px solid rgba(18,63,50,.1);
+
+    border-radius:24px;
+
+    transition:.3s;
+}
+
+.process-card:hover{
+    background:#fff;
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-soft);
+}
+
+.process-number{
+    width:48px;
+    height:48px;
+
+    display:grid;
+    place-items:center;
+
+    margin-bottom:20px;
+
+    border-radius:15px;
+
+    background:var(--forest);
+
+    color:#fff;
+
+    font-size:11px;
+    font-weight:700;
+}
+
+.process-card h3{
+    color:var(--forest);
+
+    font-size:21px;
+}
+
+.process-card p{
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   4 — SHELTER STORY
+========================================================= */
+
+.story{
+    background:var(--cream);
+}
+
+.story-box{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    overflow:hidden;
+
+    border-radius:32px;
+
+    background:var(--forest);
+
+    box-shadow:var(--shadow);
+}
+
+.story-image{
+    min-height:430px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.story-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+}
+
+.story-image::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(9,42,34,.55)
+        );
+}
+
+.story-copy{
+    padding:50px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+}
+
+.story-copy .eyebrow{
+    width:max-content;
+
+    background:rgba(255,255,255,.09);
+
+    border-color:rgba(255,255,255,.1);
+
+    color:#A7D9CA;
+}
+
+.story-copy h2{
+    color:#fff;
+
+    font-size:42px;
+
+    line-height:1.08;
+}
+
+.story-copy p{
+    margin-top:15px;
+
+    color:#B7CAC3;
+
+    font-size:11px;
+
+    line-height:1.9;
+}
+
+.story-stats{
+    display:flex;
+
+    gap:28px;
+
+    margin-top:25px;
+}
+
+.story-stat strong{
+    display:block;
+
+    color:#fff;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:25px;
+}
+
+.story-stat span{
+    display:block;
+
+    margin-top:3px;
+
+    color:#8FAAA0;
+
+    font-size:8px;
+}
+
+
+/* =========================================================
+   5 — ADOPTION RESOURCES
+========================================================= */
+
+.resources{
+    background:var(--cream-light);
+}
+
+.resource-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:17px;
+}
+
+.resource-card{
+    min-height:270px;
+
+    padding:25px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:23px;
+
+    background:#EDF3EF;
+
+    border:1px solid var(--border);
+
+    transition:.3s;
+}
+
+.resource-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-soft);
+}
+
+.resource-card:nth-child(2){
+    background:#F3E7D8;
+}
+
+.resource-card:nth-child(3){
+    background:#E3EFEC;
+}
+
+.resource-icon{
+    width:53px;
+    height:53px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:17px;
+
+    background:#fff;
+
+    font-size:23px;
+
+    box-shadow:0 10px 25px rgba(18,63,50,.08);
+}
+
+.resource-card h3{
+    margin-top:25px;
+
+    color:var(--forest);
+
+    font-size:22px;
+}
+
+.resource-card p{
+    max-width:250px;
+
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.8;
+}
+
+.resource-link{
+    position:absolute;
+
+    left:25px;
+    bottom:22px;
+
+    color:var(--forest);
+
+    font-size:9px;
+
+    font-weight:700;
+}
+
+.resource-decoration{
+    position:absolute;
+
+    right:-25px;
+    bottom:-45px;
+
+    font-size:110px;
+
+    opacity:.08;
+}
+
+
+/* =========================================================
+   6 — CTA + FAQ
+========================================================= */
+
+.final{
+    background:var(--cream);
+
+    padding:80px 0;
+}
+
+.final-grid{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:25px;
+
+    align-items:start;
+}
+
+.final-cta{
+    min-height:380px;
+
+    padding:40px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(233,120,89,.25),
+            transparent 30%
+        ),
+        var(--forest);
+}
+
+.final-cta::after{
+    content:"🐶";
+
+    position:absolute;
+
+    right:-25px;
+    bottom:-65px;
+
+    font-size:180px;
+
+    opacity:.05;
+}
+
+.final-cta h2{
+    position:relative;
+    z-index:2;
+
+    color:#fff;
+
+    font-size:43px;
+
+    line-height:1.08;
+}
+
+.final-cta p{
+    position:relative;
+    z-index:2;
+
+    max-width:430px;
+
+    margin-top:13px;
+
+    color:#B7CAC3;
+
+    font-size:11px;
+
+    line-height:1.8;
+}
+
+.final-cta .btn{
+    position:relative;
+    z-index:2;
+
+    margin-top:22px;
+}
+
+.faq-title{
+    margin-bottom:18px;
+
+    color:var(--forest);
+
+    font-size:30px;
+}
+
+.faq-item{
+    overflow:hidden;
+
+    margin-bottom:9px;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    background:#fff;
+}
+
+.faq-question{
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px;
+
+    border:0;
+
+    background:#fff;
+
+    color:var(--forest);
+
+    text-align:left;
+
+    font-size:10px;
+    font-weight:700;
+}
+
+.faq-question span{
+    transition:.3s;
+}
+
+.faq-answer{
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:.3s;
+}
+
+.faq-answer p{
+    padding:0 16px 16px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.8;
+}
+
+.faq-item.open .faq-answer{
+    max-height:150px;
+}
+
+.faq-item.open .faq-question span{
+    transform:rotate(45deg);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    padding:65px 0 22px;
+
+    background:var(--forest-dark);
+
+    color:#fff;
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap:45px;
+}
+
+.footer .logo-name{
+    color:#fff;
+}
+
+.footer-description{
+    max-width:310px;
+
+    margin-top:16px;
+
+    color:#99B0A7;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+.footer-title{
+    margin-bottom:16px;
+
+    color:#fff;
+
+    font-size:11px;
+    font-weight:700;
+}
+
+.footer-links{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.footer-links a{
+    color:#98AFA6;
+
+    font-size:10px;
+
+    transition:.2s;
+}
+
+.footer-links a:hover{
+    color:#fff;
+}
+
+.newsletter{
+    display:flex;
+
+    gap:5px;
+}
+
+.newsletter input{
+    min-width:0;
+    flex:1;
+
+    height:38px;
+
+    padding:0 10px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:rgba(255,255,255,.05);
+
+    color:#fff;
+
+    font-size:9px;
+}
+
+.newsletter button{
+    width:40px;
+    height:38px;
+
+    border:0;
+
+    border-radius:9px;
+
+    background:var(--coral);
+
+    color:#fff;
+}
+
+.footer-bottom{
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:45px;
+
+    padding-top:18px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:#748C82;
+
+    font-size:8px;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal-overlay{
+    position:fixed;
+
+    inset:0;
+
+    z-index:3000;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    background:rgba(5,25,20,.58);
+
+    backdrop-filter:blur(8px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s;
+}
+
+.modal-overlay.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal{
+    width:min(540px,100%);
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:var(--cream-light);
+
+    box-shadow:var(--shadow);
+
+    transform:translateY(20px);
+
+    transition:.3s;
+}
+
+.modal-overlay.show .modal{
+    transform:translateY(0);
+}
+
+.modal-header{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+}
+
+.modal-header h3{
+    color:var(--forest);
+
+    font-size:28px;
+}
+
+.close-modal{
+    width:35px;
+    height:35px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#EAE3D7;
+}
+
+.modal-subtitle{
+    margin-top:8px;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.7;
+}
+
+.modal-form{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.modal-group{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+}
+
+.modal-group.full{
+    grid-column:1/-1;
+}
+
+.modal-group label{
+    color:var(--forest);
+
+    font-size:9px;
+
+    font-weight:700;
+}
+
+.modal-group input,
+.modal-group select,
+.modal-group textarea{
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid var(--border);
+
+    border-radius:11px;
+
+    outline:none;
+
+    background:#fff;
+
+    font-size:9px;
+}
+
+.modal-group textarea{
+    height:70px;
+
+    resize:none;
+}
+
+.submit-adoption{
+    width:100%;
+
+    margin-top:15px;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+.toast{
+    position:fixed;
+
+    left:50%;
+    bottom:25px;
+
+    z-index:5000;
+
+    padding:12px 18px;
+
+    border-radius:12px;
+
+    background:var(--forest-dark);
+
+    color:#fff;
+
+    font-size:10px;
+
+    box-shadow:var(--shadow);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translate(-50%,20px);
+
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+    visibility:visible;
+
+    transform:translate(-50%,0);
+}
+
+
+/* =========================================================
+   BACK TOP
+========================================================= */
+
+.back-top{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    z-index:900;
+
+    width:40px;
+    height:40px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:var(--forest);
+
+    color:#fff;
+
+    box-shadow:var(--shadow-soft);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.25s;
+}
+
+.back-top.show{
+    opacity:1;
+    visibility:visible;
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(25px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+    .nav-links{
+        gap:12px;
+    }
+
+    .nav-link{
+        font-size:9px;
+    }
+
+    .pet-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:900px){
+
+    .menu-btn{
+        display:grid;
+        place-items:center;
+    }
+
+    .nav-links{
+        position:fixed;
+
+        left:0;
+        right:0;
+        top:116px;
+
+        padding:18px 20px 25px;
+
+        background:rgba(255,253,248,.98);
+
+        backdrop-filter:blur(20px);
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:0;
+
+        transform:translateY(-15px);
+
+        opacity:0;
+        visibility:hidden;
+
+        box-shadow:
+            0 20px 35px
+            rgba(18,63,50,.12);
+
+        transition:.3s;
+    }
+
+    .nav-links.open{
+        transform:translateY(0);
+
+        opacity:1;
+
+        visibility:visible;
+    }
+
+    .nav-link{
+        padding:14px 5px;
+
+        border-bottom:1px solid var(--border);
+    }
+
+    .nav-link.active::after{
+        display:none;
+    }
+
+    .cart-nav{
+        margin-top:13px;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+    }
+
+    .hero-copy{
+        padding-top:55px;
+    }
+
+    .hero-visual{
+        height:410px;
+    }
+
+    .hero-image{
+        height:380px;
+    }
+
+    .story-box{
+        grid-template-columns:1fr;
+    }
+
+    .story-image{
+        min-height:330px;
+    }
+
+    .final-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    .container{
+        width:calc(100% - 28px);
+    }
+
+    .top-info:nth-child(2){
+        display:none;
+    }
+
+    .topbar-inner{
+        justify-content:center;
+    }
+
+    .hero h1{
+        font-size:47px;
+    }
+
+    .hero-visual{
+        height:350px;
+    }
+
+    .hero-image{
+        width:94%;
+        height:325px;
+    }
+
+    .filter-bar{
+        flex-direction:column;
+    }
+
+    .filter-select{
+        width:100%;
+    }
+
+    .pet-grid{
+        grid-template-columns:1fr;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .resource-grid{
+        grid-template-columns:1fr;
+    }
+
+    .story-copy{
+        padding:30px;
+    }
+
+    .story-copy h2{
+        font-size:35px;
+    }
+
+    .final-cta{
+        padding:30px;
+    }
+
+    .final-cta h2{
+        font-size:35px;
+    }
+
+    .modal-form{
+        grid-template-columns:1fr;
+    }
+
+    .modal-group.full{
+        grid-column:auto;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+
+        gap:30px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        gap:10px;
+    }
+}
+
+/* =========================================================
+   UTILITY BAR
+========================================================= */
+
+        .utility-bar {
+
+            height: var(--utility-height);
+
+            background: var(--forest-dark);
+
+            color: #e8f2ed;
+
+            position: relative;
+
+            z-index: 1100;
+
+        }
+
+
+        .utility-inner {
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+        }
+
+
+        .utility-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            white-space: nowrap;
+
+            font-size: 11px;
+
+            color: #dcebe4;
+
+        }
+
+
+        .live-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            background: #6ce0ae;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px rgba(108, 224, 174, .8);
+
+            animation: pulse 2s infinite;
+
+        }
+
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .55;
+                transform: scale(.75);
+            }
+
+        }
+
+
+        /* =========================================================
+   NAVBAR
+========================================================= */
+
+        .site-header {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            height: var(--nav-height);
+
+            background:
+                rgba(255, 250, 242, .96);
+
+            backdrop-filter: blur(18px);
+
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(18, 63, 50, .09);
+
+            box-shadow:
+                0 5px 25px rgba(18, 63, 50, .04);
+
+        }
+
+
+        .site-header.scrolled {
+
+            background:
+                rgba(255, 250, 242, .985);
+
+            box-shadow:
+                0 8px 30px rgba(18, 63, 50, .09);
+
+        }
+
+
+        .nav-inner {
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+        }
+
+
+        /* =========================================================
+   BRAND
+========================================================= */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .brand-mark {
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 14px;
+
+            background: var(--forest);
+
+            color: white;
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 21px;
+
+            box-shadow:
+                0 8px 22px rgba(18, 63, 50, .2);
+
+        }
+
+
+        .brand-text {
+            line-height: 1;
+        }
+
+
+        .brand-name {
+
+            font-family: "Playfair Display", serif;
+
+            font-weight: 700;
+
+            font-size: 25px;
+
+            color: var(--forest);
+
+        }
+
+
+        .brand-tagline {
+
+            display: block;
+
+            margin-top: 5px;
+
+            font-size: 10px;
+
+            letter-spacing: .7px;
+
+            color: #718079;
+
+        }
+
+
+        /* =========================================================
+   NAV
+========================================================= */
+
+        .nav-menu {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 22px;
+
+            height: 100%;
+
+        }
+
+
+        .nav-link {
+
+            position: relative;
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            color: #34453f;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            transition: .25s;
+
+        }
+
+
+        /*
+   IMPORTANT:
+   No underline for Pet Care or any inner page.
+   Only Home has the static homepage indicator.
+*/
+
+        .nav-link.home-active {
+
+            color: var(--forest);
+
+        }
+
+
+        .nav-link.home-active::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 17px;
+
+            height: 2px;
+
+            background: var(--coral);
+
+            border-radius: 20px;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: var(--forest);
+
+        }
+
+
+        .primary-btn {
+
+            border: 0;
+
+            background: var(--forest);
+
+            color: white;
+
+            padding: 13px 19px;
+
+            border-radius: 14px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 10px 25px rgba(18, 63, 50, .18);
+
+            transition: .25s;
+
+        }
+
+
+        .primary-btn:hover {
+
+            background: var(--forest-dark);
+
+            transform: translateY(-2px);
+
+        }
+
+
+        .mobile-toggle {
+
+            width: 43px;
+
+            height: 43px;
+
+            display: none;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 13px;
+
+            background: white;
+
+            color: var(--forest);
+
+            font-size: 21px;
+
+        }
+
+
+        
+/* =========================================================
+   TICKER
+========================================================= */
+
+        .ticker {
+
+            overflow: hidden;
+
+            background: #dfe9df;
+
+            border-top:
+                1px solid var(--border);
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+
+        .ticker-track {
+
+            display: flex;
+
+            width: max-content;
+
+            animation:
+                tickerMove 30s linear infinite;
+
+        }
+
+
+        .ticker-item {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                13px 32px;
+
+            color: var(--forest);
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+
+        }
+
+
+        @keyframes tickerMove {
+
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+
+        }
+
+
+        /* =========================================================
+   FOOTER
+========================================================= */
+
+        .footer {
+
+            background: var(--forest-dark);
+
+            color: #dce8e2;
+
+            padding:
+                70px 0 24px;
+
+        }
+
+
+        .footer-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+        }
+
+
+        .footer-description {
+
+            max-width: 310px;
+
+            color: #9eb4ab;
+
+            font-size: 14px;
+
+            line-height: 1.75;
+
+            margin-top: 17px;
+
+        }
+
+
+        .footer-title {
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 11px;
+
+        }
+
+
+        .footer-links a {
+
+            color: #9eb4ab;
+
+            font-size: 15px;
+
+            transition: .2s;
+
+        }
+
+
+        .footer-links a:hover {
+
+            color: white;
+
+            transform: translateX(2px);
+
+        }
+
+
+        .footer-visitors {
+
+            font-size: 31px;
+
+            font-weight: 700;
+
+            color: white;
+
+        }
+
+
+        .footer-location {
+
+            color: #9eb4ab;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            margin-top: 8px;
+
+        }
+
+
+        .footer-bottom {
+
+            margin-top: 50px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid rgba(255, 255, 255, .09);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: #81978e;
+
+            font-size: 15px;
+
+        }
+
+
+        
+/* =========================================================
+   SHARED HOME HEADER / TICKER / FOOTER RESPONSIVE OVERRIDES
+========================================================= */
+
+.utility-bar .container,
+.site-header .container,
+.footer .container{
+    width:min(1200px,calc(100% - 48px));
+    margin:0 auto;
+}
+
+@media(max-width:1100px){
+    .site-header .nav-menu{gap:15px;}
+    .site-header .nav-link{font-size:12px;}
+    .footer .footer-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:900px){
+    .mobile-toggle{display:grid;place-items:center;}
+
+    .site-header .nav-menu{
+        position:fixed;
+        top:calc(var(--utility-height) + var(--nav-height));
+        left:0;
+        right:0;
+        height:auto;
+        max-height:calc(100vh - 115px);
+        overflow-y:auto;
+        padding:22px;
+        background:rgba(255,250,242,.985);
+        backdrop-filter:blur(20px);
+        -webkit-backdrop-filter:blur(20px);
+        border-bottom:1px solid var(--border);
+        box-shadow:0 20px 35px rgba(18,63,50,.10);
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        justify-content:flex-start;
+        gap:0;
+        transform:translateY(-20px);
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none;
+        transition:transform .3s ease,opacity .3s ease,visibility .3s ease;
+    }
+
+    .site-header .nav-menu.open{
+        transform:translateY(0);
+        opacity:1;
+        visibility:visible;
+        pointer-events:auto;
+    }
+
+    .site-header .nav-link{
+        width:100%;
+        height:auto;
+        min-height:48px;
+        padding:10px 4px;
+        border-bottom:1px solid rgba(18,63,50,.07);
+    }
+
+    .site-header .nav-link.home-active::after{display:none;}
+
+    .site-header .nav-link.home-active{
+        color:var(--forest);
+        background:rgba(63,151,142,.07);
+        border-radius:10px;
+        padding-left:12px;
+    }
+
+    .site-header .nav-menu .primary-btn{
+        margin-top:15px;
+        width:100%;
+    }
+}
+
+@media(max-width:700px){
+    :root{
+        --utility-height:36px;
+        --nav-height:70px;
+    }
+
+    .utility-item{font-size:9px;}
+
+    .utility-item:nth-child(2),
+    .utility-item:nth-child(3){display:none;}
+
+    .utility-inner{justify-content:center;}
+
+    .footer .footer-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .footer .footer-bottom{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .utility-bar .container,
+    .site-header .container,
+    .footer .container{
+        width:min(calc(100% - 30px),560px);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     TOP UTILITY BAR
+===================================================== -->
+
+    <div class="utility-bar">
+
+        <div class="container utility-inner">
+
+            <div class="utility-item">
+                📍 Vancouver, BC, Canada
+            </div>
+
+            <div class="utility-item">
+
+                🕒
+
+                <span id="liveClock">
+                    Loading...
+                </span>
+
+            </div>
+
+            <div class="utility-item">
+
+                🐾
+
+                Pet Care Tip:
+                Fresh water keeps tails wagging!
+
+            </div>
+
+            <div class="utility-item">
+
+                <span class="live-dot"></span>
+
+                <span id="topVisitors">
+                    1,248
+                </span>
+
+                visitors online
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+    <header class="site-header" id="siteHeader">
+
+        <div class="container nav-inner">
+
+
+            <a href="index.html" class="brand">
+
+                <div class="brand-mark">
+                    🐾
+                </div>
+
+                <div class="brand-text">
+
+                    <div class="brand-name">
+                        FurEver Care
+                    </div>
+
+                    <span class="brand-tagline">
+                        THEY DESERVE FOREVER LOVE.
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false">
+                ☰
+            </button>
+
+
+            <nav class="nav-menu" id="navMenu">
+
+                <!-- ONLY HOME HAS THE HOMEPAGE INDICATOR -->
+
+                <a href="index.html" class="nav-link">
+                    Home
+                </a>
+
+
+                <!-- NO ACTIVE CLASS / NO UNDERLINE -->
+
+                <a href="Pet-Care.html" class="nav-link">
+                    Pet Care
+                </a>
+
+
+                <a href="Pet-Products.html" class="nav-link">
+                    Pet Products
+                </a>
+
+
+                <a href="Veterinarian.html" class="nav-link">
+                    Veterinarian
+                </a>
+
+
+                <a href="Adoption.html" class="nav-link  home-active">
+                    Adoption
+                </a>
+
+
+                <a href="Emergency.html" class="nav-link">
+                    Emergency
+                </a>
+
+
+                <a href="About.html" class="nav-link">
+                    About Us
+                </a>
+
+
+                <a href="Contact.html" class="nav-link">
+                    Contact
+                </a>
+
+
+                <button class="primary-btn" onclick="goToWelcome()">
+                    Get Started 🐾
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+<!-- =========================================================
+   MAIN
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+   1. HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="container hero-inner">
+
+
+        <div class="hero-copy reveal">
+
+            <div class="eyebrow">
+                ✦ Find A Forever Friend
+            </div>
+
+            <h1>
+                Every Pet
+                <br>
+                Deserves a
+                <span>Home.</span>
+            </h1>
+
+            <p class="hero-text">
+                Discover loving pets waiting for their forever
+                family and take the first step toward a
+                meaningful new connection.
+            </p>
+
+            <div class="hero-actions">
+
+                <button
+                    class="btn btn-primary"
+                    id="findMatchHero"
+                >
+                    Find My Match →
+                </button>
+
+                <button
+                    class="btn btn-light"
+                    id="learnHero"
+                >
+                    How Adoption Works
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual reveal">
+
+            <img
+                class="hero-image"
+                src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=1100&q=90"
+                alt="Happy adopted pets"
+            >
+
+            <div class="hero-card one">
+
+                <div class="hero-card-label">
+                    This Month
+                </div>
+
+                <span class="hero-card-title">
+                    86 Pets Found Homes
+                </span>
+
+            </div>
+
+
+            <div class="hero-card two">
+
+                <div class="hero-card-label">
+                    Community
+                </div>
+
+                <span class="hero-card-title">
+                    32 Rescue Partners
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+   2. FIND YOUR MATCH
+========================================================= -->
+
+<section
+    class="section matches"
+    id="matches"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                ✦ Meet Your Match
+            </div>
+
+            <h2>
+                Maybe Your Best Friend
+                Is Waiting Here.
+            </h2>
+
+            <p>
+                Explore pets based on species,
+                age and personality.
+            </p>
+
+        </div>
+
+
+        <div class="filter-bar reveal">
+
+            <div class="search-box">
+
+                <span>
+                    🔎
+                </span>
+
+                <input
+                    type="search"
+                    id="petSearch"
+                    placeholder="Search by pet name or personality..."
+                >
+
+            </div>
+
+
+            <select
+                class="filter-select"
+                id="speciesFilter"
+            >
+
+                <option value="all">
+                    All Pets
+                </option>
+
+                <option value="dog">
+                    Dogs
+                </option>
+
+                <option value="cat">
+                    Cats
+                </option>
+
+            </select>
+
+
+            <select
+                class="filter-select"
+                id="ageFilter"
+            >
+
+                <option value="all">
+                    Any Age
+                </option>
+
+                <option value="young">
+                    Young
+                </option>
+
+                <option value="adult">
+                    Adult
+                </option>
+
+                <option value="senior">
+                    Senior
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div
+            class="pet-grid"
+            id="petGrid"
+        >
+
+
+            <!-- PET 1 -->
+
+            <article
+                class="pet-card reveal"
+                data-species="dog"
+                data-age="young"
+                data-search="buddy dog playful friendly young"
+            >
+
+                <div class="pet-image-wrap">
+
+                    <span class="pet-badge">
+                        NEW ARRIVAL
+                    </span>
+
+                    <button class="pet-favorite">
+                        ♡
+                    </button>
+
+                    <img
+                        class="pet-image"
+                        src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=90"
+                        alt="Buddy the dog"
+                    >
+
+                </div>
+
+
+                <div class="pet-body">
+
+                    <div class="pet-type">
+                        DOG · YOUNG
+                    </div>
+
+                    <h3 class="pet-name">
+                        Buddy
+                    </h3>
+
+                    <div class="pet-meta">
+                        <span>♂ Male</span>
+                        <span>2 Years</span>
+                        <span>Medium</span>
+                    </div>
+
+                    <p class="pet-description">
+                        Playful, affectionate and always
+                        ready for his next adventure.
+                    </p>
+
+                    <div class="pet-actions">
+
+                        <button
+                            class="btn btn-primary adopt-btn"
+                            data-pet="Buddy"
+                        >
+                            Meet Buddy
+                        </button>
+
+                        <button
+                            class="btn btn-light details-btn"
+                            data-pet="Buddy"
+                        >
+                            Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PET 2 -->
+
+            <article
+                class="pet-card reveal"
+                data-species="cat"
+                data-age="young"
+                data-search="luna cat gentle calm young"
+            >
+
+                <div class="pet-image-wrap">
+
+                    <span class="pet-badge">
+                        READY TO GO HOME
+                    </span>
+
+                    <button class="pet-favorite">
+                        ♡
+                    </button>
+
+                    <img
+                        class="pet-image"
+                        src="https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=800&q=90"
+                        alt="Luna the cat"
+                    >
+
+                </div>
+
+
+                <div class="pet-body">
+
+                    <div class="pet-type">
+                        CAT · YOUNG
+                    </div>
+
+                    <h3 class="pet-name">
+                        Luna
+                    </h3>
+
+                    <div class="pet-meta">
+                        <span>♀ Female</span>
+                        <span>1 Year</span>
+                        <span>Small</span>
+                    </div>
+
+                    <p class="pet-description">
+                        Gentle and curious with a calm,
+                        loving personality.
+                    </p>
+
+                    <div class="pet-actions">
+
+                        <button
+                            class="btn btn-primary adopt-btn"
+                            data-pet="Luna"
+                        >
+                            Meet Luna
+                        </button>
+
+                        <button
+                            class="btn btn-light details-btn"
+                            data-pet="Luna"
+                        >
+                            Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PET 3 -->
+
+            <article
+                class="pet-card reveal"
+                data-species="dog"
+                data-age="adult"
+                data-search="max dog loyal energetic adult"
+            >
+
+                <div class="pet-image-wrap">
+
+                    <span class="pet-badge">
+                        LOOKING FOR FAMILY
+                    </span>
+
+                    <button class="pet-favorite">
+                        ♡
+                    </button>
+
+                    <img
+                        class="pet-image"
+                        src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=800&q=90"
+                        alt="Max the dog"
+                    >
+
+                </div>
+
+
+                <div class="pet-body">
+
+                    <div class="pet-type">
+                        DOG · ADULT
+                    </div>
+
+                    <h3 class="pet-name">
+                        Max
+                    </h3>
+
+                    <div class="pet-meta">
+                        <span>♂ Male</span>
+                        <span>4 Years</span>
+                        <span>Large</span>
+                    </div>
+
+                    <p class="pet-description">
+                        Loyal, energetic and happiest when
+                        he has people around him.
+                    </p>
+
+                    <div class="pet-actions">
+
+                        <button
+                            class="btn btn-primary adopt-btn"
+                            data-pet="Max"
+                        >
+                            Meet Max
+                        </button>
+
+                        <button
+                            class="btn btn-light details-btn"
+                            data-pet="Max"
+                        >
+                            Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PET 4 -->
+
+            <article
+                class="pet-card reveal"
+                data-species="cat"
+                data-age="adult"
+                data-search="olive cat affectionate quiet adult"
+            >
+
+                <div class="pet-image-wrap">
+
+                    <span class="pet-badge">
+                        CALM COMPANION
+                    </span>
+
+                    <button class="pet-favorite">
+                        ♡
+                    </button>
+
+                    <img
+                        class="pet-image"
+                        src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=800&q=90"
+                        alt="Olive the cat"
+                    >
+
+                </div>
+
+
+                <div class="pet-body">
+
+                    <div class="pet-type">
+                        CAT · ADULT
+                    </div>
+
+                    <h3 class="pet-name">
+                        Olive
+                    </h3>
+
+                    <div class="pet-meta">
+                        <span>♀ Female</span>
+                        <span>3 Years</span>
+                        <span>Small</span>
+                    </div>
+
+                    <p class="pet-description">
+                        Affectionate, quiet and happiest
+                        curled up beside her favorite person.
+                    </p>
+
+                    <div class="pet-actions">
+
+                        <button
+                            class="btn btn-primary adopt-btn"
+                            data-pet="Olive"
+                        >
+                            Meet Olive
+                        </button>
+
+                        <button
+                            class="btn btn-light details-btn"
+                            data-pet="Olive"
+                        >
+                            Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PET 5 -->
+
+            <article
+                class="pet-card reveal"
+                data-species="dog"
+                data-age="senior"
+                data-search="charlie dog senior gentle loving"
+            >
+
+                <div class="pet-image-wrap">
+
+                    <span class="pet-badge">
+                        SENIOR SWEETHEART
+                    </span>
+
+                    <button class="pet-favorite">
+                        ♡
+                    </button>
+
+                    <img
+                        class="pet-image"
+                        src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=90"
+                        alt="Charlie the dog"
+                    >
+
+                </div>
+
+
+                <div class="pet-body">
+
+                    <div class="pet-type">
+                        DOG · SENIOR
+                    </div>
+
+                    <h3 class="pet-name">
+                        Charlie
+                    </h3>
+
+                    <div class="pet-meta">
+                        <span>♂ Male</span>
+                        <span>8 Years</span>
+                        <span>Medium</span>
+                    </div>
+
+                    <p class="pet-description">
+                        A gentle soul who would love
+                        a peaceful home and plenty of love.
+                    </p>
+
+                    <div class="pet-actions">
+
+                        <button
+                            class="btn btn-primary adopt-btn"
+                            data-pet="Charlie"
+                        >
+                            Meet Charlie
+                        </button>
+
+                        <button
+                            class="btn btn-light details-btn"
+                            data-pet="Charlie"
+                        >
+                            Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PET 6 -->
+
+            <article
+                class="pet-card reveal"
+                data-species="cat"
+                data-age="senior"
+                data-search="milo cat senior friendly relaxed"
+            >
+
+                <div class="pet-image-wrap">
+
+                    <span class="pet-badge">
+                        LOVING SENIOR
+                    </span>
+
+                    <button class="pet-favorite">
+                        ♡
+                    </button>
+
+                    <img
+                        class="pet-image"
+                        src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=800&q=90"
+                        alt="Milo the cat"
+                    >
+
+                </div>
+
+
+                <div class="pet-body">
+
+                    <div class="pet-type">
+                        CAT · SENIOR
+                    </div>
+
+                    <h3 class="pet-name">
+                        Milo
+                    </h3>
+
+                    <div class="pet-meta">
+                        <span>♂ Male</span>
+                        <span>9 Years</span>
+                        <span>Small</span>
+                    </div>
+
+                    <p class="pet-description">
+                        Relaxed, friendly and ready for
+                        someone who appreciates quiet companionship.
+                    </p>
+
+                    <div class="pet-actions">
+
+                        <button
+                            class="btn btn-primary adopt-btn"
+                            data-pet="Milo"
+                        >
+                            Meet Milo
+                        </button>
+
+                        <button
+                            class="btn btn-light details-btn"
+                            data-pet="Milo"
+                        >
+                            Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <div
+            id="noPets"
+            style="
+                display:none;
+                text-align:center;
+                padding:45px;
+                color:#718078;
+                font-size:11px;
+            "
+        >
+            No pets match your search. Try another filter.
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+   3 — ADOPTION PROCESS
+========================================================= -->
+
+<section class="section process">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                ✦ Simple & Meaningful
+            </div>
+
+            <h2>
+                Your Adoption Journey,
+                Made Simple.
+            </h2>
+
+            <p>
+                We make it easier to move from
+                finding a pet to welcoming them home.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <article class="process-card reveal">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Find Your Match
+                </h3>
+
+                <p>
+                    Explore available pets and discover
+                    personalities that fit your lifestyle,
+                    family and home.
+                </p>
+
+            </article>
+
+
+            <article class="process-card reveal">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    Meet & Connect
+                </h3>
+
+                <p>
+                    Arrange a meeting with your potential
+                    new companion and spend time getting
+                    to know one another.
+                </p>
+
+            </article>
+
+
+            <article class="process-card reveal">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    Bring Them Home
+                </h3>
+
+                <p>
+                    Complete the adoption process and
+                    prepare for a new chapter filled with
+                    companionship and love.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+   4 — RESCUE STORY
+========================================================= -->
+
+<section class="section story">
+
+    <div class="container">
+
+        <div class="story-box reveal">
+
+
+            <div class="story-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1601758124510-52d02ddb7cbd?auto=format&fit=crop&w=1000&q=90"
+                    alt="Rescue pets"
+                >
+
+            </div>
+
+
+            <div class="story-copy">
+
+                <div class="eyebrow">
+                    ✦ Our Adoption Mission
+                </div>
+
+                <h2>
+                    More Than
+                    An Adoption.
+                </h2>
+
+                <p>
+                    Every adoption creates a connection
+                    that can change two lives. FurEver Care
+                    brings caring families and rescue
+                    organizations closer together so more
+                    pets can find safe, loving homes.
+                </p>
+
+
+                <div class="story-stats">
+
+                    <div class="story-stat">
+
+                        <strong>
+                            1,240+
+                        </strong>
+
+                        <span>
+                            Successful Matches
+                        </span>
+
+                    </div>
+
+
+                    <div class="story-stat">
+
+                        <strong>
+                            32
+                        </strong>
+
+                        <span>
+                            Rescue Partners
+                        </span>
+
+                    </div>
+
+
+                    <div class="story-stat">
+
+                        <strong>
+                            94%
+                        </strong>
+
+                        <span>
+                            Happy Families
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+   5 — RESOURCES
+========================================================= -->
+
+<section class="section resources">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                ✦ Prepare For Forever
+            </div>
+
+            <h2>
+                Before You Bring
+                Them Home.
+            </h2>
+
+            <p>
+                Helpful resources to make the transition
+                comfortable for both you and your new pet.
+            </p>
+
+        </div>
+
+
+        <div class="resource-grid">
+
+
+            <article class="resource-card reveal">
+
+                <div class="resource-icon">
+                    🏠
+                </div>
+
+                <h3>
+                    Prepare Your Home
+                </h3>
+
+                <p>
+                    Create a safe, comfortable environment
+                    with the essentials your new companion
+                    will need from day one.
+                </p>
+
+                <a
+                    href="#"
+                    class="resource-link"
+                    data-resource="Home Preparation Guide"
+                >
+                    Explore Guide →
+                </a>
+
+                <div class="resource-decoration">
+                    🏠
+                </div>
+
+            </article>
+
+
+            <article class="resource-card reveal">
+
+                <div class="resource-icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    Building Trust
+                </h3>
+
+                <p>
+                    Learn how patience, routine and positive
+                    interactions can help a newly adopted pet
+                    feel safe and loved.
+                </p>
+
+                <a
+                    href="#"
+                    class="resource-link"
+                    data-resource="Building Trust Guide"
+                >
+                    Explore Guide →
+                </a>
+
+                <div class="resource-decoration">
+                    ❤️
+                </div>
+
+            </article>
+
+
+            <article class="resource-card reveal">
+
+                <div class="resource-icon">
+                    🐾
+                </div>
+
+                <h3>
+                    First 30 Days
+                </h3>
+
+                <p>
+                    A simple framework for creating routines,
+                    introducing your pet to the family and
+                    starting your new life together.
+                </p>
+
+                <a
+                    href="#"
+                    class="resource-link"
+                    data-resource="First 30 Days Guide"
+                >
+                    Explore Guide →
+                </a>
+
+                <div class="resource-decoration">
+                    🐾
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+   6 — CTA + FAQ
+========================================================= -->
+
+<section class="final">
+
+    <div class="container">
+
+
+        <div class="final-grid">
+
+
+            <div class="final-cta reveal">
+
+                <h2>
+                    Maybe Your
+                    Forever Friend
+                    Is Waiting.
+                </h2>
+
+                <p>
+                    Take the first step toward giving a
+                    deserving pet the loving home they have
+                    been waiting for.
+                </p>
+
+                <button
+                    class="btn btn-coral"
+                    id="finalMatch"
+                >
+                    Start Finding Your Match →
+                </button>
+
+            </div>
+
+
+            <div class="reveal">
+
+                <h3 class="faq-title">
+                    Adoption Questions
+                </h3>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        How does the adoption process work?
+
+                        <span>+</span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Browse available pets, choose
+                            one that fits your lifestyle,
+                            meet them, and then complete
+                            the adoption process with the
+                            appropriate rescue organization.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        Can I meet a pet before adopting?
+
+                        <span>+</span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Yes. Meeting a potential pet
+                            before adoption is an important
+                            part of understanding whether
+                            you are a good match.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        What should I prepare before adoption?
+
+                        <span>+</span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Prepare food, bedding, identification,
+                            basic supplies and a safe space where
+                            your new pet can comfortably settle in.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <button class="faq-question">
+
+                        Can families with children adopt?
+
+                        <span>+</span>
+
+                    </button>
+
+                    <div class="faq-answer">
+
+                        <p>
+                            Many pets can be wonderful family
+                            companions. Always consider the
+                            individual pet's personality,
+                            history and household needs.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     TICKER
+===================================================== -->
+
+    <div class="ticker">
+
+        <div class="ticker-track">
+
+
+            <div class="ticker-item">
+
+                📍 Vancouver, BC, Canada
+
+            </div>
+
+
+            <div class="ticker-item">
+
+                🕒
+                <span class="ticker-clock"></span>
+
+            </div>
+
+
+            <div class="ticker-item">
+
+                🐾
+                Pet Care Update:
+                Fresh water keeps tails wagging!
+
+            </div>
+
+
+            <div class="ticker-item">
+
+                ❤️
+                FurEver Care —
+                They Deserve Forever Love.
+
+            </div>
+
+
+            <div class="ticker-item">
+
+                📍 Vancouver, BC, Canada
+
+            </div>
+
+
+            <div class="ticker-item">
+
+                🕒
+                <span class="ticker-clock"></span>
+
+            </div>
+
+
+            <div class="ticker-item">
+
+                🐾
+                Pet Care Update:
+                Fresh water keeps tails wagging!
+
+            </div>
+
+
+            <div class="ticker-item">
+
+                ❤️
+                FurEver Care —
+                They Deserve Forever Love.
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+
+            <div class="footer-grid">
+
+
+                <div>
+
+                    <a href="index.html" class="brand">
+
+                        <div class="brand-mark">
+                            🐾
+                        </div>
+
+
+                        <div class="brand-text">
+
+                            <div class="brand-name" style="color:white">
+                                FurEver Care
+                            </div>
+
+
+                            <span class="brand-tagline" style="color:#9eb4ab">
+                                THEY DESERVE FOREVER LOVE.
+                            </span>
+
+                        </div>
+
+                    </a>
+
+
+                    <p class="footer-description">
+
+                        A modern pet-care platform
+                        connecting pet parents,
+                        professionals and communities
+                        to create healthier lives
+                        for every pet.
+
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Quick Links
+                    </div>
+
+
+                    <div class="footer-links">
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                        <a href="Pet-Care.html" onclick="demoLink(event)">
+                            Pet Care
+                        </a>
+
+                        <a href="Pet-Products.html" onclick="demoLink(event)">
+                            Pet Products
+                        </a>
+
+                        <a href="Veterinarian.html" onclick="demoLink(event)">
+                            Veterinarian
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Explore
+                    </div>
+
+
+                    <div class="footer-links">
+
+                        <a href="Adoption.html" onclick="demoLink(event)">
+                            Adoption
+                        </a>
+
+                        <a href="Emergency.html" onclick="demoLink(event)">
+                            Emergency
+                        </a>
+
+                        <a href="About.html" onclick="demoLink(event)">
+                            About Us
+                        </a>
+
+                        <a href="Contact.html" onclick="demoLink(event)">
+                            Contact
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="footer-title">
+                        Live Visitors
+                    </div>
+
+
+                    <small style="
+                    color:#9eb4ab;
+                    font-size:15px;
+                    ">
+
+                        people exploring FurEver Care
+
+                    </small>
+
+
+                    <div class="footer-location">
+
+                        📍 Vancouver, BC, Canada
+
+                        <br>
+
+                        ✉ hello@furevercare.com
+
+                        <br>
+
+                        ☎ +1 (604) 555-0188
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+
+                    © 2026 FurEver Care.
+                    All rights reserved.
+
+                </span>
+
+
+                <span>
+
+                    <a href="Privacy.html">Privacy Policy</a> 
+                    &nbsp; | &nbsp;
+
+                    <a href="Terms.html">Terms of Service</a> 
+                    &nbsp; | &nbsp;
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+<!-- =========================================================
+   ADOPTION MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="modalOverlay"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <h3>
+                Start Your Adoption
+            </h3>
+
+            <button
+                class="close-modal"
+                id="closeModal"
+            >
+                ✕
+            </button>
+
+        </div>
+
+        <p class="modal-subtitle">
+            Tell us a little about yourself and we'll
+            help you take the next step with this pet.
+        </p>
+
+
+        <div class="modal-form">
+
+
+            <div class="modal-group">
+
+                <label>
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="applicantName"
+                    placeholder="Full name"
+                >
+
+            </div>
+
+
+            <div class="modal-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="applicantEmail"
+                    placeholder="you@example.com"
+                >
+
+            </div>
+
+
+            <div class="modal-group">
+
+                <label>
+                    Phone
+                </label>
+
+                <input
+                    type="tel"
+                    id="applicantPhone"
+                    placeholder="Phone number"
+                >
+
+            </div>
+
+
+            <div class="modal-group">
+
+                <label>
+                    Home Type
+                </label>
+
+                <select id="homeType">
+
+                    <option value="">
+                        Select
+                    </option>
+
+                    <option>
+                        House
+                    </option>
+
+                    <option>
+                        Apartment
+                    </option>
+
+                    <option>
+                        Condo
+                    </option>
+
+                    <option>
+                        Townhouse
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="modal-group full">
+
+                <label>
+                    Tell Us About Your Home
+                </label>
+
+                <textarea
+                    id="homeDetails"
+                    placeholder="Tell us about your household, other pets, children, lifestyle, etc."
+                ></textarea>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="btn btn-primary submit-adoption"
+            id="submitAdoption"
+        >
+            Submit Adoption Interest →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+   TOAST
+========================================================= -->
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<!-- =========================================================
+   BACK TOP
+========================================================= -->
+
+<button
+    class="back-top"
+    id="backTop"
+>
+    ↑
+</button>
+
+
+<script>
+
+/* Shared homepage CTA behavior on inner pages */
+function goToWelcome(){
+    window.location.href = "index.html#welcome";
+}
+
+function demoLink(event){
+    event.preventDefault();
+}
+
+/* =========================================================
+           LIVE CLOCK
+        ========================================================= */
+
+        function updateClock() {
+
+            const now = new Date();
+
+
+            const formatted =
+                now.toLocaleString(
+                    "en-US",
+                    {
+                        weekday: "short",
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit"
+                    }
+                );
+
+
+            const clock =
+                document.getElementById(
+                    "liveClock"
+                );
+
+
+            if (clock) {
+
+                clock.textContent =
+                    formatted;
+
+            }
+
+
+            document
+                .querySelectorAll(
+                    ".ticker-clock"
+                )
+                .forEach(
+                    element => {
+
+                        element.textContent =
+                            now.toLocaleTimeString(
+                                "en-US"
+                            );
+
+                    }
+                );
+
+        }
+
+
+        updateClock();
+
+
+        setInterval(
+            updateClock,
+            1000
+        );
+
+
+        /* =========================================================
+           HEADER SCROLL
+        ========================================================= */
+
+        const siteHeader =
+            document.getElementById(
+                "siteHeader"
+            );
+
+
+        function handleHeader() {
+
+            if (
+                window.scrollY > 15
+            ) {
+
+                siteHeader.classList.add(
+                    "scrolled"
+                );
+
+            } else {
+
+                siteHeader.classList.remove(
+                    "scrolled"
+                );
+
+            }
+
+        }
+
+
+        window.addEventListener(
+            "scroll",
+            handleHeader,
+            {
+                passive: true
+            }
+        );
+
+
+        handleHeader();
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        const mobileToggle =
+            document.getElementById(
+                "mobileToggle"
+            );
+
+
+        const navMenu =
+            document.getElementById(
+                "navMenu"
+            );
+
+
+        function closeMenu() {
+
+            navMenu.classList.remove(
+                "open"
+            );
+
+
+            mobileToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+
+            mobileToggle.textContent =
+                "☰";
+
+
+            document.body.classList.remove(
+                "menu-open"
+            );
+
+        }
+
+
+        mobileToggle.addEventListener(
+            "click",
+            function () {
+
+                const isOpen =
+                    navMenu.classList.contains(
+                        "open"
+                    );
+
+
+                if (isOpen) {
+
+                    closeMenu();
+
+                } else {
+
+                    navMenu.classList.add(
+                        "open"
+                    );
+
+
+                    mobileToggle.setAttribute(
+                        "aria-expanded",
+                        "true"
+                    );
+
+
+                    mobileToggle.textContent =
+                        "✕";
+
+
+                    document.body.classList.add(
+                        "menu-open"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =========================================================
+           CLOSE MENU ON RESIZE
+        ========================================================= */
+
+        window.addEventListener(
+            "resize",
+            function () {
+
+                if (
+                    window.innerWidth > 900
+                ) {
+
+                    closeMenu();
+
+                }
+
+            }
+        );
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+document
+    .getElementById("findMatchHero")
+    .addEventListener("click",()=>{
+
+        document
+            .getElementById("matches")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+    });
+
+
+document
+    .getElementById("learnHero")
+    .addEventListener("click",()=>{
+
+        document
+            .querySelector(".process")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+
+    });
+
+
+/* =========================================================
+   PET FILTER
+========================================================= */
+
+const petSearch =
+    document.getElementById("petSearch");
+
+const speciesFilter =
+    document.getElementById("speciesFilter");
+
+const ageFilter =
+    document.getElementById("ageFilter");
+
+
+petSearch.addEventListener(
+    "input",
+    filterPets
+);
+
+speciesFilter.addEventListener(
+    "change",
+    filterPets
+);
+
+ageFilter.addEventListener(
+    "change",
+    filterPets
+);
+
+
+function filterPets(){
+
+    const query =
+        petSearch.value
+        .toLowerCase()
+        .trim();
+
+    const species =
+        speciesFilter.value;
+
+    const age =
+        ageFilter.value;
+
+
+    const cards =
+        [...document.querySelectorAll(".pet-card")];
+
+    let visible=0;
+
+
+    cards.forEach(card=>{
+
+        const searchText =
+            card.dataset.search;
+
+        const cardSpecies =
+            card.dataset.species;
+
+        const cardAge =
+            card.dataset.age;
+
+
+        const searchMatch =
+            searchText.includes(query);
+
+        const speciesMatch =
+            species==="all" ||
+            cardSpecies===species;
+
+        const ageMatch =
+            age==="all" ||
+            cardAge===age;
+
+
+        if(
+            searchMatch &&
+            speciesMatch &&
+            ageMatch
+        ){
+
+            card.classList.remove("hidden");
+
+            visible++;
+
+        }else{
+
+            card.classList.add("hidden");
+
+        }
+
+    });
+
+
+    document.getElementById(
+        "noPets"
+    ).style.display =
+        visible===0
+        ? "block"
+        : "none";
+
+}
+
+
+/* =========================================================
+   FAVORITES
+========================================================= */
+
+document
+    .querySelectorAll(".pet-favorite")
+    .forEach(button=>{
+
+        button.addEventListener(
+            "click",
+            ()=>{
+
+                button.classList.toggle("active");
+
+
+                if(
+                    button.classList.contains("active")
+                ){
+
+                    button.textContent="♥";
+
+                    showToast(
+                        "Pet saved to your favorites"
+                    );
+
+                }else{
+
+                    button.textContent="♡";
+
+                    showToast(
+                        "Pet removed from favorites"
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   PET DETAILS
+========================================================= */
+
+document
+    .querySelectorAll(".details-btn")
+    .forEach(button=>{
+
+        button.addEventListener(
+            "click",
+            ()=>{
+
+                showToast(
+                    `${button.dataset.pet}'s full profile selected`
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   ADOPTION STATE
+========================================================= */
+
+const modalOverlay = document.getElementById("modalOverlay");
+let selectedPet = "";
+let toastTimer;
+
+
+/* =========================================================
+   ADOPTION BUTTONS
+========================================================= */
+
+document
+    .querySelectorAll(".adopt-btn")
+    .forEach(button=>{
+
+        button.addEventListener(
+            "click",
+            ()=>{
+
+                selectedPet =
+                    button.dataset.pet;
+
+                modalOverlay.classList.add(
+                    "show"
+                );
+
+                document.body.classList.add(
+                    "modal-open"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+document
+    .getElementById("closeModal")
+    .addEventListener(
+        "click",
+        closeModal
+    );
+
+
+modalOverlay.addEventListener(
+    "click",
+    event=>{
+
+        if(
+            event.target ===
+            modalOverlay
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+function closeModal(){
+
+    modalOverlay.classList.remove(
+        "show"
+    );
+
+    document.body.classList.remove(
+        "modal-open"
+    );
+
+}
+
+
+/* =========================================================
+   SUBMIT ADOPTION
+========================================================= */
+
+document
+    .getElementById("submitAdoption")
+    .addEventListener(
+        "click",
+        ()=>{
+
+            const name =
+                document
+                    .getElementById(
+                        "applicantName"
+                    )
+                    .value.trim();
+
+            const email =
+                document
+                    .getElementById(
+                        "applicantEmail"
+                    )
+                    .value.trim();
+
+            const phone =
+                document
+                    .getElementById(
+                        "applicantPhone"
+                    )
+                    .value.trim();
+
+            const home =
+                document
+                    .getElementById(
+                        "homeType"
+                    )
+                    .value;
+
+
+            if(
+                !name ||
+                !email ||
+                !phone ||
+                !home
+            ){
+
+                showToast(
+                    "Please complete the required fields"
+                );
+
+                return;
+
+            }
+
+
+            if(
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                    .test(email)
+            ){
+
+                showToast(
+                    "Please enter a valid email address"
+                );
+
+                return;
+
+            }
+
+
+            closeModal();
+
+
+            showToast(
+                `Adoption interest for ${selectedPet} submitted successfully ✓`
+            );
+
+
+            document
+                .querySelectorAll(
+                    "#applicantName,#applicantEmail,#applicantPhone"
+                )
+                .forEach(input=>{
+                    input.value="";
+                });
+
+
+            document.getElementById(
+                "homeType"
+            ).value="";
+
+            document.getElementById(
+                "homeDetails"
+            ).value="";
+
+        }
+    );
+
+
+/* =========================================================
+   RESOURCE LINKS
+========================================================= */
+
+document
+    .querySelectorAll(".resource-link")
+    .forEach(link=>{
+
+        link.addEventListener(
+            "click",
+            event=>{
+
+                event.preventDefault();
+
+                showToast(
+                    `${link.dataset.resource} selected`
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+document
+    .getElementById("finalMatch")
+    .addEventListener(
+        "click",
+        ()=>{
+
+            document
+                .getElementById("matches")
+                .scrollIntoView({
+                    behavior:"smooth"
+                });
+
+        }
+    );
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+document
+    .querySelectorAll(".faq-question")
+    .forEach(question=>{
+
+        question.addEventListener(
+            "click",
+            ()=>{
+
+                const item =
+                    question.parentElement;
+
+
+                document
+                    .querySelectorAll(".faq-item")
+                    .forEach(other=>{
+
+                        if(other!==item){
+
+                            other.classList.remove(
+                                "open"
+                            );
+
+                        }
+
+                    });
+
+
+                item.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+const newsletterBtn = document.getElementById("newsletterBtn");
+const newsletterEmail = document.getElementById("newsletterEmail");
+
+if (newsletterBtn && newsletterEmail) {
+    newsletterBtn.addEventListener(
+        "click",
+        ()=>{
+
+            const email = newsletterEmail.value.trim();
+
+            if(!email){
+                showToast("Please enter your email");
+                return;
+            }
+
+            if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+                showToast("Please enter a valid email");
+                return;
+            }
+
+            newsletterEmail.value="";
+            showToast("You're subscribed to FurEver Care ✓");
+        }
+    );
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+const cartButton = document.getElementById("cartButton");
+
+if (cartButton) {
+    cartButton.addEventListener(
+        "click",
+        ()=>{
+            showToast("Your cart is available from the Pet Products page");
+        }
+    );
+}
+
+
+/* =========================================================
+           LIVE CLOCK
+        ========================================================= */
+
+        function updateClock() {
+
+            const now = new Date();
+
+
+            const formatted =
+                now.toLocaleString(
+                    "en-US",
+                    {
+                        weekday: "short",
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit"
+                    }
+                );
+
+
+            const clock =
+                document.getElementById(
+                    "liveClock"
+                );
+
+
+            if (clock) {
+
+                clock.textContent =
+                    formatted;
+
+            }
+
+
+            document
+                .querySelectorAll(
+                    ".ticker-clock"
+                )
+                .forEach(
+                    element => {
+
+                        element.textContent =
+                            now.toLocaleTimeString(
+                                "en-US"
+                            );
+
+                    }
+                );
+
+        }
+
+
+        updateClock();
+
+
+        setInterval(
+            updateClock,
+            1000
+        );
+
+/* =========================================================
+           VISITOR COUNTER
+        ========================================================= */
+
+        let visitors =
+            1248;
+
+
+        setInterval(
+            function () {
+
+                visitors +=
+                    Math.floor(
+                        Math.random() * 3
+                    );
+
+
+                const formatted =
+                    visitors.toLocaleString();
+
+
+                const top =
+                    document.getElementById(
+                        "topVisitors"
+                    );
+
+
+                const footer =
+                    document.getElementById(
+                        "footerVisitors"
+                    );
+
+
+                if (top) {
+
+                    top.textContent =
+                        formatted;
+
+                }
+
+
+                if (footer) {
+
+                    footer.textContent =
+                        formatted;
+
+                }
+
+            },
+            7000
+        );
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+    clearTimeout(toastTimer);
+
+    toast.textContent=message;
+
+    toast.classList.add("show");
+
+
+    toastTimer =
+        setTimeout(()=>{
+
+            toast.classList.remove(
+                "show"
+            );
+
+        },2800);
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        entries=>{
+
+            entries.forEach(entry=>{
+
+                if(
+                    entry.isIntersecting
+                ){
+
+                    entry.target.classList.add(
+                        "visible"
+                    );
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold:.12
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element=>{
+
+        observer.observe(element);
+
+    });
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+const backTop =
+    document.getElementById(
+        "backTop"
+    );
+
+
+window.addEventListener(
+    "scroll",
+    ()=>{
+
+        if(
+            window.scrollY>500
+        ){
+
+            backTop.classList.add(
+                "show"
+            );
+
+        }else{
+
+            backTop.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+backTop.addEventListener(
+    "click",
+    ()=>{
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+);
+
+</script>
+
+</body>
+</html>

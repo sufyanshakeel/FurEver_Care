@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FurEver Care | Veterinarian Information</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --forest:#123f32;
+    --forest-dark:#082d24;
+    --teal:#3f978e;
+    --teal-light:#dcefeb;
+    --cream:#f6f0e5;
+    --cream-light:#fffaf2;
+    --beige:#e9dfcf;
+    --coral:#ee7657;
+    --coral-dark:#d95d43;
+    --text:#1d2b27;
+    --muted:#69756f;
+    --white:#fff;
+    --border:rgba(18,63,50,.12);
+    --shadow:0 25px 70px rgba(18,63,50,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"DM Sans",sans-serif;
+    color:var(--text);
+    min-height:100vh;
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(63,151,142,.14),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            var(--cream),
+            var(--cream-light) 55%,
+            var(--beige)
+        );
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+h1,
+h2,
+h3{
+    font-family:"Playfair Display",serif;
+}
+
+
+/* =====================================================
+   UTILITY BAR
+===================================================== */
+
+.utility-bar{
+    height:39px;
+    background:var(--forest-dark);
+    color:#e8f2ed;
+}
+
+.utility-inner{
+    width:min(1200px,calc(100% - 48px));
+    height:100%;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.utility-item{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-size:11px;
+}
+
+.live-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#6ce0ae;
+    box-shadow:0 0 12px rgba(108,224,174,.8);
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.site-header{
+    height:78px;
+    background:rgba(255,250,242,.96);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(18,63,50,.09);
+}
+
+.nav-inner{
+    width:min(1200px,calc(100% - 48px));
+    height:100%;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.brand-mark{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+
+    background:var(--forest);
+    color:white;
+
+    display:grid;
+    place-items:center;
+
+    font-size:21px;
+}
+
+.brand-name{
+    font-family:"Playfair Display",serif;
+    font-size:20px;
+    font-weight:700;
+    color:var(--forest);
+}
+
+.brand-tagline{
+    display:block;
+    margin-top:4px;
+
+    font-size:8px;
+    letter-spacing:.7px;
+    color:#718079;
+}
+
+.back-home{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:11px 15px;
+
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:13px;
+
+    color:var(--forest);
+    font-size:12px;
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.back-home:hover{
+    transform:translateX(-3px);
+    box-shadow:0 12px 30px rgba(18,63,50,.08);
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main{
+    padding:65px 20px 80px;
+}
+
+.container{
+    width:min(1000px,100%);
+    margin:auto;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 35px;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+
+    padding:8px 13px;
+
+    border-radius:100px;
+
+    background:rgba(255,255,255,.72);
+    border:1px solid rgba(18,63,50,.10);
+
+    color:var(--forest);
+
+    font-size:10px;
+    font-weight:800;
+
+    margin-bottom:18px;
+}
+
+.intro h1{
+    color:var(--forest);
+
+    font-size:
+        clamp(40px,6vw,60px);
+
+    line-height:1.04;
+}
+
+.intro h1 span{
+    color:var(--coral);
+}
+
+.intro p{
+    margin-top:15px;
+
+    color:var(--muted);
+
+    font-size:13px;
+    line-height:1.75;
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.progress{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    margin-bottom:30px;
+}
+
+.progress-step{
+    display:flex;
+    align-items:center;
+    gap:7px;
+
+    color:var(--muted);
+
+    font-size:10px;
+    font-weight:700;
+}
+
+.progress-step.active{
+    color:var(--forest);
+}
+
+.progress-number{
+    width:28px;
+    height:28px;
+
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    background:white;
+
+    border:1px solid var(--border);
+}
+
+.progress-step.active .progress-number{
+    background:var(--forest);
+    color:white;
+    border-color:var(--forest);
+}
+
+.progress-line{
+    width:60px;
+    height:1px;
+    background:rgba(18,63,50,.18);
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.form-card{
+    background:var(--cream-light);
+
+    border:7px solid var(--forest);
+
+    border-radius:30px;
+
+    padding:40px;
+
+    box-shadow:var(--shadow);
+}
+
+
+/* =====================================================
+   FORM HEADER
+===================================================== */
+
+.form-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding-bottom:24px;
+    margin-bottom:27px;
+
+    border-bottom:1px solid var(--border);
+}
+
+.form-header h2{
+    color:var(--forest);
+    font-size:29px;
+}
+
+.form-header p{
+    margin-top:7px;
+
+    color:var(--muted);
+
+    font-size:11px;
+    line-height:1.6;
+}
+
+.doctor-icon{
+    width:60px;
+    height:60px;
+
+    border-radius:18px;
+
+    display:grid;
+    place-items:center;
+
+    background:var(--teal-light);
+
+    font-size:29px;
+}
+
+
+/* =====================================================
+   FORM GRID
+===================================================== */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group.full{
+    grid-column:1/-1;
+}
+
+label{
+    margin-bottom:8px;
+
+    color:var(--forest);
+
+    font-size:11px;
+    font-weight:800;
+}
+
+.required{
+    color:var(--coral);
+}
+
+input,
+select,
+textarea{
+    width:100%;
+
+    border:1px solid var(--border);
+    border-radius:12px;
+
+    background:white;
+    color:var(--text);
+
+    outline:none;
+
+    transition:.2s;
+}
+
+input,
+select{
+    height:49px;
+    padding:0 14px;
+}
+
+textarea{
+    min-height:110px;
+    padding:13px 14px;
+    resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--teal);
+
+    box-shadow:
+        0 0 0 4px rgba(63,151,142,.10);
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:#a1aaa6;
+}
+
+
+/* =====================================================
+   SPECIALIZATION
+===================================================== */
+
+.specialization-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.specialization{
+    min-height:70px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    padding:10px;
+
+    background:white;
+
+    border:1px solid var(--border);
+    border-radius:14px;
+
+    color:var(--forest);
+
+    font-size:10px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.specialization:hover{
+    transform:translateY(-2px);
+}
+
+.specialization.selected{
+    background:#edf8f4;
+    border:2px solid var(--teal);
+}
+
+
+/* =====================================================
+   CHECKBOX
+===================================================== */
+
+.checkbox{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+
+    margin-top:5px;
+}
+
+.checkbox input{
+    width:18px;
+    height:18px;
+
+    accent-color:var(--forest);
+
+    margin-top:1px;
+}
+
+.checkbox label{
+    margin:0;
+
+    color:var(--muted);
+
+    font-size:10px;
+    line-height:1.6;
+    font-weight:500;
+}
+
+
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.actions{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:30px;
+    padding-top:24px;
+
+    border-top:1px solid var(--border);
+}
+
+.secondary-btn,
+.primary-btn{
+    border-radius:13px;
+
+    padding:14px 20px;
+
+    font-size:12px;
+    font-weight:800;
+
+    transition:.25s;
+}
+
+.secondary-btn{
+    background:white;
+
+    color:var(--forest);
+
+    border:1px solid var(--border);
+}
+
+.secondary-btn:hover{
+    transform:translateX(-3px);
+}
+
+.primary-btn{
+    background:var(--forest);
+    color:white;
+
+    border:0;
+
+    box-shadow:
+        0 10px 25px rgba(18,63,50,.18);
+}
+
+.primary-btn:hover{
+    background:var(--forest-dark);
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   INFO NOTE
+===================================================== */
+
+.info-note{
+    margin-top:20px;
+
+    padding:13px 15px;
+
+    background:var(--teal-light);
+
+    border-radius:13px;
+
+    color:var(--forest);
+
+    font-size:10px;
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error{
+    border-color:var(--coral)!important;
+}
+
+.error-text{
+    display:none;
+
+    margin-top:5px;
+
+    color:var(--coral-dark);
+
+    font-size:9px;
+    font-weight:700;
+}
+
+.form-group.has-error .error-text{
+    display:block;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    background:var(--forest-dark);
+    color:#dce8e2;
+
+    padding:24px 20px;
+}
+
+.footer-inner{
+    width:min(1000px,100%);
+    margin:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+}
+
+.footer-text{
+    color:#9eb4ab;
+    font-size:10px;
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+.toast{
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    z-index:100;
+
+    padding:13px 16px;
+
+    background:var(--forest-dark);
+    color:white;
+
+    border-radius:12px;
+
+    font-size:10px;
+
+    box-shadow:var(--shadow);
+
+    opacity:0;
+    transform:translateY(15px);
+
+    pointer-events:none;
+
+    transition:.25s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:700px){
+
+    .utility-inner,
+    .nav-inner{
+        width:calc(100% - 30px);
+    }
+
+    .utility-item:nth-child(2){
+        display:none;
+    }
+
+    .main{
+        padding:50px 15px 65px;
+    }
+
+    .form-card{
+        border-width:5px;
+        padding:25px 18px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .form-header{
+        flex-direction:column;
+    }
+
+    .specialization-grid{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column-reverse;
+        align-items:stretch;
+    }
+
+    .actions button{
+        width:100%;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+@media(max-width:480px){
+
+    .brand-name{
+        font-size:18px;
+    }
+
+    .brand-tagline{
+        display:none;
+    }
+
+    .back-home{
+        padding:9px 11px;
+        font-size:10px;
+    }
+
+    .intro h1{
+        font-size:40px;
+    }
+
+    .progress-line{
+        width:25px;
+    }
+
+    .progress-step{
+        font-size:8px;
+    }
+
+}
+
+
+
+/* FORM PAGE — REFINED HEADER / FOOTER START */
+
+/* =====================================================
+   FORM PAGE — REFINED HEADER / FOOTER
+===================================================== */
+
+.utility-bar{
+    height:40px;
+    background:#123F32;
+}
+
+.utility-inner{
+    width:min(1200px,calc(100% - 48px));
+}
+
+.site-header{
+    height:82px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,250,242,.96);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(18,63,50,.10);
+    box-shadow:0 8px 28px rgba(18,63,50,.05);
+}
+
+.nav-inner{
+    width:min(1200px,calc(100% - 48px));
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-mark{
+    width:46px;
+    height:46px;
+    border-radius:15px;
+    background:#123F32;
+    box-shadow:0 8px 20px rgba(18,63,50,.16);
+}
+
+.brand-name{
+    font-size:21px;
+    letter-spacing:-.2px;
+}
+
+.brand-tagline{
+    color:#718079;
+    letter-spacing:1px;
+}
+
+.back-home{
+    padding:12px 17px;
+    background:#123F32;
+    color:#fff;
+    border:1px solid #123F32;
+    border-radius:13px;
+    box-shadow:0 8px 20px rgba(18,63,50,.14);
+}
+
+.back-home:hover{
+    background:#E97859;
+    border-color:#E97859;
+    color:#fff;
+    transform:translateY(-2px);
+    box-shadow:0 12px 26px rgba(233,120,89,.20);
+}
+
+/* subtle form-page divider below the header */
+.form-page-divider{
+    height:3px;
+    background:linear-gradient(90deg,#123F32 0%,#3F978E 55%,#E97859 100%);
+}
+
+.footer{
+    background:#092A22;
+    padding:28px 20px;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.footer-inner{
+    width:min(1000px,100%);
+}
+
+.footer-text{
+    color:#A7BBB3;
+    font-size:10px;
+}
+
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#fff;
+    font-family:"Playfair Display",serif;
+    font-size:13px;
+    font-weight:700;
+}
+
+.footer-brand-mark{
+    width:27px;
+    height:27px;
+    display:grid;
+    place-items:center;
+    border-radius:9px;
+    background:#123F32;
+}
+
+@media(max-width:700px){
+    .utility-bar{height:38px;}
+    .site-header{height:74px;}
+    .nav-inner,.utility-inner{width:calc(100% - 30px);}
+    .brand-mark{width:41px;height:41px;}
+    .brand-name{font-size:18px;}
+    .back-home{padding:10px 12px;font-size:10px;}
+}
+
+@media(max-width:480px){
+    .brand-tagline{display:none;}
+    .back-home{padding:9px 10px;}
+}
+
+/* FORM PAGE — REFINED HEADER / FOOTER END */
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     UTILITY
+===================================================== -->
+
+<div class="utility-bar">
+
+    <div class="utility-inner">
+
+        <div class="utility-item">
+            📍 Vancouver, BC, Canada
+        </div>
+
+        <div class="utility-item">
+            🩺 Veterinarian Experience
+        </div>
+
+        <div class="utility-item">
+            <span class="live-dot"></span>
+            FurEver Care
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="nav-inner">
+
+        <a
+            href="index.html"
+            class="brand"
+        >
+
+            <div class="brand-mark">
+                🐾
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+                    FurEver Care
+                </div>
+
+                <span class="brand-tagline">
+                    THEY DESERVE FOREVER LOVE.
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <a
+            href="index.html"
+            class="back-home"
+        >
+            ← Back to Home
+        </a>
+
+    </div>
+
+</header>
+<div class="form-page-divider" aria-hidden="true"></div>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="main">
+
+    <div class="container">
+
+
+        <!-- INTRO -->
+
+        <section class="intro">
+
+            <div class="eyebrow">
+                🩺 Veterinarian Profile
+            </div>
+
+            <h1>
+                Tell Us About
+                <span>Your Practice.</span>
+            </h1>
+
+            <p>
+                Add your professional information so FurEver Care
+                can create your dedicated veterinarian experience.
+            </p>
+
+        </section>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress">
+
+            <div class="progress-step active">
+
+                <span class="progress-number">
+                    1
+                </span>
+
+                <span>
+                    Your Role
+                </span>
+
+            </div>
+
+
+            <div class="progress-line"></div>
+
+
+            <div class="progress-step active">
+
+                <span class="progress-number">
+                    2
+                </span>
+
+                <span>
+                    Vet Information
+                </span>
+
+            </div>
+
+
+            <div class="progress-line"></div>
+
+
+            <div class="progress-step">
+
+                <span class="progress-number">
+                    3
+                </span>
+
+                <span>
+                    Vet Portal
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <section class="form-card">
+
+
+            <div class="form-header">
+
+                <div>
+
+                    <h2>
+                        Veterinarian Information
+                    </h2>
+
+                    <p>
+                        Enter your professional details below.
+                        Required fields are marked with
+                        <strong>*</strong>.
+                    </p>
+
+                </div>
+
+
+                <div class="doctor-icon">
+                    🩺
+                </div>
+
+            </div>
+
+
+            <form
+                id="vetForm"
+                novalidate
+            >
+
+                <div class="form-grid">
+
+
+                    <!-- NAME -->
+
+                    <div
+                        class="form-group"
+                        id="nameGroup"
+                    >
+
+                        <label for="vetName">
+                            Veterinarian Name
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="vetName"
+                            placeholder="e.g. Dr. Sarah Wilson"
+                        >
+
+                        <span class="error-text">
+                            Please enter your name.
+                        </span>
+
+                    </div>
+
+
+                    <!-- LICENSE -->
+
+                    <div
+                        class="form-group"
+                        id="licenseGroup"
+                    >
+
+                        <label for="license">
+                            License / Registration Number
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="license"
+                            placeholder="e.g. VET-12345"
+                        >
+
+                        <span class="error-text">
+                            Please enter your license number.
+                        </span>
+
+                    </div>
+
+
+                    <!-- CLINIC -->
+
+                    <div
+                        class="form-group"
+                        id="clinicGroup"
+                    >
+
+                        <label for="clinic">
+                            Clinic / Practice Name
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="clinic"
+                            placeholder="e.g. Green Valley Veterinary Clinic"
+                        >
+
+                        <span class="error-text">
+                            Please enter your clinic name.
+                        </span>
+
+                    </div>
+
+
+                    <!-- EXPERIENCE -->
+
+                    <div class="form-group">
+
+                        <label for="experience">
+                            Years of Experience
+                        </label>
+
+                        <input
+                            type="number"
+                            id="experience"
+                            min="0"
+                            max="70"
+                            placeholder="e.g. 8"
+                        >
+
+                    </div>
+
+
+                    <!-- SPECIALIZATION -->
+
+                    <div class="form-group full">
+
+                        <label>
+                            Primary Specialization
+                        </label>
+
+                        <div class="specialization-grid">
+
+
+                            <div
+                                class="specialization selected"
+                                data-specialization="General Practice"
+                            >
+                                General Practice
+                            </div>
+
+
+                            <div
+                                class="specialization"
+                                data-specialization="Surgery"
+                            >
+                                Surgery
+                            </div>
+
+
+                            <div
+                                class="specialization"
+                                data-specialization="Dermatology"
+                            >
+                                Dermatology
+                            </div>
+
+
+                            <div
+                                class="specialization"
+                                data-specialization="Internal Medicine"
+                            >
+                                Internal Medicine
+                            </div>
+
+
+                            <div
+                                class="specialization"
+                                data-specialization="Emergency Care"
+                            >
+                                Emergency Care
+                            </div>
+
+
+                            <div
+                                class="specialization"
+                                data-specialization="Other"
+                            >
+                                Other
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+
+                    <div
+                        class="form-group"
+                        id="emailGroup"
+                    >
+
+                        <label for="email">
+                            Professional Email
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="doctor@clinic.com"
+                        >
+
+                        <span class="error-text">
+                            Please enter a valid email.
+                        </span>
+
+                    </div>
+
+
+                    <!-- PHONE -->
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="+1 (000) 000-0000"
+                        >
+
+                    </div>
+
+
+                    <!-- LOCATION -->
+
+                    <div class="form-group full">
+
+                        <label for="location">
+                            Practice Location
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            placeholder="e.g. Vancouver, BC"
+                        >
+
+                    </div>
+
+
+                    <!-- BIO -->
+
+                    <div class="form-group full">
+
+                        <label for="bio">
+                            Professional Bio
+                        </label>
+
+                        <textarea
+                            id="bio"
+                            placeholder="Briefly describe your experience, approach to veterinary care, or areas of expertise..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- ACCEPT -->
+
+                    <div class="form-group full">
+
+                        <div class="checkbox">
+
+                            <input
+                                type="checkbox"
+                                id="confirm"
+                            >
+
+                            <label for="confirm">
+
+                                I confirm that the professional
+                                information entered above is accurate
+                                for this website demonstration.
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- INFO -->
+
+                <div class="info-note">
+
+                    <strong>Next step:</strong>
+                    After saving your information, you'll be taken
+                    to the dedicated Veterinarian page where your
+                    profile, appointment information and medical
+                    case-study sections can be displayed.
+
+                </div>
+
+
+                <!-- ACTIONS -->
+
+                <div class="actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        onclick="goBack()"
+                    >
+                        ← Back
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                    >
+                        Save & Continue to Vet Portal →
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <span class="footer-brand-mark">🐾</span>
+            <span>FurEver Care</span>
+        </div>
+        <div class="footer-text">
+            Veterinarian information • Secure & confidential • © 2026 FurEver Care
+        </div>
+    </div>
+</footer>
+
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<script>
+
+/* =====================================================
+   GET USER DATA FROM HOMEPAGE
+===================================================== */
+
+let userData = {};
+
+try{
+
+    userData =
+        JSON.parse(
+            localStorage.getItem(
+                "fureverUser"
+            ) || "{}"
+        );
+
+}catch(error){
+
+    userData = {};
+
+}
+
+
+/* =====================================================
+   SPECIALIZATION
+===================================================== */
+
+const specializationCards =
+    document.querySelectorAll(
+        ".specialization"
+    );
+
+let selectedSpecialization =
+    "General Practice";
+
+
+specializationCards.forEach(card => {
+
+    card.addEventListener(
+        "click",
+        function(){
+
+            specializationCards.forEach(item => {
+
+                item.classList.remove(
+                    "selected"
+                );
+
+            });
+
+
+            this.classList.add(
+                "selected"
+            );
+
+
+            selectedSpecialization =
+                this.dataset.specialization;
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   ERROR HELPERS
+===================================================== */
+
+function showError(group){
+
+    group.classList.add(
+        "has-error"
+    );
+
+    const input =
+        group.querySelector(
+            "input"
+        );
+
+    if(input){
+
+        input.classList.add(
+            "error"
+        );
+
+    }
+
+}
+
+
+function clearError(group){
+
+    group.classList.remove(
+        "has-error"
+    );
+
+    const input =
+        group.querySelector(
+            "input"
+        );
+
+    if(input){
+
+        input.classList.remove(
+            "error"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FORM SUBMIT
+===================================================== */
+
+document
+    .getElementById("vetForm")
+    .addEventListener(
+        "submit",
+        function(event){
+
+            event.preventDefault();
+
+
+            const name =
+                document
+                    .getElementById("vetName")
+                    .value
+                    .trim();
+
+
+            const license =
+                document
+                    .getElementById("license")
+                    .value
+                    .trim();
+
+
+            const clinic =
+                document
+                    .getElementById("clinic")
+                    .value
+                    .trim();
+
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+            const nameGroup =
+                document
+                    .getElementById("nameGroup");
+
+
+            const licenseGroup =
+                document
+                    .getElementById("licenseGroup");
+
+
+            const clinicGroup =
+                document
+                    .getElementById("clinicGroup");
+
+
+            const emailGroup =
+                document
+                    .getElementById("emailGroup");
+
+
+            clearError(nameGroup);
+            clearError(licenseGroup);
+            clearError(clinicGroup);
+            clearError(emailGroup);
+
+
+            let valid = true;
+
+
+            if(!name){
+
+                showError(nameGroup);
+                valid = false;
+
+            }
+
+
+            if(!license){
+
+                showError(licenseGroup);
+                valid = false;
+
+            }
+
+
+            if(!clinic){
+
+                showError(clinicGroup);
+                valid = false;
+
+            }
+
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if(
+                !email ||
+                !emailPattern.test(email)
+            ){
+
+                showError(emailGroup);
+                valid = false;
+
+            }
+
+
+            if(!valid){
+
+                showToast(
+                    "Please complete the required information."
+                );
+
+                return;
+
+            }
+
+
+            /* =================================================
+               CREATE VETERINARIAN DATA
+            ================================================= */
+
+            const veterinarianData = {
+
+                name:name,
+
+                license:license,
+
+                clinic:clinic,
+
+                experience:
+                    document
+                        .getElementById(
+                            "experience"
+                        )
+                        .value,
+
+                specialization:
+                    selectedSpecialization,
+
+                email:email,
+
+                phone:
+                    document
+                        .getElementById(
+                            "phone"
+                        )
+                        .value
+                        .trim(),
+
+                location:
+                    document
+                        .getElementById(
+                            "location"
+                        )
+                        .value
+                        .trim(),
+
+                bio:
+                    document
+                        .getElementById(
+                            "bio"
+                        )
+                        .value
+                        .trim(),
+
+                createdAt:
+                    new Date()
+                        .toISOString()
+
+            };
+
+
+            /* =================================================
+               SAVE USER
+            ================================================= */
+
+            const updatedUser = {
+
+                firstName:
+                    userData.firstName || "",
+
+                role:
+                    "Veterinarian"
+
+            };
+
+
+            localStorage.setItem(
+                "fureverUser",
+                JSON.stringify(
+                    updatedUser
+                )
+            );
+
+
+            /* =================================================
+               SAVE VETERINARIAN
+            ================================================= */
+
+            localStorage.setItem(
+                "fureverVeterinarian",
+                JSON.stringify(
+                    veterinarianData
+                )
+            );
+
+
+            /* =================================================
+               NEXT PAGE
+            ================================================= */
+
+            showToast(
+                "Information saved. Opening your Vet Portal..."
+            );
+
+
+            setTimeout(
+                function(){
+
+                    window.location.href =
+                        "veterinarian.html";
+
+                },
+                700
+            );
+
+        }
+    );
+
+
+/* =====================================================
+   BACK TO HOME
+===================================================== */
+
+function goBack(){
+
+    window.location.href =
+        "index.html#welcome";
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer;
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+    toast.textContent =
+        message;
+
+    toast.classList.add(
+        "show"
+    );
+
+    clearTimeout(
+        toastTimer
+    );
+
+    toastTimer =
+        setTimeout(
+            function(){
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2500
+        );
+
+}
+
+</script>
+
+</body>
+</html>

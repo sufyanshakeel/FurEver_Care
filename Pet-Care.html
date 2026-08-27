@@ -1,0 +1,5456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pet Care | FurEver Care</title>
+
+<meta
+    name="description"
+    content="Complete pet care, wellness, feeding, grooming and training resources from FurEver Care."
+>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root{
+
+    --forest:#123f32;
+    --forest-dark:#082d24;
+    --forest-light:#1d5949;
+
+    --teal:#3f978e;
+    --teal-dark:#2d766f;
+    --teal-light:#dcefeb;
+
+    --cream:#f6f0e5;
+    --cream-light:#fffaf2;
+
+    --beige:#e9dfcf;
+    --beige-dark:#d9ccb9;
+
+    --coral:#ee7657;
+    --coral-dark:#d95d43;
+    --coral-light:#fae3dc;
+
+    --charcoal:#1d2b27;
+    --muted:#69756f;
+
+    --white:#ffffff;
+
+    --border:rgba(18,63,50,.11);
+
+    --shadow:
+        0 25px 70px rgba(18,63,50,.12);
+
+    --shadow-soft:
+        0 12px 35px rgba(18,63,50,.08);
+
+    --utility-height:39px;
+    --nav-height:78px;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+
+    scroll-padding-top:
+        calc(
+            var(--utility-height)
+            + var(--nav-height)
+            + 25px
+        );
+}
+
+body{
+
+    margin:0;
+
+    font-family:"DM Sans",sans-serif;
+
+    color:var(--charcoal);
+
+    background:var(--cream);
+
+    overflow-x:hidden;
+}
+
+body.menu-open{
+    overflow:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+button,
+input,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+h1,
+h2,
+h3,
+h4{
+    font-family:"Playfair Display",serif;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+
+    width:
+        min(
+            1200px,
+            calc(100% - 48px)
+        );
+
+    margin:0 auto;
+}
+
+
+/* =========================================================
+   UTILITY BAR
+========================================================= */
+
+.utility-bar{
+
+    height:var(--utility-height);
+
+    background:var(--forest-dark);
+
+    color:#e8f2ed;
+
+    position:relative;
+
+    z-index:1100;
+}
+
+.utility-inner{
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.utility-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    white-space:nowrap;
+
+    font-size:11px;
+
+    color:#dcebe4;
+}
+
+.live-dot{
+
+    width:7px;
+
+    height:7px;
+
+    background:#6ce0ae;
+
+    border-radius:50%;
+
+    box-shadow:
+        0 0 12px rgba(108,224,174,.8);
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%,
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.5;
+        transform:scale(.75);
+    }
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.site-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    height:var(--nav-height);
+
+    background:
+        rgba(255,250,242,.96);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid rgba(18,63,50,.09);
+
+    box-shadow:
+        0 5px 25px rgba(18,63,50,.04);
+}
+
+.site-header.scrolled{
+
+    background:
+        rgba(255,250,242,.985);
+
+    box-shadow:
+        0 8px 30px rgba(18,63,50,.09);
+}
+
+.nav-inner{
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+
+/* LOGO */
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    flex-shrink:0;
+}
+
+.brand-mark{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:14px;
+
+    background:var(--forest);
+
+    color:white;
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:21px;
+
+    box-shadow:
+        0 8px 22px rgba(18,63,50,.2);
+}
+
+.brand-name{
+
+    font-family:"Playfair Display",serif;
+
+    font-weight:700;
+
+    font-size:25px;
+
+    line-height:1;
+
+    color:var(--forest);
+}
+
+.brand-tagline{
+
+    display:block;
+
+    margin-top:5px;
+
+    font-size:10px;
+
+    letter-spacing:.7px;
+
+    color:#718079;
+}
+
+
+/* NAV LINKS */
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    gap:21px;
+
+    height:100%;
+}
+
+.nav-link{
+
+    position:relative;
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    color:#34453f;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+    transition:.25s;
+}
+
+.nav-link:hover{
+
+    color:var(--forest);
+}
+
+
+/*
+   Pet Care is the active page.
+*/
+
+.nav-link.pet-care-active{
+
+    color:var(--forest);
+}
+
+.nav-link.pet-care-active::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:17px;
+
+    height:2px;
+
+    background:var(--coral);
+
+    border-radius:20px;
+}
+
+
+/* BUTTON */
+
+.primary-btn{
+
+    border:0;
+
+    background:var(--forest);
+
+    color:white;
+
+    padding:13px 19px;
+
+    border-radius:14px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    box-shadow:
+        0 10px 25px rgba(18,63,50,.18);
+
+    transition:.25s;
+}
+
+.primary-btn:hover{
+
+    background:var(--forest-dark);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 14px 30px rgba(18,63,50,.23);
+}
+
+
+/* MOBILE TOGGLE */
+
+.mobile-toggle{
+
+    width:43px;
+
+    height:43px;
+
+    display:none;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    background:white;
+
+    color:var(--forest);
+
+    font-size:21px;
+}
+
+
+/* =========================================================
+   PAGE HERO
+========================================================= */
+
+.page-hero{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:530px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(63,151,142,.22),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            120deg,
+            #e5eee8,
+            #f6f0e5 58%,
+            #e7dccb
+        );
+}
+
+.page-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    border-radius:50%;
+
+    right:-190px;
+
+    bottom:-220px;
+
+    background:
+        rgba(238,118,87,.08);
+}
+
+.page-hero-inner{
+
+    min-height:530px;
+
+    display:grid;
+
+    grid-template-columns:
+        46% 54%;
+
+    align-items:center;
+
+    gap:30px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.hero-copy{
+
+    padding:65px 0;
+}
+
+.eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 13px;
+
+    border-radius:100px;
+
+    background:
+        rgba(255,255,255,.7);
+
+    border:
+        1px solid rgba(18,63,50,.1);
+
+    color:var(--forest);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    margin-bottom:20px;
+}
+
+.hero-copy h1{
+
+    color:var(--forest);
+
+    font-size:
+        clamp(
+            48px,
+            5.3vw,
+            72px
+        );
+
+    line-height:1.02;
+
+    letter-spacing:-2px;
+}
+
+.hero-copy h1 span{
+
+    color:var(--coral);
+}
+
+.hero-copy p{
+
+    max-width:510px;
+
+    margin:22px 0 28px;
+
+    color:#586760;
+
+    font-size:15px;
+
+    line-height:1.8;
+}
+
+.hero-actions{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+}
+
+.secondary-btn{
+
+    border:
+        1px solid rgba(18,63,50,.16);
+
+    background:
+        rgba(255,255,255,.72);
+
+    color:var(--forest);
+
+    padding:13px 19px;
+
+    border-radius:14px;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.secondary-btn:hover{
+
+    background:white;
+
+    transform:translateY(-2px);
+
+    box-shadow:var(--shadow-soft);
+}
+
+
+/* HERO VISUAL */
+
+.hero-image-wrap{
+
+    position:relative;
+
+    height:475px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+}
+
+.hero-pet-image{
+
+    width:min(88%,520px);
+
+    height:440px;
+
+    object-fit:cover;
+
+    border-radius:
+        42% 42% 30px 30px;
+
+    box-shadow:var(--shadow);
+}
+
+.hero-paw{
+
+    position:absolute;
+
+    font-size:48px;
+
+    opacity:.35;
+}
+
+.hero-paw.one{
+
+    left:0;
+
+    top:80px;
+
+    transform:rotate(-20deg);
+}
+
+.hero-paw.two{
+
+    right:5px;
+
+    bottom:100px;
+
+    transform:rotate(20deg);
+}
+
+
+/* HERO FLOATING STAT */
+
+.hero-stat{
+
+    position:absolute;
+
+    background:
+        rgba(255,255,255,.93);
+
+    backdrop-filter:blur(15px);
+
+    border:
+        1px solid rgba(255,255,255,.8);
+
+    border-radius:19px;
+
+    padding:16px;
+
+    box-shadow:
+        0 18px 45px rgba(25,58,48,.15);
+}
+
+.hero-stat.health{
+
+    left:10px;
+
+    bottom:50px;
+
+    min-width:150px;
+}
+
+.hero-stat.reminder{
+
+    right:0;
+
+    top:70px;
+
+    min-width:150px;
+}
+
+.stat-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    font-weight:600;
+}
+
+.stat-value{
+
+    display:block;
+
+    color:var(--forest);
+
+    font-size:23px;
+
+    font-weight:700;
+
+    margin-top:5px;
+}
+
+.stat-small{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    margin-top:4px;
+}
+
+
+/* =========================================================
+   PROFILE FORM
+========================================================= */
+
+.profile-section{
+
+    position:relative;
+
+    margin-top:-45px;
+
+    z-index:5;
+}
+
+.profile-panel{
+
+    background:var(--cream-light);
+
+    border:
+        8px solid var(--forest);
+
+    border-radius:34px;
+
+    padding:40px;
+
+    box-shadow:var(--shadow);
+}
+
+.profile-header{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    justify-content:space-between;
+
+    gap:25px;
+
+    margin-bottom:28px;
+}
+
+.profile-header h2{
+
+    color:var(--forest);
+
+    font-size:36px;
+
+    line-height:1.1;
+}
+
+.profile-header p{
+
+    max-width:430px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+.profile-form{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:17px;
+}
+
+.field{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:7px;
+}
+
+.field.full{
+
+    grid-column:1 / -1;
+}
+
+.field label{
+
+    color:var(--charcoal);
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+.field input,
+.field select{
+
+    width:100%;
+
+    height:48px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    outline:none;
+
+    background:white;
+
+    color:var(--charcoal);
+
+    transition:.25s;
+}
+
+.field input:focus,
+.field select:focus{
+
+    border-color:var(--teal);
+
+    box-shadow:
+        0 0 0 4px rgba(63,151,142,.10);
+}
+
+.vaccine-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    height:48px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    background:white;
+}
+
+.vaccine-box input{
+
+    width:17px;
+
+    height:17px;
+
+    accent-color:var(--teal);
+}
+
+.vaccine-box label{
+
+    margin:0;
+
+    color:var(--charcoal);
+
+    font-size:11px;
+}
+
+.save-row{
+
+    grid-column:1 / -1;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    padding-top:3px;
+}
+
+.save-btn{
+
+    border:0;
+
+    padding:
+        14px 24px;
+
+    border-radius:14px;
+
+    background:var(--coral);
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.save-btn:hover{
+
+    background:var(--coral-dark);
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.section{
+
+    padding:100px 0;
+
+}
+
+.section-heading{
+
+    max-width:680px;
+
+    margin:
+        0 auto 45px;
+
+    text-align:center;
+}
+
+.section-heading h2{
+
+    color:var(--forest);
+
+    font-size:42px;
+
+    line-height:1.12;
+}
+
+.section-heading p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.75;
+
+    margin-top:13px;
+}
+
+
+/* =========================================================
+   MY PET PROFILE
+========================================================= */
+
+.profile-display-section{
+
+    background:var(--cream-light);
+}
+
+.pet-profile-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap:25px;
+
+    align-items:stretch;
+}
+
+
+/* PET CARD */
+
+.pet-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:470px;
+
+    border-radius:28px;
+
+    background:var(--forest);
+
+    color:white;
+
+    box-shadow:var(--shadow);
+
+}
+
+.pet-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+
+    height:240px;
+
+    border-radius:50%;
+
+    right:-80px;
+
+    top:-70px;
+
+    background:
+        rgba(255,255,255,.06);
+}
+
+.pet-card-image{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+}
+
+.pet-card-content{
+
+    position:relative;
+
+    padding:27px;
+}
+
+.pet-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:
+        6px 10px;
+
+    border-radius:100px;
+
+    background:
+        rgba(108,224,174,.14);
+
+    color:#8ce4bd;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+}
+
+.pet-status span{
+
+    width:6px;
+
+    height:6px;
+
+    border-radius:50%;
+
+    background:#6ce0ae;
+}
+
+.pet-card h3{
+
+    font-size:30px;
+
+    margin-bottom:4px;
+}
+
+.pet-subtitle{
+
+    color:#b4c9c0;
+
+    font-size:11px;
+}
+
+.pet-details{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:22px;
+}
+
+.pet-detail{
+
+    padding:
+        11px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.06);
+}
+
+.pet-detail small{
+
+    display:block;
+
+    color:#8fa99e;
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.6px;
+}
+
+.pet-detail strong{
+
+    display:block;
+
+    color:white;
+
+    font-size:11px;
+
+    margin-top:4px;
+}
+
+
+/* OVERVIEW */
+
+.overview-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:16px;
+}
+
+.overview-card{
+
+    padding:25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:22px;
+
+    background:white;
+
+    min-height:225px;
+
+    transition:.3s;
+}
+
+.overview-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-soft);
+}
+
+.overview-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:15px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#e6f0e9;
+
+    font-size:19px;
+
+    margin-bottom:18px;
+}
+
+.overview-card:nth-child(2)
+.overview-icon{
+
+    background:#e0f2ef;
+}
+
+.overview-card:nth-child(3)
+.overview-icon{
+
+    background:#f3eadb;
+}
+
+.overview-card:nth-child(4)
+.overview-icon{
+
+    background:#fae3dc;
+}
+
+.overview-card h3{
+
+    color:var(--forest);
+
+    font-size:20px;
+
+    margin-bottom:8px;
+}
+
+.overview-value{
+
+    color:var(--forest);
+
+    font-size:24px;
+
+    font-weight:700;
+}
+
+.overview-card p{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:1.6;
+
+    margin-top:5px;
+}
+
+.mini-progress{
+
+    width:100%;
+
+    height:7px;
+
+    background:#e4ebe6;
+
+    border-radius:20px;
+
+    margin-top:14px;
+
+    overflow:hidden;
+}
+
+.mini-progress span{
+
+    display:block;
+
+    width:91%;
+
+    height:100%;
+
+    background:var(--teal);
+
+    border-radius:20px;
+}
+
+
+/* =========================================================
+   FEEDING GUIDE
+========================================================= */
+
+.feeding-section{
+
+    background:#e9f0e9;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.feeding-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        .8fr 1.2fr;
+
+    gap:30px;
+
+    align-items:stretch;
+}
+
+.feeding-intro{
+
+    padding:38px;
+
+    border-radius:28px;
+
+    background:var(--forest);
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.feeding-intro::after{
+
+    content:"🥣";
+
+    position:absolute;
+
+    right:-15px;
+
+    bottom:-20px;
+
+    font-size:130px;
+
+    opacity:.07;
+}
+
+.feeding-intro h2{
+
+    font-size:38px;
+
+    line-height:1.1;
+
+    margin-bottom:15px;
+}
+
+.feeding-intro p{
+
+    color:#b9cec5;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.feeding-note{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-top:30px;
+
+    padding:14px;
+
+    border-radius:15px;
+
+    background:
+        rgba(255,255,255,.07);
+}
+
+.feeding-note-icon{
+
+    width:37px;
+
+    height:37px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:11px;
+
+    background:
+        rgba(255,255,255,.1);
+}
+
+.feeding-note span{
+
+    color:#c2d4cd;
+
+    font-size:9px;
+
+    line-height:1.5;
+}
+
+
+/* FEEDING CONTENT */
+
+.feeding-card{
+
+    padding:28px;
+
+    border-radius:28px;
+
+    background:white;
+
+    box-shadow:var(--shadow-soft);
+}
+
+.animal-tabs{
+
+    display:flex;
+
+    gap:9px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:25px;
+}
+
+.animal-tab{
+
+    border:
+        1px solid var(--border);
+
+    background:#f7f3eb;
+
+    color:var(--forest);
+
+    border-radius:100px;
+
+    padding:
+        9px 15px;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    transition:.25s;
+}
+
+.animal-tab.active{
+
+    background:var(--forest);
+
+    color:white;
+
+    border-color:var(--forest);
+}
+
+.feeding-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding-bottom:20px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.feeding-animal-icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:17px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#e4efe9;
+
+    font-size:26px;
+}
+
+.feeding-profile h3{
+
+    color:var(--forest);
+
+    font-size:23px;
+}
+
+.feeding-profile p{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    margin-top:4px;
+}
+
+.feeding-stats{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+
+    margin-top:20px;
+}
+
+.feeding-stat{
+
+    padding:17px;
+
+    border-radius:16px;
+
+    background:#f7f4ed;
+}
+
+.feeding-stat small{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.6px;
+}
+
+.feeding-stat strong{
+
+    display:block;
+
+    color:var(--forest);
+
+    font-size:17px;
+
+    margin-top:6px;
+}
+
+.feeding-description{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:1.7;
+
+    margin-top:20px;
+}
+
+
+/* =========================================================
+   MEDIA CARD SYSTEM
+========================================================= */
+
+.media-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:17px;
+}
+
+.media-card{
+
+    overflow:hidden;
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:21px;
+
+    box-shadow:
+        0 10px 28px rgba(18,63,50,.06);
+
+    transition:.3s;
+}
+
+.media-card:hover{
+
+    transform:translateY(-7px);
+
+    box-shadow:var(--shadow-soft);
+}
+
+.media-image-wrap{
+
+    position:relative;
+
+    height:190px;
+
+    overflow:hidden;
+}
+
+.media-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.media-card:hover .media-image{
+
+    transform:scale(1.06);
+}
+
+.play-btn{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:52px;
+
+    height:52px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.94);
+
+    color:var(--forest);
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:18px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+
+    transition:.25s;
+}
+
+.play-btn:hover{
+
+    background:var(--coral);
+
+    color:white;
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.08);
+}
+
+.media-content{
+
+    padding:18px;
+}
+
+.media-tag{
+
+    color:var(--coral);
+
+    font-size:8px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.8px;
+}
+
+.media-content h3{
+
+    color:var(--forest);
+
+    font-size:18px;
+
+    margin-top:7px;
+}
+
+.media-content p{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:1.6;
+
+    margin-top:6px;
+}
+
+
+/* =========================================================
+   HEALTH TIPS
+========================================================= */
+
+.health-section{
+
+    background:var(--cream-light);
+}
+
+.tip-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:14px;
+}
+
+.tip-card{
+
+    padding:23px 18px;
+
+    border-radius:20px;
+
+    border:
+        1px solid var(--border);
+
+    background:#f8f5ed;
+
+    transition:.3s;
+}
+
+.tip-card:hover{
+
+    background:white;
+
+    transform:translateY(-5px);
+
+    box-shadow:var(--shadow-soft);
+}
+
+.tip-icon{
+
+    font-size:25px;
+
+    margin-bottom:17px;
+}
+
+.tip-card h3{
+
+    color:var(--forest);
+
+    font-size:17px;
+
+    line-height:1.2;
+
+    margin-bottom:8px;
+}
+
+.tip-card p{
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    line-height:1.65;
+}
+
+
+/* =========================================================
+   TRAINING
+========================================================= */
+
+.training-section{
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf3eb,
+            #e5efee
+        );
+}
+
+.training-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:16px;
+}
+
+.training-card{
+
+    min-height:225px;
+
+    padding:25px;
+
+    border-radius:23px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    border:
+        1px solid rgba(18,63,50,.09);
+
+    transition:.3s;
+}
+
+.training-card:hover{
+
+    background:white;
+
+    transform:translateY(-6px);
+
+    box-shadow:var(--shadow-soft);
+}
+
+.training-number{
+
+    color:var(--coral);
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+}
+
+.training-card h3{
+
+    color:var(--forest);
+
+    font-size:22px;
+
+    margin:
+        20px 0 9px;
+}
+
+.training-card p{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:1.7;
+}
+
+.training-arrow{
+
+    display:block;
+
+    margin-top:20px;
+
+    color:var(--forest);
+
+    font-weight:700;
+
+    font-size:12px;
+}
+
+
+/* =========================================================
+   AUDIO / VIDEO RESOURCE SECTION
+========================================================= */
+
+.resources-section{
+
+    background:var(--forest);
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.resources-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    border-radius:50%;
+
+    right:-240px;
+
+    top:-220px;
+
+    background:
+        rgba(63,151,142,.12);
+}
+
+.resources-section .section-heading h2{
+
+    color:white;
+}
+
+.resources-section .section-heading p{
+
+    color:#aac0b7;
+}
+
+.resources-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.2fr .8fr .8fr;
+
+    gap:17px;
+}
+
+.resource-card{
+
+    position:relative;
+
+    min-height:300px;
+
+    overflow:hidden;
+
+    border-radius:24px;
+
+    background:#0e382d;
+
+}
+
+.resource-card.large{
+
+    grid-row:span 2;
+
+    min-height:470px;
+}
+
+.resource-image{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    opacity:.78;
+
+    transition:.5s;
+}
+
+.resource-card:hover .resource-image{
+
+    transform:scale(1.05);
+
+    opacity:.9;
+}
+
+.resource-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    padding:25px;
+
+    background:
+        linear-gradient(
+            transparent 30%,
+            rgba(5,35,27,.92)
+        );
+}
+
+.resource-type{
+
+    color:#9de0c3;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.8px;
+}
+
+.resource-overlay h3{
+
+    color:white;
+
+    font-size:24px;
+
+    margin-top:7px;
+}
+
+.resource-overlay p{
+
+    color:#b9cec6;
+
+    font-size:10px;
+
+    line-height:1.6;
+
+    margin-top:7px;
+
+    max-width:370px;
+}
+
+.resource-play{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    width:45px;
+
+    height:45px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.92);
+
+    color:var(--forest);
+
+    font-size:15px;
+}
+
+
+/* =========================================================
+   FINAL CARE CTA
+========================================================= */
+
+.care-cta{
+
+    padding:80px 0;
+
+    background:var(--cream);
+}
+
+.care-cta-box{
+
+    min-height:270px;
+
+    padding:
+        45px 60px;
+
+    border-radius:34px;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(238,118,87,.2),
+            transparent 25%
+        ),
+
+        var(--forest);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.care-cta-box::after{
+
+    content:"🐾";
+
+    position:absolute;
+
+    right:24%;
+
+    bottom:-70px;
+
+    font-size:220px;
+
+    opacity:.035;
+}
+
+.care-cta-content{
+
+    position:relative;
+
+    z-index:2;
+}
+
+.care-cta-content h2{
+
+    color:white;
+
+    font-size:43px;
+
+    line-height:1.08;
+
+    max-width:650px;
+}
+
+.care-cta-content p{
+
+    color:#b7cdc4;
+
+    font-size:13px;
+
+    margin-top:12px;
+}
+
+.care-cta-button{
+
+    position:relative;
+
+    z-index:2;
+
+    border:0;
+
+    background:var(--coral);
+
+    color:white;
+
+    padding:
+        15px 25px;
+
+    border-radius:14px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    white-space:nowrap;
+
+    transition:.25s;
+}
+
+.care-cta-button:hover{
+
+    background:var(--coral-dark);
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   TICKER
+========================================================= */
+
+.ticker{
+
+    overflow:hidden;
+
+    background:#dfe9df;
+
+    border-top:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.ticker-track{
+
+    display:flex;
+
+    width:max-content;
+
+    animation:
+        tickerMove 30s linear infinite;
+}
+
+.ticker-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+        13px 32px;
+
+    color:var(--forest);
+
+    font-size:11px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+}
+
+@keyframes tickerMove{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+
+    background:var(--forest-dark);
+
+    color:#dce8e2;
+
+    padding:
+        70px 0 24px;
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+    gap:50px;
+}
+
+.footer-description{
+
+    max-width:310px;
+
+    color:#9eb4ab;
+
+    font-size:12px;
+
+    line-height:1.75;
+
+    margin-top:17px;
+}
+
+.footer-title{
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+}
+
+.footer-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:11px;
+}
+
+.footer-links a{
+
+    color:#9eb4ab;
+
+    font-size:12px;
+
+    transition:.2s;
+}
+
+.footer-links a:hover{
+
+    color:white;
+
+    transform:translateX(2px);
+}
+
+.footer-visitors{
+
+    font-size:31px;
+
+    font-weight:700;
+
+    color:white;
+}
+
+.footer-location{
+
+    color:#9eb4ab;
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    margin-top:8px;
+}
+
+.footer-bottom{
+
+    margin-top:50px;
+
+    padding-top:20px;
+
+    border-top:
+        1px solid rgba(255,255,255,.09);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    color:#81978e;
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal{
+
+    opacity:1;
+
+    transform:translateY(30px);
+
+    transition:
+        opacity .75s ease,
+        transform .75s ease;
+}
+
+.reveal.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1100px){
+
+    .container{
+
+        width:
+            min(
+                940px,
+                calc(100% - 36px)
+            );
+    }
+
+    .nav-menu{
+
+        gap:14px;
+    }
+
+    .nav-link{
+
+        font-size:11px;
+    }
+
+    .profile-form{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .pet-profile-layout{
+
+        grid-template-columns:1fr;
+    }
+
+    .media-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .tip-grid{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .training-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .resources-grid{
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .resource-card.large{
+
+        grid-row:auto;
+
+        min-height:380px;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE NAV
+========================================================= */
+
+@media(max-width:900px){
+
+    .mobile-toggle{
+
+        display:grid;
+
+        place-items:center;
+    }
+
+    .nav-menu{
+
+        position:fixed;
+
+        top:
+            calc(
+                var(--utility-height)
+                + var(--nav-height)
+            );
+
+        left:0;
+
+        right:0;
+
+        max-height:
+            calc(100vh - 115px);
+
+        overflow-y:auto;
+
+        padding:22px;
+
+        background:
+            rgba(255,250,242,.985);
+
+        backdrop-filter:blur(20px);
+
+        border-bottom:
+            1px solid var(--border);
+
+        box-shadow:
+            0 20px 35px rgba(18,63,50,.10);
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:0;
+
+        transform:
+            translateY(-20px);
+
+        opacity:0;
+
+        visibility:hidden;
+
+        pointer-events:none;
+
+        transition:.3s;
+    }
+
+    .nav-menu.open{
+
+        transform:
+            translateY(0);
+
+        opacity:1;
+
+        visibility:visible;
+
+        pointer-events:auto;
+    }
+
+    .nav-link{
+
+        width:100%;
+
+        height:auto;
+
+        min-height:48px;
+
+        padding:10px 4px;
+
+        border-bottom:
+            1px solid rgba(18,63,50,.07);
+    }
+
+    .nav-link.pet-care-active{
+
+        color:var(--forest);
+
+        background:
+            rgba(63,151,142,.07);
+
+        border-radius:10px;
+
+        padding-left:12px;
+    }
+
+    .nav-link.pet-care-active::after{
+
+        display:none;
+    }
+
+    .nav-menu .primary-btn{
+
+        width:100%;
+
+        margin-top:15px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    :root{
+
+        --utility-height:36px;
+
+        --nav-height:70px;
+    }
+
+    .container{
+
+        width:
+            calc(100% - 30px);
+    }
+
+    .utility-item{
+
+        font-size:9px;
+    }
+
+    .utility-item:nth-child(2),
+    .utility-item:nth-child(3){
+
+        display:none;
+    }
+
+    .utility-inner{
+
+        justify-content:center;
+    }
+
+    .brand-name{
+
+        font-size:18px;
+    }
+
+    .brand-tagline{
+
+        font-size:7px;
+    }
+
+    .brand-mark{
+
+        width:40px;
+
+        height:40px;
+    }
+
+    .page-hero-inner{
+
+        grid-template-columns:1fr;
+
+        min-height:auto;
+    }
+
+    .hero-copy{
+
+        padding:
+            60px 0 20px;
+    }
+
+    .hero-copy h1{
+
+        font-size:
+            clamp(
+                44px,
+                12vw,
+                62px
+            );
+    }
+
+    .hero-copy p{
+
+        font-size:13px;
+    }
+
+    .hero-actions{
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    .hero-actions button{
+
+        width:100%;
+    }
+
+    .hero-image-wrap{
+
+        height:420px;
+    }
+
+    .hero-pet-image{
+
+        width:90%;
+
+        height:380px;
+    }
+
+    .hero-stat.health{
+
+        left:0;
+
+        bottom:35px;
+    }
+
+    .hero-stat.reminder{
+
+        right:0;
+
+        top:30px;
+    }
+
+    .profile-section{
+
+        margin-top:-25px;
+    }
+
+    .profile-panel{
+
+        border-width:6px;
+
+        border-radius:27px;
+
+        padding:
+            25px 20px;
+    }
+
+    .profile-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .profile-header h2{
+
+        font-size:31px;
+    }
+
+    .profile-form{
+
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+
+        grid-column:auto;
+    }
+
+    .save-row{
+
+        grid-column:auto;
+
+        justify-content:stretch;
+    }
+
+    .save-btn{
+
+        width:100%;
+    }
+
+    .section{
+
+        padding:75px 0;
+    }
+
+    .section-heading{
+
+        margin-bottom:35px;
+    }
+
+    .section-heading h2{
+
+        font-size:34px;
+    }
+
+    .overview-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .feeding-layout{
+
+        grid-template-columns:1fr;
+    }
+
+    .feeding-intro{
+
+        padding:30px;
+    }
+
+    .feeding-intro h2{
+
+        font-size:33px;
+    }
+
+    .feeding-stats{
+
+        grid-template-columns:1fr;
+    }
+
+    .media-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .tip-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .training-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .resources-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .resource-card,
+    .resource-card.large{
+
+        min-height:350px;
+
+        grid-row:auto;
+    }
+
+    .care-cta{
+
+        padding:45px 0;
+    }
+
+    .care-cta-box{
+
+        padding:
+            38px 25px;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
+    .care-cta-content h2{
+
+        font-size:34px;
+    }
+
+    .care-cta-button{
+
+        width:100%;
+    }
+
+    .footer{
+
+        padding-top:55px;
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .footer-bottom{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        margin-top:40px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:420px){
+
+    .container{
+
+        width:
+            calc(100% - 24px);
+    }
+
+    .hero-copy{
+
+        padding-top:50px;
+    }
+
+    .hero-copy h1{
+
+        font-size:42px;
+    }
+
+    .hero-image-wrap{
+
+        height:390px;
+    }
+
+    .hero-pet-image{
+
+        height:350px;
+    }
+
+    .hero-stat{
+
+        padding:12px;
+    }
+
+    .tip-grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .feeding-card{
+
+        padding:20px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+
+        scroll-behavior:auto !important;
+
+        animation:none !important;
+
+        transition:none !important;
+    }
+
+    .reveal{
+
+        opacity:1;
+
+        transform:none;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     UTILITY BAR
+===================================================== -->
+
+<div class="utility-bar">
+
+    <div class="container utility-inner">
+
+        <div class="utility-item">
+
+            📍 Vancouver, BC, Canada
+
+        </div>
+
+
+        <div class="utility-item">
+
+            🕒
+
+            <span id="liveClock">
+                Loading...
+            </span>
+
+        </div>
+
+
+        <div class="utility-item">
+
+            🐾
+
+            Today's Care Tip:
+            Fresh water keeps tails wagging!
+
+        </div>
+
+
+        <div class="utility-item">
+
+            <span class="live-dot"></span>
+
+            <span id="topVisitors">
+                1,248
+            </span>
+
+            visitors online
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="site-header" id="siteHeader">
+
+        <div class="container nav-inner">
+
+
+            <a href="index.html" class="brand">
+
+                <div class="brand-mark">
+                    🐾
+                </div>
+
+                <div class="brand-text">
+
+                    <div class="brand-name">
+                        FurEver Care
+                    </div>
+
+                    <span class="brand-tagline">
+                        THEY DESERVE FOREVER LOVE.
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false">
+                ☰
+            </button>
+
+
+            <nav class="nav-menu" id="navMenu">
+
+                <!-- ONLY HOME HAS THE HOMEPAGE INDICATOR -->
+
+                <a href="index.html" class="nav-link">
+                    Home
+                </a>
+
+
+                <!-- NO ACTIVE CLASS / NO UNDERLINE -->
+
+                <a href="Pet-Care.html" class="nav-link pet-care-active">
+                    Pet Care
+                </a>
+
+
+                <a href="Pet-Products.html" class="nav-link">
+                    Pet Products
+                </a>
+
+
+                <a href="Veterinarian.html" class="nav-link">
+                    Veterinarian
+                </a>
+
+
+                <a href="Adoption.html" class="nav-link">
+                    Adoption
+                </a>
+
+
+                <a href="Emergency.html" class="nav-link">
+                    Emergency
+                </a>
+
+
+                <a href="About.html" class="nav-link">
+                    About Us
+                </a>
+
+
+                <a href="Contact.html" class="nav-link">
+                    Contact
+                </a>
+
+
+                <button class="primary-btn" onclick="goToWelcome()">
+                    Get Started 🐾
+                </button>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+<!-- =====================================================
+     PAGE
+===================================================== -->
+
+<main id="top">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="page-hero">
+
+    <div class="container page-hero-inner">
+
+
+        <div class="hero-copy reveal">
+
+            <div class="eyebrow">
+
+                ✦ Personalized Pet Wellness
+
+            </div>
+
+
+            <h1>
+
+                Complete Care
+
+                <br>
+
+                <span>
+                    For Your Best Friend.
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                From everyday wellness and nutrition
+                to grooming, training and preventive care,
+                FurEver Care gives you thoughtful resources
+                to help your pet live their healthiest,
+                happiest life.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <button
+                    class="primary-btn"
+                    onclick="scrollToProfile()"
+                >
+                    Create Pet Profile →
+                </button>
+
+
+                <button
+                    class="secondary-btn"
+                    onclick="scrollToCareOverview()"
+                >
+                    Explore Care ↓
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image-wrap reveal">
+
+
+            <div class="hero-paw one">
+                🌿
+            </div>
+
+
+            <div class="hero-paw two">
+                🐾
+            </div>
+
+
+            <img
+                class="hero-pet-image"
+                src="images/pet-1.jpg"
+                alt="Happy dog and cat"
+            >
+
+
+            <div class="hero-stat health">
+
+                <div class="stat-label">
+                    ❤️ Wellness
+                </div>
+
+                <span class="stat-value">
+                    Excellent
+                </span>
+
+                <span class="stat-small">
+                    Your pet is doing great.
+                </span>
+
+            </div>
+
+
+            <div class="hero-stat reminder">
+
+                <div class="stat-label">
+                    📅 Next Reminder
+                </div>
+
+                <span class="stat-value">
+                    In 5 Days
+                </span>
+
+                <span class="stat-small">
+                    Flea treatment
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PET PROFILE FORM
+===================================================== -->
+
+<section
+    class="profile-section"
+    id="petProfile"
+>
+
+    <div class="container">
+
+
+        <div class="profile-panel reveal">
+
+
+            <div class="profile-header">
+
+                <div>
+
+                    <div class="eyebrow">
+                        ✦ Your Pet
+                    </div>
+
+                    <h2>
+                        Create Their Profile
+                    </h2>
+
+                </div>
+
+
+                <p>
+
+                    Add your pet's basic information
+                    to create a more personalized
+                    care experience.
+
+                </p>
+
+            </div>
+
+
+            <form
+                class="profile-form"
+                id="petForm"
+            >
+
+
+                <div class="field">
+
+                    <label for="petName">
+                        Pet Name
+                    </label>
+
+                    <input
+                        id="petName"
+                        type="text"
+                        placeholder="e.g. Luna"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="species">
+                        Species
+                    </label>
+
+                    <select id="species">
+
+                        <option value="Dog">
+                            Dog
+                        </option>
+
+                        <option value="Cat">
+                            Cat
+                        </option>
+
+                        <option value="Bird">
+                            Bird
+                        </option>
+
+                        <option value="Rabbit">
+                            Rabbit
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="breed">
+                        Breed
+                    </label>
+
+                    <input
+                        id="breed"
+                        type="text"
+                        placeholder="e.g. Golden Retriever"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="age">
+                        Age
+                    </label>
+
+                    <input
+                        id="age"
+                        type="text"
+                        placeholder="e.g. 3 years"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="gender">
+                        Gender
+                    </label>
+
+                    <select id="gender">
+
+                        <option>
+                            Female
+                        </option>
+
+                        <option>
+                            Male
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="weight">
+                        Weight
+                    </label>
+
+                    <input
+                        id="weight"
+                        type="text"
+                        placeholder="e.g. 28 kg"
+                    >
+
+                </div>
+
+
+                <div class="field full">
+
+                    <label>
+                        Vaccination Information
+                    </label>
+
+                    <div class="vaccine-box">
+
+                        <input
+                            type="checkbox"
+                            id="vaccinated"
+                            checked
+                        >
+
+                        <label for="vaccinated">
+
+                            Vaccinations are up to date
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <div class="save-row">
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Save Pet Profile →
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MY PET PROFILE + OVERVIEW
+===================================================== -->
+
+<section
+    class="section profile-display-section"
+    id="careOverview"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                ✦ My Pet Profile
+            </div>
+
+            <h2>
+                A Clear Picture of Their Care.
+            </h2>
+
+            <p>
+
+                Keep the important details
+                about your pet visible and organized.
+
+            </p>
+
+        </div>
+
+
+        <div class="pet-profile-layout">
+
+
+            <!-- PET PROFILE CARD -->
+
+            <div
+                class="pet-card reveal"
+                id="petCard"
+            >
+
+                <img
+                    class="pet-card-image"
+                    id="profilePetImage"
+                    src="images/pet-profile.jpg"
+                    alt="Pet profile"
+                >
+
+
+                <div class="pet-card-content">
+
+
+                    <div class="pet-status">
+
+                        <span></span>
+
+                        Healthy & Up to Date
+
+                    </div>
+
+
+                    <h3 id="displayPetName">
+                        Luna
+                    </h3>
+
+
+                    <div
+                        class="pet-subtitle"
+                        id="displayBreed"
+                    >
+                        Golden Retriever
+                    </div>
+
+
+                    <div class="pet-details">
+
+
+                        <div class="pet-detail">
+
+                            <small>
+                                Species
+                            </small>
+
+                            <strong id="displaySpecies">
+                                Dog
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pet-detail">
+
+                            <small>
+                                Age
+                            </small>
+
+                            <strong id="displayAge">
+                                3 years
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pet-detail">
+
+                            <small>
+                                Weight
+                            </small>
+
+                            <strong id="displayWeight">
+                                28 kg
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pet-detail">
+
+                            <small>
+                                Vaccination
+                            </small>
+
+                            <strong id="displayVaccination">
+                                Up to date
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- OVERVIEW -->
+
+            <div class="overview-grid">
+
+
+                <article class="overview-card reveal">
+
+                    <div class="overview-icon">
+                        💉
+                    </div>
+
+                    <h3>
+                        Vaccination
+                    </h3>
+
+                    <div class="overview-value">
+                        Up to Date
+                    </div>
+
+                    <p>
+                        Next vaccination review
+                        recommended in 4 months.
+                    </p>
+
+                </article>
+
+
+                <article class="overview-card reveal">
+
+                    <div class="overview-icon">
+                        ❤️
+                    </div>
+
+                    <h3>
+                        Health
+                    </h3>
+
+                    <div class="overview-value">
+                        Excellent
+                    </div>
+
+                    <div class="mini-progress">
+                        <span></span>
+                    </div>
+
+                    <p>
+                        Overall wellness status
+                        looks healthy.
+                    </p>
+
+                </article>
+
+
+                <article class="overview-card reveal">
+
+                    <div class="overview-icon">
+                        🐕
+                    </div>
+
+                    <h3>
+                        Daily Activity
+                    </h3>
+
+                    <div class="overview-value">
+                        7,240 Steps
+                    </div>
+
+                    <p>
+                        Your pet is staying
+                        active today.
+                    </p>
+
+                </article>
+
+
+                <article class="overview-card reveal">
+
+                    <div class="overview-icon">
+                        🔔
+                    </div>
+
+                    <h3>
+                        Next Care Reminder
+                    </h3>
+
+                    <div class="overview-value">
+                        5 Days
+                    </div>
+
+                    <p>
+                        Flea and parasite
+                        prevention treatment.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FEEDING GUIDE
+===================================================== -->
+
+<section class="section feeding-section">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                ✦ Nutrition
+            </div>
+
+            <h2>
+                Feeding Guide
+            </h2>
+
+            <p>
+
+                Simple guidance to help you
+                understand everyday feeding needs.
+
+            </p>
+
+        </div>
+
+
+        <div class="feeding-layout">
+
+
+            <div class="feeding-intro reveal">
+
+                <h2>
+                    Nourish Them
+                    With Confidence.
+                </h2>
+
+                <p>
+
+                    Every pet has different nutritional
+                    needs based on species, age, size
+                    and activity level.
+
+                </p>
+
+
+                <div class="feeding-note">
+
+                    <div class="feeding-note-icon">
+                        🥣
+                    </div>
+
+                    <span>
+
+                        Always adjust food portions
+                        according to your pet's individual
+                        needs and veterinary advice.
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="feeding-card reveal">
+
+
+                <div class="animal-tabs">
+
+                    <button
+                        class="animal-tab active"
+                        data-animal="puppy"
+                    >
+                        🐶 Puppy
+                    </button>
+
+                    <button
+                        class="animal-tab"
+                        data-animal="adult"
+                    >
+                        🐕 Adult Dog
+                    </button>
+
+                    <button
+                        class="animal-tab"
+                        data-animal="cat"
+                    >
+                        🐱 Cat
+                    </button>
+
+                </div>
+
+
+                <div class="feeding-profile">
+
+
+                    <div
+                        class="feeding-animal-icon"
+                        id="feedingIcon"
+                    >
+                        🐶
+                    </div>
+
+
+                    <div>
+
+                        <h3 id="feedingTitle">
+                            Puppy
+                        </h3>
+
+                        <p id="feedingSubtitle">
+
+                            Growing puppies need
+                            nutrient-rich meals.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="feeding-stats">
+
+
+                    <div class="feeding-stat">
+
+                        <small>
+                            Daily Food
+                        </small>
+
+                        <strong id="foodAmount">
+                            1.5–2 Cups
+                        </strong>
+
+                    </div>
+
+
+                    <div class="feeding-stat">
+
+                        <small>
+                            Meals / Day
+                        </small>
+
+                        <strong id="mealCount">
+                            3–4
+                        </strong>
+
+                    </div>
+
+
+                    <div class="feeding-stat">
+
+                        <small>
+                            Guidance
+                        </small>
+
+                        <strong id="weightGuidance">
+                            Small / Medium
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <p
+                    class="feeding-description"
+                    id="feedingDescription"
+                >
+
+                    Puppies typically benefit from
+                    several smaller meals throughout
+                    the day while they grow.
+
+                </p>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     GROOMING VIDEOS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                ✦ Grooming
+            </div>
+
+            <h2>
+                Grooming Made Easier.
+            </h2>
+
+            <p>
+
+                Helpful visual resources for keeping
+                your pet clean, comfortable and happy.
+
+            </p>
+
+        </div>
+
+
+        <div class="media-grid">
+
+
+            <article class="media-card reveal">
+
+                <div class="media-image-wrap">
+
+                    <img
+                        class="media-image"
+                        src="images/gromming.jpg"
+                        alt="Dog brushing"
+                    >
+                </div>
+
+
+                <div class="media-content">
+
+                    <span class="media-tag">
+                        Grooming 01
+                    </span>
+
+                    <h3>
+                        Brushing Basics
+                    </h3>
+
+                    <p>
+                        Learn simple brushing techniques
+                        for a healthy, clean coat.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="media-card reveal">
+
+                <div class="media-image-wrap">
+
+                    <img
+                        class="media-image"
+                        src="images/bathing-pets.jpg"
+                        alt="Pet bathing"
+                    >
+                </div>
+
+
+                <div class="media-content">
+
+                    <span class="media-tag">
+                        Grooming 02
+                    </span>
+
+                    <h3>
+                        Bathing Your Pet
+                    </h3>
+
+                    <p>
+                        Make bath time calmer,
+                        safer and more comfortable.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="media-card reveal">
+
+                <div class="media-image-wrap">
+
+                    <img
+                        class="media-image"
+                        src="images/nail-grooming.jpg"
+                        alt="Dog grooming"
+                    >
+                </div>
+
+
+                <div class="media-content">
+
+                    <span class="media-tag">
+                        Grooming 03
+                    </span>
+
+                    <h3>
+                        Nail & Coat Trimming
+                    </h3>
+
+                    <p>
+                        Understand the basics of
+                        safe home grooming.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="media-card reveal">
+
+                <div class="media-image-wrap">
+
+                    <img
+                        class="media-image"
+                        src="images/general-gromming.jpg"
+                        alt="Pet grooming"
+                    >
+                </div>
+
+
+                <div class="media-content">
+
+                    <span class="media-tag">
+                        Grooming 04
+                    </span>
+
+                    <h3>
+                        General Grooming
+                    </h3>
+
+                    <p>
+                        Build a simple grooming
+                        routine your pet can enjoy.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HEALTH TIPS
+===================================================== -->
+
+<section class="section health-section">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                ✦ Health & Wellness
+            </div>
+
+            <h2>
+                Small Habits,
+                Big Difference.
+            </h2>
+
+            <p>
+
+                Practical wellness topics to help
+                you stay proactive about pet health.
+
+            </p>
+
+        </div>
+
+
+        <div class="tip-grid">
+
+
+            <article class="tip-card reveal">
+
+                <div class="tip-icon">
+                    🦷
+                </div>
+
+                <h3>
+                    Oral Care
+                </h3>
+
+                <p>
+                    Keep teeth and gums healthy
+                    with regular dental care.
+                </p>
+
+            </article>
+
+
+            <article class="tip-card reveal">
+
+                <div class="tip-icon">
+                    ⚖️
+                </div>
+
+                <h3>
+                    Weight Management
+                </h3>
+
+                <p>
+                    Healthy weight supports mobility,
+                    energy and longevity.
+                </p>
+
+            </article>
+
+
+            <article class="tip-card reveal">
+
+                <div class="tip-icon">
+                    🩺
+                </div>
+
+                <h3>
+                    Common Conditions
+                </h3>
+
+                <p>
+                    Understand common signs that
+                    may deserve professional attention.
+                </p>
+
+            </article>
+
+
+            <article class="tip-card reveal">
+
+                <div class="tip-icon">
+                    🛡️
+                </div>
+
+                <h3>
+                    Parasite Prevention
+                </h3>
+
+                <p>
+                    Consistent preventive care helps
+                    protect pets throughout the year.
+                </p>
+
+            </article>
+
+
+            <article class="tip-card reveal">
+
+                <div class="tip-icon">
+                    🌿
+                </div>
+
+                <h3>
+                    General Wellness
+                </h3>
+
+                <p>
+                    Healthy routines, activity,
+                    nutrition and regular checkups matter.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRAINING
+===================================================== -->
+
+<section class="section training-section">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                ✦ Training & Behavior
+            </div>
+
+            <h2>
+                Build Better Habits
+                Together.
+            </h2>
+
+            <p>
+
+                Positive, patient training helps
+                pets learn and strengthens your bond.
+
+            </p>
+
+        </div>
+
+
+        <div class="training-grid">
+
+
+            <article class="training-card reveal">
+
+                <span class="training-number">
+                    TRAINING 01
+                </span>
+
+                <h3>
+                    Basic Commands
+                </h3>
+
+                <p>
+                    Start with simple commands such
+                    as sit, stay, come and leave it.
+                </p>
+
+                <span class="training-arrow">
+                    Learn More →
+                </span>
+
+            </article>
+
+
+            <article class="training-card reveal">
+
+                <span class="training-number">
+                    TRAINING 02
+                </span>
+
+                <h3>
+                    Positive Reinforcement
+                </h3>
+
+                <p>
+                    Reward desired behavior and
+                    keep learning positive and consistent.
+                </p>
+
+                <span class="training-arrow">
+                    Learn More →
+                </span>
+
+            </article>
+
+
+            <article class="training-card reveal">
+
+                <span class="training-number">
+                    TRAINING 03
+                </span>
+
+                <h3>
+                    House Training
+                </h3>
+
+                <p>
+                    Establish predictable routines
+                    and reward good progress.
+                </p>
+
+                <span class="training-arrow">
+                    Learn More →
+                </span>
+
+            </article>
+
+
+            <article class="training-card reveal">
+
+                <span class="training-number">
+                    TRAINING 04
+                </span>
+
+                <h3>
+                    Socialization
+                </h3>
+
+                <p>
+                    Help pets build confidence through
+                    safe and positive experiences.
+                </p>
+
+                <span class="training-arrow">
+                    Learn More →
+                </span>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     AUDIO / VIDEO RESOURCES
+===================================================== -->
+
+<section class="section resources-section">
+
+    <div class="container">
+
+
+        <div class="section-heading reveal">
+
+            <div class="eyebrow">
+                ✦ Learn & Listen
+            </div>
+
+            <h2>
+                Pet Care Resources
+            </h2>
+
+            <p>
+
+                Watch, listen and learn from
+                easy-to-follow educational resources.
+
+            </p>
+
+        </div>
+
+
+        <div class="resources-grid">
+
+
+            <article
+                class="resource-card large reveal"
+            >
+
+                <img
+                    class="resource-image"
+                    src="images/pet-11.avif"
+                    alt="Healthy happy dog"
+                >
+
+
+                <div class="resource-play">
+
+                </div>
+
+
+                <div class="resource-overlay">
+
+                    <span class="resource-type">
+                        VIDEO · 08 MIN
+                    </span>
+
+                    <h3>
+                        Building a Healthy
+                        Daily Pet Routine
+                    </h3>
+
+                    <p>
+
+                        A practical guide to creating
+                        balanced routines around food,
+                        exercise, grooming and rest.
+
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="resource-card reveal"
+            >
+
+                <img
+                    class="resource-image"
+                    src="images/cat-3.avif"
+                    alt="Cat wellness"
+                >
+
+
+                <div class="resource-play">
+                    ▶
+                </div>
+
+
+                <div class="resource-overlay">
+
+                    <span class="resource-type">
+                        AUDIO · 12 MIN
+                    </span>
+
+                    <h3>
+                        Understanding Your Cat
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+            <article
+                class="resource-card reveal"
+            >
+
+                <img
+                    class="resource-image"
+                    src="images/dogy-1.avif"
+                    alt="Dog wellness"
+                >
+
+
+                <div class="resource-play">
+                    ▶
+                </div>
+
+
+                <div class="resource-overlay">
+
+                    <span class="resource-type">
+                        VIDEO · 06 MIN
+                    </span>
+
+                    <h3>
+                        Everyday Wellness
+                    </h3>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="care-cta">
+
+    <div class="container">
+
+
+        <div class="care-cta-box reveal">
+
+
+            <div class="care-cta-content">
+
+                <h2>
+                    Small Care Today,
+                    A Healthier Tomorrow.
+                </h2>
+
+                <p>
+
+                    Keep their routine simple,
+                    stay proactive and make every
+                    day count.
+
+                </p>
+
+            </div>
+
+
+            <button
+                class="care-cta-button"
+                onclick="scrollToProfile()"
+            >
+                Update Pet Profile →
+            </button>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     TICKER
+===================================================== -->
+
+<div class="ticker">
+
+    <div class="ticker-track">
+
+
+        <div class="ticker-item">
+            📍 Vancouver, BC, Canada
+        </div>
+
+
+        <div class="ticker-item">
+            🕒
+            <span class="ticker-clock"></span>
+        </div>
+
+
+        <div class="ticker-item">
+            🐾
+            Today's Tip:
+            Keep fresh water available.
+        </div>
+
+
+        <div class="ticker-item">
+            ❤️
+            FurEver Care —
+            They Deserve Forever Love.
+        </div>
+
+
+        <div class="ticker-item">
+            📍 Vancouver, BC, Canada
+        </div>
+
+
+        <div class="ticker-item">
+            🕒
+            <span class="ticker-clock"></span>
+        </div>
+
+
+        <div class="ticker-item">
+            🐾
+            Today's Tip:
+            Keep fresh water available.
+        </div>
+
+
+        <div class="ticker-item">
+            ❤️
+            FurEver Care —
+            They Deserve Forever Love.
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <div>
+
+                <a
+                    href="#top"
+                    class="brand"
+                >
+
+                    <div class="brand-mark">
+                        🐾
+                    </div>
+
+
+                    <div>
+
+                        <div
+                            class="brand-name"
+                            style="color:white"
+                        >
+                            FurEver Care
+                        </div>
+
+
+                        <span
+                            class="brand-tagline"
+                            style="color:#9eb4ab"
+                        >
+                            THEY DESERVE FOREVER LOVE.
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <p class="footer-description">
+
+                    A modern pet-care platform
+                    helping pet parents make
+                    thoughtful, informed decisions
+                    for the animals they love.
+
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Quick Links
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="#top">
+                        Home
+                    </a>
+
+                    <a href="#top">
+                        Pet Care
+                    </a>
+
+                    <a
+                        href="#"
+                        class="demo-link"
+                    >
+                        Pet Products
+                    </a>
+
+                    <a
+                        href="#"
+                        class="demo-link"
+                    >
+                        Veterinarian
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Explore
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a
+                        href="#"
+                        class="demo-link"
+                    >
+                        Adoption
+                    </a>
+
+                    <a
+                        href="#"
+                        class="demo-link"
+                    >
+                        Emergency
+                    </a>
+
+                    <a
+                        href="#"
+                        class="demo-link"
+                    >
+                        About Us
+                    </a>
+
+                    <a
+                        href="#"
+                        class="demo-link"
+                    >
+                        Contact
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="footer-title">
+                    Live Visitors
+                </div>
+
+
+                <div class="footer-visitors">
+
+                    <span id="footerVisitors">
+                        1,248
+                    </span>
+
+                </div>
+
+
+                <small
+                    style="
+                    color:#9eb4ab;
+                    font-size:10px;
+                    "
+                >
+                    people exploring FurEver Care
+                </small>
+
+
+                <div class="footer-location">
+
+                    📍 Vancouver, BC, Canada
+
+                    <br>
+
+                    ✉ hello@furevercare.com
+
+                    <br>
+
+                    ☎ +1 (604) 555-0188
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 FurEver Care.
+                All rights reserved.
+            </span>
+
+
+            <span>
+                Privacy Policy
+                &nbsp; | &nbsp;
+                Terms of Service
+                &nbsp; | &nbsp;
+                Cookies
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   LIVE CLOCK
+========================================================= */
+
+function updateClock(){
+
+    const now = new Date();
+
+    const formatted =
+        now.toLocaleString(
+            "en-US",
+            {
+                weekday:"short",
+                month:"short",
+                day:"numeric",
+                year:"numeric",
+                hour:"2-digit",
+                minute:"2-digit",
+                second:"2-digit"
+            }
+        );
+
+    const clock =
+        document.getElementById(
+            "liveClock"
+        );
+
+    if(clock){
+
+        clock.textContent =
+            formatted;
+    }
+
+
+    document
+        .querySelectorAll(
+            ".ticker-clock"
+        )
+        .forEach(
+            element => {
+
+                element.textContent =
+                    now.toLocaleTimeString(
+                        "en-US"
+                    );
+
+            }
+        );
+
+}
+
+updateClock();
+
+setInterval(
+    updateClock,
+    1000
+);
+
+
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
+
+const siteHeader =
+    document.getElementById(
+        "siteHeader"
+    );
+
+function handleHeader(){
+
+    if(
+        window.scrollY > 15
+    ){
+
+        siteHeader.classList.add(
+            "scrolled"
+        );
+
+    }else{
+
+        siteHeader.classList.remove(
+            "scrolled"
+        );
+
+    }
+
+}
+
+window.addEventListener(
+    "scroll",
+    handleHeader,
+    {
+        passive:true
+    }
+);
+
+handleHeader();
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const mobileToggle =
+    document.getElementById("mobileToggle");
+
+const navMenu =
+    document.getElementById("navMenu");
+
+function closeMenu(){
+    if(!navMenu || !mobileToggle) return;
+
+    navMenu.classList.remove("open");
+    mobileToggle.setAttribute("aria-expanded","false");
+    mobileToggle.textContent = "☰";
+    document.body.classList.remove("menu-open");
+}
+
+if(mobileToggle && navMenu){
+    mobileToggle.addEventListener("click", function(){
+        const open = navMenu.classList.contains("open");
+
+        if(open){
+            closeMenu();
+        }else{
+            navMenu.classList.add("open");
+            mobileToggle.setAttribute("aria-expanded","true");
+            mobileToggle.textContent = "✕";
+            document.body.classList.add("menu-open");
+        }
+    });
+
+    window.addEventListener("resize", function(){
+        if(window.innerWidth > 900){
+            closeMenu();
+        }
+    });
+}
+
+
+/* =========================================================
+   SCROLL HELPERS
+========================================================= */
+
+function scrollToProfile(){
+
+    document
+        .getElementById("petProfile")
+        .scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+        });
+
+}
+
+
+function scrollToCareOverview(){
+
+    document
+        .getElementById("careOverview")
+        .scrollIntoView({
+
+            behavior:"smooth",
+
+            block:"start"
+
+        });
+
+}
+
+
+/* =========================================================
+   PET PROFILE FORM
+========================================================= */
+
+const petForm =
+    document.getElementById(
+        "petForm"
+    );
+
+
+if(petForm){
+petForm.addEventListener(
+    "submit",
+    function(event){
+
+        event.preventDefault();
+
+
+        const petName =
+            document
+                .getElementById(
+                    "petName"
+                )
+                .value
+                .trim();
+
+
+        const species =
+            document
+                .getElementById(
+                    "species"
+                )
+                .value;
+
+
+        const breed =
+            document
+                .getElementById(
+                    "breed"
+                )
+                .value
+                .trim();
+
+
+        const age =
+            document
+                .getElementById(
+                    "age"
+                )
+                .value
+                .trim();
+
+
+        const weight =
+            document
+                .getElementById(
+                    "weight"
+                )
+                .value
+                .trim();
+
+
+        const vaccinated =
+            document
+                .getElementById(
+                    "vaccinated"
+                )
+                .checked;
+
+
+        if(!petName){
+
+            document
+                .getElementById(
+                    "petName"
+                )
+                .focus();
+
+            return;
+
+        }
+
+
+        document
+            .getElementById(
+                "displayPetName"
+            )
+            .textContent =
+            petName;
+
+
+        document
+            .getElementById(
+                "displaySpecies"
+            )
+            .textContent =
+            species;
+
+
+        document
+            .getElementById(
+                "displayBreed"
+            )
+            .textContent =
+            breed ||
+            "Mixed Breed";
+
+
+        document
+            .getElementById(
+                "displayAge"
+            )
+            .textContent =
+            age ||
+            "Not provided";
+
+
+        document
+            .getElementById(
+                "displayWeight"
+            )
+            .textContent =
+            weight ||
+            "Not provided";
+
+
+        document
+            .getElementById(
+                "displayVaccination"
+            )
+            .textContent =
+            vaccinated
+                ? "Up to date"
+                : "Needs review";
+
+
+        document
+            .getElementById(
+                "careOverview"
+            )
+            .scrollIntoView({
+
+                behavior:"smooth",
+
+                block:"start"
+
+            });
+
+    }
+);
+}
+
+
+
+/* =========================================================
+   FEEDING GUIDE
+========================================================= */
+
+const feedingData = {
+
+    puppy:{
+
+        icon:"🐶",
+
+        title:"Puppy",
+
+        subtitle:
+            "Growing puppies need nutrient-rich meals.",
+
+        food:"1.5–2 Cups",
+
+        meals:"3–4",
+
+        guidance:
+            "Small / Medium",
+
+        description:
+            "Puppies typically benefit from several smaller meals throughout the day while they grow."
+
+    },
+
+
+    adult:{
+
+        icon:"🐕",
+
+        title:"Adult Dog",
+
+        subtitle:
+            "Balanced nutrition supports everyday energy.",
+
+        food:"2–3 Cups",
+
+        meals:"2",
+
+        guidance:
+            "Medium / Large",
+
+        description:
+            "Adult dogs generally benefit from consistent meal timing and portions matched to activity and body condition."
+
+    },
+
+
+    cat:{
+
+        icon:"🐱",
+
+        title:"Cat",
+
+        subtitle:
+            "Cats need balanced, species-appropriate nutrition.",
+
+        food:"1/2–1 Cup",
+
+        meals:"2–3",
+
+        guidance:
+            "Small / Medium",
+
+        description:
+            "Cats often do well with measured portions divided into multiple meals throughout the day."
+
+    }
+
+};
+
+
+const animalTabs =
+    document.querySelectorAll(
+        ".animal-tab"
+    );
+
+
+animalTabs.forEach(
+    tab => {
+
+        tab.addEventListener(
+            "click",
+            function(){
+
+                animalTabs.forEach(
+                    item =>
+                    item.classList.remove(
+                        "active"
+                    )
+                );
+
+
+                tab.classList.add(
+                    "active"
+                );
+
+
+                const animal =
+                    tab.dataset.animal;
+
+
+                const data =
+                    feedingData[
+                        animal
+                    ];
+
+
+                document
+                    .getElementById(
+                        "feedingIcon"
+                    )
+                    .textContent =
+                    data.icon;
+
+
+                document
+                    .getElementById(
+                        "feedingTitle"
+                    )
+                    .textContent =
+                    data.title;
+
+
+                document
+                    .getElementById(
+                        "feedingSubtitle"
+                    )
+                    .textContent =
+                    data.subtitle;
+
+
+                document
+                    .getElementById(
+                        "foodAmount"
+                    )
+                    .textContent =
+                    data.food;
+
+
+                document
+                    .getElementById(
+                        "mealCount"
+                    )
+                    .textContent =
+                    data.meals;
+
+
+                document
+                    .getElementById(
+                        "weightGuidance"
+                    )
+                    .textContent =
+                    data.guidance;
+
+
+                document
+                    .getElementById(
+                        "feedingDescription"
+                    )
+                    .textContent =
+                    data.description;
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   MEDIA PLAY INTERACTION
+========================================================= */
+
+function playResource(title){
+
+    alert(
+        `"${title}" video resource would open here.`
+    );
+
+}
+
+
+/* =========================================================
+   DEMO NAV LINKS
+========================================================= */
+
+document
+    .querySelectorAll(
+        ".demo-link"
+    )
+    .forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                function(event){
+
+                    event.preventDefault();
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(
+        ".reveal"
+    );
+
+
+const observer =
+    new IntersectionObserver(
+
+        function(entries){
+
+            entries.forEach(
+                entry => {
+
+                    if(
+                        entry.isIntersecting
+                    ){
+
+                        entry.target
+                            .classList
+                            .add(
+                                "visible"
+                            );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+
+        {
+            threshold:.10,
+
+            rootMargin:
+                "0px 0px -40px 0px"
+        }
+
+    );
+
+
+revealElements.forEach(
+    element => {
+
+        observer.observe(
+            element
+        );
+
+    }
+);
+
+
+/* =========================================================
+   VISITOR COUNTER
+========================================================= */
+
+let visitors = 1248;
+
+
+setInterval(
+    function(){
+
+        visitors +=
+            Math.floor(
+                Math.random() * 3
+            );
+
+
+        const formatted =
+            visitors.toLocaleString();
+
+
+        const top =
+            document.getElementById(
+                "topVisitors"
+            );
+
+
+        const footer =
+            document.getElementById(
+                "footerVisitors"
+            );
+
+
+        if(top){
+
+            top.textContent =
+                formatted;
+
+        }
+
+
+        if(footer){
+
+            footer.textContent =
+                formatted;
+
+        }
+
+    },
+    7000
+);
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            closeMenu();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
